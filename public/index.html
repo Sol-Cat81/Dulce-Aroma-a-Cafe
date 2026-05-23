@@ -3,25 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="asset/img/Gemini_Generated_Image_qtt9b5qtt9b5qtt9-removebg-preview.png" type="image/x-icon">
+    <link rel="shortcut icon" href="asset/img/logo-simple.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="asset/css/style.css">
     <title>Dulce Aroma a Cafe</title>
 </head>
 <body>
     <header>
-        <nav>
-            <img src="asset/img/Gemini_Generated_Image_qtt9b5qtt9b5qtt9-removebg-preview.png" alt="">
-            <h1>Dulce Aroma a Cafe</h1>
-            <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Menu</a></li>
-                <li><a href="">delibery</a></li>
-                <li><a href="">Servicio</a></li>
-                <li><a href="">Nosotros</a></li>
-                <li><a href="">Contacto</a></li>
-            </ul>
-        </nav>
+        <div class="contenedor-nav">
+            <div class="logo">
+                <img src="asset/img/logo-simple.png" alt="">
+                <span>Dulce Aroma a Cafe</span>
+            </div>
+            <nav class="menu-opciones">
+                <ul>
+                    <li><a href="#carouselCafe">Inicio</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="control-usuario">
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                    </svg>
+                </a>
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                    </svg>
+                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" id="btn-menu" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                </svg>
+            </div>
+        </div>
     </header>
+    <main>
+        <!-- Seccion Hero (carrusel) -->
+        <div id="carouselCafe" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselCafe" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselCafe" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselCafe" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img src="https://huupa.coffee/cdn/shop/articles/cafe_f0b62203-0f99-4d66-bc8a-f7afaf67131b.jpg?v=1774395944" class="d-block w-100" alt="">
+                </div>
+
+            <div class="carousel-item">
+                <img src="https://static.bainet.es/clip/15a656a1-045f-4425-bf0d-5ed8a4f3932e_source-aspect-ratio_1600w_0.jpg" class="d-block w-100" alt="">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://sehablacafe.com/wp-content/uploads/2021/11/usos-del-cafe-en-la-reposteria.jpg" class="d-block w-100" alt="">
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCafe" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselCafe" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+        </div>
+        <!-- MENU -->
+        <section id="menu" class="container aco">
+            <div class="row">
+                <div class="col-md-8 h2">Menu</div>
+                <div class="col-md-4 filtro">
+                    <div class="dropdown">
+                        <button class="btn boton dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filtrar por...
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Cafe</a></li>
+                            <li><a class="dropdown-item" href="#">Licuados</a></li>
+                            <li><a class="dropdown-item" href="#">Panaderia</a></li>
+                            <li><a class="dropdown-item" href="#">Pasteleria</a></li>
+                            <li><a class="dropdown-item" href="#">Sin TACC</a></li>
+                        </ul>
+                    </div>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <!-- Tabla menu -->
+            <div class="row">
+                <div class="col">
+                    <table class="table table-hover table-sm">
+                    <thead>
+                        <tr>
+                        <th scope="col">Comida</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider ">
+                        <tr>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>$2000</td>
+                        </tr>
+                        <tr>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        </tr>
+                        <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>@social</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row fondo aco">
+                <div class="h2 hb">Delivery</div>
+                <div class="col-md-6">
+                    <img src="asset/img/undraw_on-the-way_zwi3.svg" alt="" class="img">
+                </div>
+                <div class="col-md-6">
+                    <div class="h2 hb">Sin Cargo</div>
+                    <p class="hb">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsum obcaecati velit saepe maxime consequuntur, tempora incidunt minima vero dolore eveniet ipsam cupiditate eius, sint reiciendis repudiandae id illo molestias.
+                    </p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="h2">Merch Oficial</div>
+                </div>
+                <div class="col-md-4">
+                    <div class="dropdown">
+                        <button class="btn boton dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filtrar por...
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Remeras</a></li>
+                            <li><a class="dropdown-item" href="#">Gorras</a></li>
+                            <li><a class="dropdown-item" href="#">Tazas</a></li>
+                            <li><a class="dropdown-item" href="#">Vasos
+                            <li><a class="dropdown-item" href="#">Otros</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- Slider de productos (libreria swiper) -->
+            <div class="row slider">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <div class="producto">
+                                <img src="https://propagadorcristiano.com.ar/wp-content/uploads/2020/05/ID-CA_-_Camisas_todas.jpg" alt="">
+                                <div class="infoprod">
+                                    <div class="nombre">Camisa</div>
+                                    <div class="precio">$15000</div>
+                                    <button class="comprar">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="producto">
+                                <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
+                                <div class="infoprod">
+                                    <div class="nombre">Camisa</div>
+                                    <div class="precio">$15000</div>
+                                    <button class="comprar">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="producto">
+                                <img src="https://propagadorcristiano.com.ar/wp-content/uploads/2020/05/ID-CA_-_Camisas_todas.jpg" alt="">
+                                <div class="infoprod">
+                                    <div class="nombre">Camisa</div>
+                                    <div class="precio">$15000</div>
+                                    <button class="comprar">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="producto">
+                                <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
+                                <div class="infoprod">
+                                    <div class="nombre">Camisa</div>
+                                    <div class="precio">$15000</div>
+                                    <button class="comprar">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="producto">
+                                <img src="https://propagadorcristiano.com.ar/wp-content/uploads/2020/05/ID-CA_-_Camisas_todas.jpg" alt="">
+                                <div class="infoprod">
+                                    <div class="nombre">Camisa</div>
+                                    <div class="precio">$15000</div>
+                                    <button class="comprar">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="producto">
+                                <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
+                                <div class="infoprod">
+                                    <div class="nombre">Camisa</div>
+                                    <div class="precio">$15000</div>
+                                    <button class="comprar">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                        ...
+                    </div>
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                </div>
+            </div>
+        </section>
+        <section id="nosotros" class="fondo" style="border-radius: 0px;">
+            <div class="container aco">
+                <div class="row">
+                <div class="h2 hb">Sobre Nosotros</div>
+                <div class="col-md-6">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/06/3e/ac/ambiance-vintage-dans.jpg?w=900&h=500&s=1" alt="">
+                </div>
+                <br>
+                <div class="col-md-6 hb align-self-center">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error incidunt alias nemo omnis quidem, adipisci sint, eligendi minus deserunt vel sed qui tempora velit officia maiores natus excepturi inventore eos?
+                        Repudiandae delectus pariatur quia natus commodi. Natus libero, perspiciatis quam debitis et quasi provident id ex unde totam quod repudiandae reprehenderit sit, laborum animi iure. Incidunt reiciendis vitae corporis dolores!
+                    </p>
+                    <a href="">
+                        <button class="sucursal">Sucursal</button>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="contratar aco">
+            <div class="container aco">
+                <div class="row">
+                    <div class="h2">Estamos contratando!</div>
+                    <div class="col-lg-3 col-md-6 col-sm-8 text-center">
+                        <img src="asset/img/undraw_barista_wwfa.svg" alt="" class="img">
+                    </div>
+                    <div class="col-lg-9 col-md-6 fondo align-self-center" style="padding: 20px;">
+                        <p class="hb">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error unde iure amet repellat fugiat autem aperiam nemo perferendis impedit saepe magnam laborum expedita odio, vitae itaque inventore maiores sint molestias?
+                        </p>
+                        <button class="contratar">Ver oferta</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-lg-5 text-center col-sm-4 text-center">
+                            <img src="asset/img/logo.png" alt="">
+                        </div>
+                        <div class="col-lg-7 col-sm-7 align-self-center text-center h2 hb pie-nombre">Dulce aroma a Cafe</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="footer-titu">Nosotros</div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><a href="">Sobre nosotros</a></li>
+                                <li class="list-group-item"><a href="">Sucursal</a></li>
+                                <li class="list-group-item"><a href="">Trabaja con nosotros</a></li>
+                                <li class="list-group-item"><a href="">Politicas de devolucion</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="footer-titu">Contacto</div>
+                            <div class="row footer-icons">
+                                <div class="col-2"><a href=""><ion-icon name="logo-instagram"></ion-icon></a></div>
+                                <div class="col-2"><a href=""><ion-icon name="logo-facebook"></ion-icon></a></div>
+                                <div class="col-2"><a href=""><ion-icon name="logo-twitter"></ion-icon></a></div>
+                                <div class="col-2"><a href=""><ion-icon name="logo-linkedin"></ion-icon></a></div>
+                                <div class="col-2"><a href=""><ion-icon name="mail-outline"></ion-icon></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h6>Copyright © 2026 Dulce Aroma a Cafe</h6> <br>
+        </div>
+    </footer>
     <script src="asset/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  autoplay:true,
+  AddIcons:true,
+  spaceBetween:10,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true,
+    dynamicBullets: true,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+   breakpoints: {
+        640: {
+            slidesPerView: 1,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        1024: {
+            slidesPerView: "auto",
+        }
+    }
+
+});
+    </script>
 </body>
 </html>
