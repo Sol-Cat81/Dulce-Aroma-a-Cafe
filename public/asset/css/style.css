@@ -288,6 +288,11 @@ footer img{
     color: #FFF7EC;
     text-decoration: none;
 }
+.footer-icons a{
+    color: #FFF7EC;
+    text-decoration: none;
+    font-size: 2rem;
+}
 
 /* ---- responsive ----- */
 
