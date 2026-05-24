@@ -181,7 +181,9 @@ header a:hover{
 .slider{
     background-color: #422B23;
     color: #422B23;
-    padding: 10px 20px;
+    padding: 10px 0px;
+    overflow: hidden;
+    padding-right: 10px;
 }
 .swiper-slide{
     width: 320px;
