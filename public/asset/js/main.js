@@ -18,13 +18,13 @@ btnEnviar.addEventListener('click',()=>{
         && 
         usuario.password_usuario === password.value)
         {
-            window.location.href = "../../index.html";
+            window.location.href = ".../../index.html";
         }else if(
             admin.nombre_admin === nombre.value 
             &&
             admin.password_admin === password.value
         ){
-            window.location.href = "../admin_1/index.html";
+            window.location.href = ".../../../admin/admin.html";
         }else{
             alert("usuario no existe")
         }
