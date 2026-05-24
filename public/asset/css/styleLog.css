@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --rosa: #EFD8D6;
+    --crema:  #FFF7EC;
+    --cafe:  #422B23;
+    --cafe-medio: #b07060;
+}
+body{
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'lato' , sans-serif;
+    background-image:linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(66,43,35,0.70) 100%),
+        url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/*tarjeta que contiene la seccion de imagen y form*/
+
+.card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 860px;
+    min-height: 500px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px  rgba(66, 43, 35, 0.25);
+}
+
+/*panel izquiedo de imagen*/
+.panel-imagen{
+    position: relative;
+    background-image:linear-gradient(135deg, rgba(0, 0, 0, 0.566) 0%, rgba(100, 65, 53, 0.319) 100%),
+    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80') ;
+    background-size: cover;
+    background-position: center;
+}
+
+.panel-texto{
+    position: absolute;
+    bottom: 36px;
+    left: 28px;
+    right: 28px;
+    color: var(--crema);
+    z-index: 1;
+}
+
+.lema{
+    font-family: 'Playfair Display', serif ;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.linea-decorativa{
+    width: 38px;
+    height: 2px;
+    background: var(--rosa);
+    margin: 10px 0;
+    border-radius: 2px;
+}
+
+.nombre-marca{
+    font-family: 'Playfair Display', serif ;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.08px;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+/*panel formulario*/
+.panel-form{
+    background: var(--cafe);
+    padding: 42px 38px 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+.logo-icono{
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;/*evita que el contenedor hijo reduxca su tamaño*/
+}
+
+.logo-texto{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.logo-linea1{
+    font-family:'Playfair Display', serif ;
+    font-style: italic;
+    color: var(--rosa);
+    font-size: 0.82rem;
+}
+
+.logo-linea2{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--crema);
+    font-size: 1.1rem;
+}
+
+.titulo{
+    font-family: 'lato' , sans-serif;
+    font-weight: 300;
+    font-size: 1.35rem;
+    color: var(--crema);
+    line-height: 1.35;
+    margin-bottom: 24px;
+}
+
+.titulo strong{
+    font-weight: 700;
+    color: var(--rosa);
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.campo label{
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+    color: var(--cafe-medio);
+}
+
+.campo input{
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(255, 247, 236, 0.07);
+    border: 1.5px solid rgba(239, 216, 214, 0.22);
+    border-radius: 10px;
+    color: var(--crema);
+    font-family: 'lato', sans-serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    outline: none;/*quitar el controno azul de navegador*/
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.campo input:focus{
+    border-color: var(--rosa);
+    background: rgba(239, 216, 214, 0.10);
+}
+
+#btnEnviar{
+    width: 100%;
+    padding: 13px;
+    margin-top: 6px;
+    background:linear-gradient(135deg, var(--rosa) 0%, #d4b0ac 100%);
+    color: var(--cafe);
+    font-family: 'lato', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(66, 43, 35, 0.30);
+    transition: transform 0.15s, filter 0.15s;
+}
+
+#btnEnviar:hover{
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+#btnEnviar:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
+}
+
+.separador{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 18px 0;
+    color: rgb(239, 216, 214);
+    font-size: 0.8rem;
+}
+
+.separador span{
+    flex: 1;
+    height: 1px;
+    background: rgba(239, 216, 214, 0.18);
+    display: block;
+}
+
+.btn-registro{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    text-align: center;
+    border: 1.5px solid rgba(239, 216, 214, 0.28);
+    border-radius: 10px;
+    color: rgba(239, 216, 214, 0.80);
+    font-family: 'lato',sans-serif ;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.06rem;
+    text-transform: uppercase;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-registro:hover {
+    background: rgba(239, 216, 214, 0.08);
+    border-color: var(--rosa);
+    color: var(--crema);
+}
