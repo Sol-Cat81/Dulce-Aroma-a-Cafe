@@ -102,6 +102,7 @@ header a:hover{
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 25px;
     gap: 20px;
     order: 1;
 }
@@ -129,6 +130,21 @@ header a:hover{
 }
 
 /* ---- Menu ---- */
+
+.content-tabla{
+    background-color: #422B23;
+    color: #FFF7EC;
+    padding: 20px;
+    border-radius: 15px;
+}
+.tabla{
+    width: 100%;
+    height: auto;
+}
+.tabla th{
+    text-align: center;
+    border-bottom: 2px solid #FFF7EC;
+}
 .dropdown-menu{
     background-color: #422B23;
 }
