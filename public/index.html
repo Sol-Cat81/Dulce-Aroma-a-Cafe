@@ -85,11 +85,12 @@
                             Filtrar por...
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Cafe</a></li>
-                            <li><a class="dropdown-item" href="#">Licuados</a></li>
-                            <li><a class="dropdown-item" href="#">Panaderia</a></li>
-                            <li><a class="dropdown-item" href="#">Pasteleria</a></li>
-                            <li><a class="dropdown-item" href="#">Sin TACC</a></li>
+                            <li><a class="dropdown-item" href="#" data-filtro="todos">Todos</a></li>
+                            <li><a class="dropdown-item" href="#" data-filtro="cafe">cafe</a></li>
+                            <li><a class="dropdown-item" href="#" data-filtro="licuados">Licuados</a></li>
+                            <li><a class="dropdown-item" href="#" data-filtro="pasteleria" >Pasteleria</a></li>
+                            <li><a class="dropdown-item" href="#" data-filtro="panaderia" >panaderia</a></li>
+                            <li><a class="dropdown-item" href="#" data-filtro="sin-tacc">Sin TACC</a></li>
                         </ul>
                     </div>
                     </select>
@@ -108,20 +109,20 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider ">
-                        <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>$2000</td>
-                        </tr>
-                        <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>@social</td>
+                        <tr data-categoria="cafe">
+                            <td>Espresso</td>
+                            <td>Café concentrado</td>
+                            <td>$1.500</td>
+                            </tr>
+                        <tr data-categoria="cafe">
+                            <td>Cappuccino</td>
+                            <td>Espresso con leche vaporizada</td>
+                            <td>$2.200</td>
+                            </tr>
+                        <tr data-categoria="panaderia">
+                            <td>Medialunas</td>
+                            <td>Clásicas de manteca x3</td>
+                            <td>$1.800</td>
                         </tr>
                     </tbody>
                     </table>
@@ -356,6 +357,55 @@
     }
 
 });
+
+//filtracion de producto
+document.addEventListener("DOMContentLoaded", function () {
+
+  // seleccion  de la lista de selecion
+  const opcionesFiltro = document.querySelectorAll(".dropdown-item[data-filtro]");
+
+  // Seleccionamos todas las filas de la tabla menu
+  const filasMenu = document.querySelectorAll(".table-group-divider tr");
+
+  // Seleccionamos el texto del botón filtrar para filtralo 
+  const botonFiltro = document.querySelector("#menu .dropdown-toggle");
+
+  // Recorremos cada opción del filtrado por y que lo almacene
+  opcionesFiltro.forEach(function (opcion) {
+
+    opcion.addEventListener("click", function (evento) {
+
+      // Leemos el valor del atributo data-filtro de la opción filtrado
+      // cafe , panaderia ,etc
+      const categoriaSeleccionada = this.dataset.filtro;
+
+      // Recorremos cada fila de la tabla para mostrar u ocultar
+      filasMenu.forEach(function (fila) {
+
+        // Leemo el atributo data-categoria de la fila
+        // Si tiene múltiples categorias que lo espare
+        const categoriasFila = fila.dataset.categoria || "";
+
+        // luego de que se separre que lo una en un string
+        const arrayCategorias = categoriasFila.split(" ");
+
+        if (categoriaSeleccionada === "todos") {
+          // Si el filtro esta en todos que muestre todos sin importar su categoria
+          fila.style.display = "";
+
+        } else if (arrayCategorias.includes(categoriaSeleccionada)) {
+          // Si la categoría coincide con la varianble de filtrado que lo muestre
+          fila.style.display = "";
+
+        } else {
+          // y si no coincide que lo oculte
+          fila.style.display = "none";
+        }
+      });
+    });
+  });
+});
+
     </script>
 </body>
 </html>
