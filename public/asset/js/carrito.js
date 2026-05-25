@@ -118,9 +118,13 @@ function actualizarCarrito(){
 
 
 //eliminar carrito 
+
+
 listaCarrito.addEventListener("click", (e) => {
+  //target referencia al elemento que en donde hara click el usuario 3
   if (e.target.tagName !== "BUTTON") return;
 
+  //dataset permite leer los atributos del boton que empice con data
   const indice = e.target.dataset.indice;
 
   if (carrito[indice].cantidad > 1) {
