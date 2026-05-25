@@ -20,7 +20,32 @@ body{
     font-family: 'contenido';
     src: url('../font/AnonymousPro-Regular.ttf');
 }
+/*carrito*/
+.carrito-contenedor{
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none;
+}
+#carrito {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
+}
 
+/* ITEMS DEL CARRITO */
+#lista-carrito li {
+  background-color: white;
+  color: black;
+  border: 1px solid #ddd;
+}
 /* ---- Clases generales ---- */
 .h2{
     font-family: 'titulo';
