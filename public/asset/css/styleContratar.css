@@ -76,6 +76,26 @@ header a:hover{
     width: 100%;
     margin-top: -15vh;
 }
+h1{
+    font-family: 'titulo';
+    font-size: 3rem;
+}
+
+/* ---- ofertas de chamba ---- */
+.cards-empleo{
+    color: #FFF7EC;
+    gap: 20px;
+}
+.ofertas{
+    background-color: #422B23;
+    border-radius: 15px;
+    padding: 20px;
+}
+.nosotros{
+    background-color: #422B23;
+    border-radius: 15PX;
+    padding: 20px;
+}
 
 /* ---- responsive ----- */
 
