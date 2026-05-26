@@ -145,6 +145,9 @@ header a:hover{
     text-align: center;
     border-bottom: 2px solid #FFF7EC;
 }
+td{
+    padding: 10px 0px;
+}
 .dropdown-menu{
     background-color: #422B23;
 }
