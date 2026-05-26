@@ -115,7 +115,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider ">
-                        <tr data-categoria="cafe">
+                        <tr data-sub-categoria="menu" data-categoria="cafe">
                             <td>Espresso</td>
                             <td>Café concentrado</td>
                             <td>$1.500</td>
@@ -125,7 +125,7 @@
                                 </button>
                             </td>
                             </tr>
-                        <tr data-categoria="cafe">
+                        <tr data-sub-categoria="menu" data-categoria="cafe">
                             <td>Cappuccino</td>
                             <td>Espresso con leche vaporizada</td>
                             <td>$2.200</td>
@@ -135,7 +135,7 @@
                                 </button>
                             </td>
                             </tr>
-                        <tr data-categoria="panaderia">
+                        <tr data-sub-categoria="menu" data-categoria="panaderia">
                             <td>Medialunas</td>
                             <td>Clásicas de manteca x3</td>
                             <td>$1.800</td>
@@ -176,11 +176,12 @@
                             Filtrar por...
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Remeras</a></li>
-                            <li><a class="dropdown-item" href="#">Gorras</a></li>
-                            <li><a class="dropdown-item" href="#">Tazas</a></li>
-                            <li><a class="dropdown-item" href="#">Vasos
-                            <li><a class="dropdown-item" href="#">Otros</a></li>
+                            <li><a class="dropdown-item" data-filtro="todos" href="#">Todos</a></li>
+                            <li><a class="dropdown-item" data-filtro="remeras" href="#">Remeras</a></li>
+                            <li><a class="dropdown-item" data-filtro="gorras" href="#">Gorras</a></li>
+                            <li><a class="dropdown-item" data-filtro="tazas" href="#">Tazas</a></li>
+                            <li><a class="dropdown-item" data-filtro="vasos" href="#">Vasos
+                            <li><a class="dropdown-item" data-filtro="otros" href="#">Otros</a></li>
                         </ul>
                     </div>
                 </div>
@@ -191,63 +192,78 @@
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <!-- Slides -->
-                        <div class="swiper-slide">
+                         <!--productos-->
+                        <div class="swiper-slide" data-categoria="remeras">
                             <div class="producto">
                                 <img src="https://propagadorcristiano.com.ar/wp-content/uploads/2020/05/ID-CA_-_Camisas_todas.jpg" alt="">
                                 <div class="infoprod">
-                                    <div class="nombre">Camisa</div>
+                                    <div class="nombre">Camisa prueba</div>
                                     <div class="precio">$15000</div>
-                                    <button class="comprar">Comprar</button>
+                                    <button class="btn btn-dark comprar-merch">
+                                    comprar 
+                                </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
+
+                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="remeras">
                             <div class="producto">
                                 <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
                                 <div class="infoprod">
                                     <div class="nombre">Camisa</div>
                                     <div class="precio">$15000</div>
-                                    <button class="comprar">Comprar</button>
+                                    <button class="btn btn-dark comprar-merch">
+                                    comprar 
+                                </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
+
+                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="vasos">
+                            <div class="producto">
+                                <img src="https://propagadorcristiano.com.ar/wp-content/uploads/2020/05/ID-CA_-_Camisas_todas.jpg" alt="">
+                                <div class="infoprod">
+                                    <div class="nombre">vaso</div>
+                                    <div class="precio">$15000</div>
+                                    <button class="btn btn-dark comprar-merch">
+                                    comprar 
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="gorras">
+                            <div class="producto">
+                                <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
+                                <div class="infoprod">
+                                    <div class="nombre">gorras</div>
+                                    <div class="precio">$15000</div>
+                                    <button class="btn btn-dark comprar-merch">
+                                    comprar 
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="tazas">
                             <div class="producto">
                                 <img src="https://propagadorcristiano.com.ar/wp-content/uploads/2020/05/ID-CA_-_Camisas_todas.jpg" alt="">
                                 <div class="infoprod">
                                     <div class="nombre">Camisa</div>
                                     <div class="precio">$15000</div>
-                                    <button class="comprar">Comprar</button>
+                                    <button class="btn btn-dark comprar-merch">
+                                    comprar 
+                                </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="otros">
                             <div class="producto">
                                 <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
                                 <div class="infoprod">
                                     <div class="nombre">Camisa</div>
                                     <div class="precio">$15000</div>
-                                    <button class="comprar">Comprar</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="producto">
-                                <img src="https://propagadorcristiano.com.ar/wp-content/uploads/2020/05/ID-CA_-_Camisas_todas.jpg" alt="">
-                                <div class="infoprod">
-                                    <div class="nombre">Camisa</div>
-                                    <div class="precio">$15000</div>
-                                    <button class="comprar">Comprar</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="producto">
-                                <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
-                                <div class="infoprod">
-                                    <div class="nombre">Camisa</div>
-                                    <div class="precio">$15000</div>
-                                    <button class="comprar">Comprar</button>
+                                    <button class="btn btn-dark comprar-merch">
+                                    comprar 
+                                </button>
                                 </div>
                             </div>
                         </div>
@@ -389,23 +405,21 @@
 
 });
 
-//filtracion de producto
+//filtracion de menu
 document.addEventListener("DOMContentLoaded", function () {
 
   // seleccion  de la lista de selecion
-  const opcionesFiltro = document.querySelectorAll(".dropdown-item[data-filtro]");
+  const opcionesFiltro = document.querySelectorAll("#menu .dropdown-item[data-filtro]");
 
   // Seleccionamos todas las filas de la tabla menu
-  const filasMenu = document.querySelectorAll(".table-group-divider tr");
-
-  // Seleccionamos el texto del botón filtrar para filtralo 
-  const botonFiltro = document.querySelector("#menu .dropdown-toggle");
+  const filasMenu = document.querySelectorAll("#menu .table-group-divider tr");
 
   // Recorremos cada opción del filtrado por y que lo almacene
   opcionesFiltro.forEach(function (opcion) {
 
     opcion.addEventListener("click", function (evento) {
 
+     evento.preventDefault();
       // Leemos el valor del atributo data-filtro de la opción filtrado
       // cafe , panaderia ,etc
       const categoriaSeleccionada = this.dataset.filtro;
@@ -436,6 +450,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+//filtrado de merch
+document.addEventListener("DOMContentLoaded", function (){
+
+    //gurdamos la seccion de merch
+    const seccionProductos = document.querySelector("#productos");
+
+    //buscamos los botones dentro de los productos
+    const botonesFiltro  = seccionProductos.querySelectorAll(".dropdown-item[data-filtro]");
+
+    const productos = seccionProductos.querySelectorAll(".swiper-slide");
+
+    //recoremos los botones
+    botonesFiltro.forEach(function(boton){
+
+        boton.addEventListener("click", function(evento){
+
+            evento.preventDefault();
+
+            const categoriaSeleccionada = boton.dataset.filtro;
+
+            //recoremos todos los productos
+            productos.forEach(function(producto){
+
+                //obtenemos su categoria
+                const categoriaProducto = producto.dataset.categoria;
+
+                if(categoriaSeleccionada === "todos"){
+
+                    producto.style.display = "block";
+                
+                }else if(categoriaProducto === categoriaSeleccionada){
+                    
+                    producto.style.display = "block";
+                
+                }else{
+
+                    producto.style.display = "none";
+
+                }
+            });
+        });
+    });
+}) ;
 
     </script>
 </body>
