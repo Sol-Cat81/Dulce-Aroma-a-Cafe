@@ -16,17 +16,17 @@
         <aside>
         <b>Panel</b>
         <ul>
+            <li>Menu</li>
             <li>Productos</li>
             <li>Pedidos</li>
             <li>Reclutamiento</li>
-            <li>Menu</li>
         </ul>
         </aside>
         <main>
-            <section id="productos">
-                <h2>Productos</h2>
+            <section id="Menu">
+                <h2>Menu</h2>
             <br>
-            <h3>Agregar nuevo producto</h3>
+            <h3>Agregar nueva comida al menu</h3>
             <form action="">
                 <div class="row">
                     <label for="">Nombre:</label>
@@ -57,7 +57,19 @@
                 </div>
             </form>
             <br>
-            <h3>Productos registrados</h3>
+            <div class="cabezal-menu">
+                <h3>Productos registrados</h3>
+                <div class="filtro">
+                    <label for="" class="molestar a nico con otro filtro >:D">Filtrar</label>
+                    <select name="" id="">
+                        <option value="">Cafe</option>
+                        <option value="">Licuados</option>
+                        <option value="">Pasteleria</option>
+                        <option value="">Panaderia</option>
+                        <option value="">Sin Tacc</option>
+                    </select>
+                </div>
+            </div>
             <br>
             <div class="col content-tabla">
                 <table class="tabla">
@@ -333,6 +345,50 @@
                     </tbody>
                 </table>
             </div>
+            </section>
+            <section id="Productos">
+                <br>
+                <h2>Productos</h2>
+                <br>
+            <h3>Agregar nuevo producto</h3>
+            <form action="">
+                <div class="row">
+                    <label for="">Nombre:</label>
+                    <br>
+                    <input type="text" placeholder="Nombre del producto">
+                    <br>
+                    <br>
+                    <label for="">Precio:</label>
+                    <br>
+                    <input type="number" name="" id="" placeholder="Ingrese el precio">
+                    <br>
+                </div>
+                <div class="row">
+                    <label for="">Imagen:</label>
+                    <br>
+                    <div class="contenedor-carga">
+                    <input type="file" id="img-producto" class="input">
+                    <label for="img-producto" class="boton">
+                        Seleccionar imagen
+                    </label>
+                    </div>
+                    <br>
+                </div>
+                <div class="row">
+                    <label for="">Categoria</label>
+                    <select name="" id="">
+                        <option value="">Remeras</option>
+                        <option value="">Gorras</option>
+                        <option value="">Tazas</option>
+                        <option value="">Vasos</option>
+                        <option value="">Otro</option>
+                    </select>
+                </div>
+            </form>
+            <br>
+            <br>
+            <h3>Productos registrados</h3>
+            <br>
             </section>
         </main>
     </div>

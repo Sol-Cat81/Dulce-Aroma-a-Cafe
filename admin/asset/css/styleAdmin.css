@@ -88,3 +88,28 @@ input,select{
 td{
     padding: 10px 0px;
 }
+.cabezal-menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --- productos --- */
+
+.input {
+  display: none;
+}
+.boton {
+  background-color: #422B23;
+  color: #FFF7EC;
+  padding: 5px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: inline-block;
+}
+.boton:hover {
+  background-color: #FFF7EC;
+  color: #422B23;
+  border: 2px solid #422B23;
+}
+
