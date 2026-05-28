@@ -32,3 +32,38 @@ window.addEventListener("scroll", () => {
 });
 
 /* Slider de productos con la libreria swiper */
+const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay:true,
+            AddIcons:true,
+            spaceBetween:10,
+
+            pagination: {
+            el: 'swiper-pagination',
+            type: 'bullets',
+            clickable: true,
+            dynamicBullets: true,
+        },
+
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+         },
+
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: "auto",
+            }
+        }
+
+});
