@@ -86,11 +86,40 @@ input,select{
     border-bottom: 2px solid #422B23;
 }
 td{
-    padding: 10px 0px;
+    padding: 5px 0px;
 }
 .cabezal-menu{
     display: flex;
     justify-content: space-between;
+}
+.columEditar{
+    text-align: center;
+}
+.editar{
+    color: #FFF7EC;
+    background-color: #422B23;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    transition: 1s;
+}
+.editar:hover{
+    background-color: #FFF7EC;
+    color: #422B23;
+    border: 2px solid #422B23;
+}
+.activo{
+    color: #422B23;
+    background-color: #EFD8D6;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    transition: 1s;
+    border: 0px;
+}
+.activo:hover{
+    background-color: #422B23;
+    color: #FFF7EC;
 }
 
 /* --- productos --- */
@@ -113,3 +142,16 @@ td{
   border: 2px solid #422B23;
 }
 
+/* --- Pedidos --- */
+
+.totalpedidos{
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    color: #422B23;
+}
+.miniCardPe{
+    background-color: #FFF7EC;
+    padding: 20px;
+    border-radius: 10px;
+}
