@@ -15,7 +15,7 @@
   
     <!--panel principal-->
    
-    <div class="card">
+    <div class="card" id="card">
 
         <!-- panel de imagen izquierdo-->
         <div class="panel-imagen">
@@ -27,7 +27,7 @@
         </div>
 
         <!--panel de registro-->
-        <div class="panel-form">
+        <div class="panel-form panel-registro"">
             <!--logo-->
             <div class="logo">
                    <img src="asset/img/logo-simple.png" alt="" width="110" height="100">
@@ -49,11 +49,6 @@
                 </div>
 
                  <div class="campo">
-                    <label for="">Apellido usuario</label>
-                    <input type="text" id="apellido-usuario" placeholder="Tu apellido de usuario">
-                </div>
-
-                 <div class="campo">
                     <label for="">Correo </label>
                     <input type="text" id="correo-usuario" placeholder="EJ: juan@gamil">
                 </div>
@@ -70,11 +65,10 @@
 
                 <div class="campo">
                     <label for="">Contraseña</label>
-                    <input type="password" id="password" placeholder="Contraseña">
+                    <input type="password" id="password-register" placeholder="Contraseña">
                 </div>
 
-                <button type="button" id="btnEnviar">Crear cuenta</button>
-
+               <button type="button" id="btnCrearRegistro">Crear cuenta</button>
             </form>
 
             <!-- Separador visual -->
@@ -83,12 +77,12 @@
             </div>
 
 
-            <a href="#" class="btn-registro">Crear una cuenta</a>
+           <a href="#" class="btn-registro" id="mostrarLogin">Ya tengo una cuenta</a>
 
         </div>
 
         <!-- panel derecho formulario -->
-        <div class="panel-form">
+        <div class="panel-form panel-login">
             <!--logo-->
             <div class="logo">
                    <img src="asset/img/logo-simple.png" alt="" width="110" height="100">
@@ -123,9 +117,8 @@
                 <span></span> o <span></span>
             </div>
 
-
-            <a href="#" class="btn-registro">Crear una cuenta</a>
-
+            <a href="#" class="btn-registro" id="mostrarRegistro">Crear una cuenta</a>
+          
         </div>
     </div>
 
