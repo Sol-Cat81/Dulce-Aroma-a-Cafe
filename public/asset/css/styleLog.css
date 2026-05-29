@@ -129,6 +129,15 @@ body{
     color: var(--crema);
     font-size: 1rem;
 }
+/**/
+.logo-session{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 480px;
+    margin-left: -20px;
+}
 
 .titulo{
     font-family: 'lato' , sans-serif;
