@@ -638,7 +638,9 @@
     </footer>
     <!--carrito de compra-->
     <script src="asset/js/carrito.js"></script>
-
+    <!-- Enlace de la libreria(swiper) para el carrusel -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    
     <script src="asset/js/index.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -649,41 +651,6 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- script para el carrusel -->
     <script>
-        const swiper = new Swiper('.swiper', {
-            direction: 'horizontal',
-            loop: true,
-            autoplay:true,
-            AddIcons:true,
-            spaceBetween:10,
-
-            pagination: {
-            el: 'swiper-pagination',
-            type: 'bullets',
-            clickable: true,
-            dynamicBullets: true,
-        },
-
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-         },
-
-        scrollbar: {
-            el: '.swiper-scrollbar',
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 1,
-            },
-            768: {
-                slidesPerView: 2,
-            },
-            1024: {
-                slidesPerView: "auto",
-            }
-        }
-
-});
 
 //filtracion de menu
 document.addEventListener("DOMContentLoaded", function () {
