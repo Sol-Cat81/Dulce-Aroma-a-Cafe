@@ -3,6 +3,7 @@ const btnCarrito = document.getElementById("btn-carrito");
 const carritoContenedor = document.getElementById("carrito");
 const listaCarrito = document.getElementById("lista-carrito");
 const totalSpan = document.getElementById("total");
+const badge = document.getElementById("svgCarrito")
 
 //getelementbyid() = busca un solo elemento
 //querySelectorAll() = busca muchos elementos y deuvelve una collecion de ellos
@@ -189,6 +190,14 @@ function actualizarCarrito() {
             //sirve para insertar los elementos ya creados
             listaCarrito.appendChild(item);
         });
+        // para la insignia del carrito
+        if(carrito.length != 0){
+            badge.setAttribute("items", carrito.length)
+            badge.classList.add("carrito-icono")
+            console.log(carrito)
+        }else{
+            badge.classList.remove("carrito-icono")
+        }
     }
 
     //renderizamos primero los productos del menu con su encabezado
