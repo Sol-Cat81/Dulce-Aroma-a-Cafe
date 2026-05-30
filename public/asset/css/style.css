@@ -159,7 +159,7 @@ header a:hover{
 .content-tabla{
     background-color: #422B23;
     color: #FFF7EC;
-    padding: 20px;
+    padding: 20px 20px 5px 20px;
     border-radius: 15px;
 }
 .tabla{
@@ -172,6 +172,7 @@ header a:hover{
 }
 td{
     padding: 5px 0px;
+    border-bottom: 1px solid #5a392e;
 }
 .dropdown-menu{
     background-color: #422B23;
