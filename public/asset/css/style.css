@@ -39,6 +39,20 @@ body{
   border-radius: 10px;
   padding: 10px;
 }
+.carrito-icono::before{
+    content: attr(items);
+    position: absolute;
+    width: 15px;
+    right: 0%;
+    height: 15px;
+    background-color: #EFD8D6;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #422B23;
+    font-weight: bold;
+    font-size: 10px;
+}
 
 /* ITEMS DEL CARRITO */
 #lista-carrito li {
@@ -127,7 +141,7 @@ header a:hover{
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 25px;
+    font-size: 30px;
     gap: 20px;
     order: 1;
 }
