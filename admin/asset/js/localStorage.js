@@ -67,3 +67,47 @@ const merch = [
 ]
 
 // nose qie tiene que llevar la de usuario xD
+localStorage.setItem('menu', JSON.stringify(menu))
+
+const guardado = JSON.parse(localStorage.getItem('menu'))
+console.log(guardado)
+
+const cargaMenu = async() => {
+    contenido = "";
+    guardado.forEach(comida => {
+         cont =`<tr><td>${comida.nombre}</td>
+                <td>${comida.descripcion}</td>
+                <td>${comida.precio}</td></tr>`
+         contenido = contenido + cont
+    });
+    bodyTabla.innerHTML = contenido
+}
+
+window.addEventListener('load',async()=>{
+    cargaMenu()
+    let table = new DataTable('#menutabla', {
+    responsive: true,
+});
+})
+
+localStorage.setItem('merch', JSON.stringify(producto))
+
+const productoGuardado = JSON(localStorage.getItem('merch'))
+console.log(productoGuardado)
+
+const cargamerch = async()=>{
+    contenidoProducto = "";
+    productoGuardado.forEach(produc =>{
+         contP =`<tr><td>${produc.nombre}</td>
+                <td>${produc.descripcion}</td>
+                <td>${produc.precio}</td></tr>`
+         contenidoProducto = contenidoProducto + contP
+    });
+    bodyTablaProduc.innerHTML = contenidoProducto
+}
+window.addEventListener('load',async()=>{
+    cargaMenu()
+    let table = new DataTable('#productable', {
+    responsive: true,
+});
+})

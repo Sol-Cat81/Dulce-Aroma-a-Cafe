@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="asset/img/logo-simple.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="asset/css/styleAdmin.css">
     <title>Dulce Aroma a Cafe - admin</title>
 </head>
@@ -13,36 +14,36 @@
         <h1>Admin</h1>
     </header>
     <div class="contenedor">
-        <aside>
+    <aside>
         <b>Panel</b>
         <ul>
-            <li>Menu</li>
-            <li>Productos</li>
-            <li>Pedidos</li>
-            <li>Reclutamiento</li>
+             <li class="opcion-panel activo-panel" data-section="Menu">Menu</li>
+             <li class="opcion-panel" data-section="Productos">Productos</li>
+             <li class="opcion-panel" data-section="pedidos">Pedidos</li>
+             <li class="opcion-panel" data-section="reclutamiento">Reclutamiento</li>
         </ul>
-        </aside>
+    </aside>
         <main>
-            <section id="Menu">
+            <section id="Menu" class="seccion-panel seccion-activa">
                 <h2>Menu</h2>
             <br>
             <h3>Agregar nueva comida al menu</h3>
-            <form action="">
+            <form action="" id="formMenu">
                 <div class="row">
                     <label for="">Nombre:</label>
                     <br>
-                    <input type="text" placeholder="Nombre del producto">
+                    <input type="text" id="nombreMenu" placeholder="Nombre del producto">
                     <br>
                     <br>
                     <label for="">Precio:</label>
                     <br>
-                    <input type="number" name="" id="" placeholder="Ingrese el precio">
+                    <input type="number" name="" id="precioMenu" placeholder="Ingrese el precio">
                     <br>
                 </div>
                 <div class="row">
                     <label for="">Descripcion:</label>
                     <br>
-                    <input type="text" name="" id="" placeholder="Cafe">
+                    <input type="text" name="" id="descripcionMenu" placeholder="Cafe">
                     <br>
                 </div>
                 <div class="row">
@@ -59,7 +60,18 @@
             <br>
             <div class="cabezal-menu">
                 <h3>Productos registrados</h3>
-                <div class="filtro">
+               
+            </div>
+            <br>
+            <div class="content-tabla">
+        <table id="menutabla" class="tabla">
+    <thead>
+        <tr>
+            <th>Comida</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+             <div class="filtro">
                     <label for="" class="molestar a nico con otro filtro >:D">Filtrar</label>
                     <select name="" id="">
                         <option value="">Cafe</option>
@@ -69,536 +81,16 @@
                         <option value="">Sin Tacc</option>
                     </select>
                 </div>
-            </div>
-            <br>
-            <div class="content-tabla">
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th scope="col">Comida</th>
-                            <th scope="col">Descripcion</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Estado</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
+        </tr>
+    </thead>
 
-                        <!-- CAFÉ -->
-                        <tr data-categoria="cafe">
-                            <td>Espresso</td>
-                            <td>Café concentrado</td>
-                            <td>$1.500</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="cafe">
-                            <td>Cappuccino</td>
-                            <td>Espresso con leche vaporizada</td>
-                            <td>$2.200</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="cafe">
-                            <td>Latte</td>
-                            <td>Café suave con leche caliente</td>
-                            <td>$2.300</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="cafe">
-                            <td>Americano</td>
-                            <td>Espresso con agua caliente</td>
-                            <td>$1.700</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="cafe">
-                            <td>Mocha</td>
-                            <td>Café con chocolate y leche</td>
-                            <td>$2.700</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="cafe">
-                            <td>Macchiato</td>
-                            <td>Espresso con espuma de leche</td>
-                            <td>$2.000</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="cafe">
-                            <td>Flat White</td>
-                            <td>Café intenso con leche cremosa</td>
-                            <td>$2.400</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="cafe">
-                            <td>Cold Brew</td>
-                            <td>Café frío infusionado</td>
-                            <td>$2.600</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="cafe">
-                            <td>Affogato</td>
-                            <td>Espresso con helado</td>
-                            <td>$2.900</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="cafe">
-                            <td>Café Doble</td>
-                            <td>Doble shot de espresso</td>
-                            <td>$2.100</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-
-                        <!-- PANADERIA -->
-                        <tr data-categoria="panaderia">
-                            <td>Medialunas</td>
-                            <td>Clásicas de manteca x3</td>
-                            <td>$1.800</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="panaderia">
-                            <td>Factura de crema</td>
-                            <td>Masa dulce con crema pastelera</td>
-                            <td>$1.600</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="panaderia">
-                            <td>Chipá</td>
-                            <td>Panecillo de queso</td>
-                            <td>$1.700</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="panaderia">
-                            <td>Tostado</td>
-                            <td>Jamón y queso caliente</td>
-                            <td>$2.800</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="panaderia">
-                            <td>Pan de campo</td>
-                            <td>Pan artesanal crocante</td>
-                            <td>$2.200</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="panaderia">
-                            <td>Bagel</td>
-                            <td>Pan redondo suave</td>
-                            <td>$2.000</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="panaderia">
-                            <td>Croissant</td>
-                            <td>Hojaldre francés</td>
-                            <td>$2.300</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="panaderia">
-                            <td>Pan integral</td>
-                            <td>Pan con harina integral</td>
-                            <td>$2.100</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="panaderia">
-                            <td>Rosca dulce</td>
-                            <td>Con azúcar y frutas</td>
-                            <td>$2.500</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="panaderia">
-                            <td>Pepas</td>
-                            <td>Galletas con membrillo</td>
-                            <td>$1.900</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-
-                        <!-- PASTELERIA -->
-                        <tr data-categoria="pasteleria">
-                            <td>Brownie</td>
-                            <td>Chocolate semi amargo y nueces</td>
-                            <td>$2.000</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="pasteleria">
-                            <td>Cheesecake</td>
-                            <td>Tarta cremosa de queso</td>
-                            <td>$3.000</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="pasteleria">
-                            <td>Lemon Pie</td>
-                            <td>Crema de limón y merengue</td>
-                            <td>$2.800</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="pasteleria">
-                            <td>Tiramisú</td>
-                            <td>Postre italiano con café</td>
-                            <td>$3.200</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="pasteleria">
-                            <td>Red Velvet</td>
-                            <td>Torta roja con crema</td>
-                            <td>$3.300</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="pasteleria">
-                            <td>Budín de limón</td>
-                            <td>Esponjoso y cítrico</td>
-                            <td>$2.200</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="pasteleria">
-                            <td>Alfajor artesanal</td>
-                            <td>Relleno con dulce de leche</td>
-                            <td>$1.700</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="pasteleria">
-                            <td>Cookie</td>
-                            <td>Galleta con chips de chocolate</td>
-                            <td>$1.600</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="pasteleria">
-                            <td>Selva Negra</td>
-                            <td>Torta de chocolate y cerezas</td>
-                            <td>$3.500</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="pasteleria">
-                            <td>Flan casero</td>
-                            <td>Con dulce de leche</td>
-                            <td>$2.400</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-
-                        <!-- LICUADOS -->
-                        <tr data-categoria="Licuados">
-                            <td>Licuado de banana</td>
-                            <td>Dulce de banana con leche</td>
-                            <td>$2.500</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="Licuados">
-                            <td>Licuado de frutilla</td>
-                            <td>Frutillas frescas y leche</td>
-                            <td>$2.700</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="Licuados">
-                            <td>Licuado tropical</td>
-                            <td>Mango y ananá</td>
-                            <td>$3.000</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="Licuados">
-                            <td>Licuado verde</td>
-                            <td>Espinaca y manzana</td>
-                            <td>$2.900</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="Licuados">
-                            <td>Licuado de durazno</td>
-                            <td>Durazno y yogur</td>
-                            <td>$2.800</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="Licuados">
-                            <td>Licuado energético</td>
-                            <td>Avena y banana</td>
-                            <td>$3.100</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="Licuados">
-                            <td>Licuado cítrico</td>
-                            <td>Naranja y limón</td>
-                            <td>$2.600</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="Licuados">
-                            <td>Licuado berries</td>
-                            <td>Frutos rojos</td>
-                            <td>$3.200</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="Licuados">
-                            <td>Licuado de chocolate</td>
-                            <td>Chocolate y leche fría</td>
-                            <td>$3.000</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="Licuados">
-                            <td>Licuado detox</td>
-                            <td>Manzana y pepino</td>
-                            <td>$3.100</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-
-                        <!-- SIN TACC -->
-                        <tr data-categoria="sin-tacc">
-                            <td>Pan libre de gluten</td>
-                            <td>Pan hecho con harina premezcla</td>
-                            <td>$1.800</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="sin-tacc">
-                            <td>Cookie sin TACC</td>
-                            <td>Galleta apta celíacos</td>
-                            <td>$1.900</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="sin-tacc">
-                            <td>Brownie sin TACC</td>
-                            <td>Chocolate sin gluten</td>
-                            <td>$2.300</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="sin-tacc">
-                            <td>Muffin sin TACC</td>
-                            <td>Esponjoso de vainilla</td>
-                            <td>$2.100</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="sin-tacc">
-                            <td>Pizza sin gluten</td>
-                            <td>Masa especial apta</td>
-                            <td>$3.400</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="sin-tacc">
-                            <td>Budín sin TACC</td>
-                            <td>Budín artesanal</td>
-                            <td>$2.200</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="sin-tacc">
-                            <td>Tarta sin gluten</td>
-                            <td>Vegetales y queso</td>
-                            <td>$3.000</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="sin-tacc">
-                            <td>Alfajor sin TACC</td>
-                            <td>Dulce de leche artesanal</td>
-                            <td>$2.000</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="sin-tacc">
-                            <td>Crackers sin gluten</td>
-                            <td>Snack crocante</td>
-                            <td>$1.700</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-                        <tr data-categoria="sin-tacc">
-                            <td>Torta sin TACC</td>
-                            <td>Chocolate apta celíacos</td>
-                            <td>$3.200</td>
-                            <td class="columEditar">Activo</td>
-                            <td class="columEditar">
-                                <button class="editar">Editar</button>
-                                <button class="activo">Activar</button>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
+    <tbody id="bodyTabla">
+    </tbody>
+    
+    </table>
+    </div>
             </section>
-            <section id="Productos">
+            <section id="Productos" class="seccion-panel">
                 <br>
                 <h2>Productos</h2>
                 <br>
@@ -642,7 +134,7 @@
             <h3>Productos registrados</h3>
             <br>
             <div class="content-tabla">
-                <table class="tabla">
+                <table class="productable">
                 <thead>
                     <tr>
                         <th>Producto</th>
@@ -652,22 +144,13 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="columEditar">Activo</td>
-                        <td class="columEditar">
-                            <button class="editar">Editar</button>
-                            <button class="activo">Activar</button>
-                        </td>
-                    </tr>
+               <tbody id="bodyTablaProduc">
                 </tbody>
+    
             </table>
             </div>
             </section>
-            <section id="pedidos">
+            <section id="pedidos" class="seccion-panel">
                 <br><br>
                 <h2>Pedidos</h2>
                 <br>
@@ -717,7 +200,7 @@
                 </div>
                 <br>
             </section>
-            <section id="reclutamiento">
+            <section id="reclutamiento" class="seccion-panel">
                 <br><br>
                 <h2>Reclutamiento</h2>
                 <br>
@@ -750,5 +233,9 @@
             </section>
         </main>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+    <script src="asset/js/localStorage.js"></script>
+    <script src="asset/js/adminPanel.js"></script>
 </body>
 </html>
