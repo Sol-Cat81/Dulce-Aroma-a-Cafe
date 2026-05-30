@@ -64,7 +64,7 @@ form{
 .row{
     flex: 25%;
 }
-input,select{
+.ingreso-info,.select{
     background-color: #FFF7EC;
     width: 300px;
     height: 30px;

@@ -77,7 +77,12 @@ const cargaMenu = async() => {
     guardado.forEach(comida => {
          cont =`<tr><td>${comida.nombre}</td>
                 <td>${comida.descripcion}</td>
-                <td>${comida.precio}</td></tr>`
+                <td>${comida.precio}</td>
+                <td>
+                <button class="editar">Editar</button>
+                <button class="activo">Activar</button>
+                </td>
+                </tr>`
          contenido = contenido + cont
     });
     bodyTabla.innerHTML = contenido
@@ -90,23 +95,28 @@ window.addEventListener('load',async()=>{
 });
 })
 
-localStorage.setItem('merch', JSON.stringify(producto))
+localStorage.setItem('merch', JSON.stringify(merch))
 
-const productoGuardado = JSON(localStorage.getItem('merch'))
+const productoGuardado = JSON.parse(localStorage.getItem('merch'))
 console.log(productoGuardado)
 
 const cargamerch = async()=>{
     contenidoProducto = "";
     productoGuardado.forEach(produc =>{
          contP =`<tr><td>${produc.nombre}</td>
-                <td>${produc.descripcion}</td>
-                <td>${produc.precio}</td></tr>`
+                <td>${produc.direccion}</td>
+                <td>${produc.precio}</td>
+                <td>
+                <button class="editar">Editar</button>
+                <button class="activo">Activar</button>
+                </td>
+                </tr>`
          contenidoProducto = contenidoProducto + contP
     });
     bodyTablaProduc.innerHTML = contenidoProducto
 }
 window.addEventListener('load',async()=>{
-    cargaMenu()
+    cargamerch()
     let table = new DataTable('#productable', {
     responsive: true,
 });

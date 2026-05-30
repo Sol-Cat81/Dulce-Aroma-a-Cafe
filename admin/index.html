@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="asset/img/logo-simple.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
      <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="asset/css/styleAdmin.css">
     <title>Dulce Aroma a Cafe - admin</title>
@@ -32,23 +31,23 @@
                 <div class="row">
                     <label for="">Nombre:</label>
                     <br>
-                    <input type="text" id="nombreMenu" placeholder="Nombre del producto">
+                    <input type="text" id="nombreMenu" placeholder="Nombre del producto" class="ingreso-info">
                     <br>
                     <br>
                     <label for="">Precio:</label>
                     <br>
-                    <input type="number" name="" id="precioMenu" placeholder="Ingrese el precio">
+                    <input type="number" name="" id="precioMenu" placeholder="Ingrese el precio" class="ingreso-info">
                     <br>
                 </div>
                 <div class="row">
                     <label for="">Descripcion:</label>
                     <br>
-                    <input type="text" name="" id="descripcionMenu" placeholder="Cafe">
+                    <input type="text" name="" id="descripcionMenu" placeholder="Cafe" class="ingreso-info">
                     <br>
                 </div>
                 <div class="row">
                     <label for="">Categoria</label>
-                    <select name="" id="">
+                    <select name="" id="" class="select">
                         <option value="">Cafe</option>
                         <option value="">Licuados</option>
                         <option value="">Pasteleria</option>
@@ -60,6 +59,16 @@
             <br>
             <div class="cabezal-menu">
                 <h3>Productos registrados</h3>
+                <div class="filtro">
+                    <label for="" class="molestar a nico con otro filtro >:D">Filtrar</label>
+                    <select name="" id="" class="select">
+                        <option value="">Cafe</option>
+                        <option value="">Licuados</option>
+                        <option value="">Pasteleria</option>
+                        <option value="">Panaderia</option>
+                        <option value="">Sin Tacc</option>
+                    </select>
+                </div>
                
             </div>
             <br>
@@ -71,16 +80,6 @@
             <th>Descripcion</th>
             <th>Precio</th>
             <th>Acciones</th>
-             <div class="filtro">
-                    <label for="" class="molestar a nico con otro filtro >:D">Filtrar</label>
-                    <select name="" id="">
-                        <option value="">Cafe</option>
-                        <option value="">Licuados</option>
-                        <option value="">Pasteleria</option>
-                        <option value="">Panaderia</option>
-                        <option value="">Sin Tacc</option>
-                    </select>
-                </div>
         </tr>
     </thead>
 
@@ -99,12 +98,12 @@
                 <div class="row">
                     <label for="">Nombre:</label>
                     <br>
-                    <input type="text" placeholder="Nombre del producto">
+                    <input type="text" placeholder="Nombre del producto" class="ingreso-info">
                     <br>
                     <br>
                     <label for="">Precio:</label>
                     <br>
-                    <input type="number" name="" id="" placeholder="Ingrese el precio">
+                    <input type="number" name="" id="" placeholder="Ingrese el precio" class="ingreso-info">
                     <br>
                 </div>
                 <div class="row">
@@ -120,7 +119,7 @@
                 </div>
                 <div class="row">
                     <label for="">Categoria</label>
-                    <select name="" id="">
+                    <select name="" id="" class="select">
                         <option value="">Remeras</option>
                         <option value="">Gorras</option>
                         <option value="">Tazas</option>
@@ -134,13 +133,12 @@
             <h3>Productos registrados</h3>
             <br>
             <div class="content-tabla">
-                <table class="productable">
+                <table class="tabla">
                 <thead>
                     <tr>
                         <th>Producto</th>
                         <th>Dirección de imagen</th>
                         <th>Precio</th>
-                        <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
