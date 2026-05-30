@@ -155,3 +155,40 @@ td{
     padding: 20px;
     border-radius: 10px;
 }
+
+.seccion-panel{
+    display: none; /* Oculta todas las secciones del panel por defecto */
+}
+
+.seccion-activa{
+    display: block; /* Muestra solamente la sección seleccionada */
+}
+
+.opcion-panel{
+    cursor: pointer; /* Hace que el mouse indique que la opción se puede presionar */
+}
+
+.activo-panel{
+    color: #FFF7EC; /* Cambia el color del texto de la opción activa */
+    background-color: #422B23; /* Cambia el fondo de la opción activa */
+    border-radius: 10px; /* Redondea las esquinas de la opción activa */
+}
+
+.content-tabla{
+    background-color: #422B23;
+    color: #FFF7EC;
+    padding: 20px 20px 5px 20px;
+    border-radius: 15px;
+}
+.tabla{
+    width: 100%;
+    height: auto;
+}
+.tabla th{
+    text-align: center;
+    border-bottom: 2px solid #FFF7EC;
+}
+td{
+    padding: 5px 0px;
+    border-bottom: 1px solid #5a392e;
+}
