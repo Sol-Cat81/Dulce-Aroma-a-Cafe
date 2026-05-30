@@ -29,3 +29,17 @@ btnEnviar.addEventListener('click',()=>{
             alert("usuario no existe")
         }
 })
+
+const card = document.getElementById('card');
+const mostrarRegistro = document.getElementById('mostrarRegistro');
+const mostrarLogin = document.getElementById('mostrarLogin');
+
+mostrarRegistro.addEventListener('click', (e) => {
+    e.preventDefault();
+    card.classList.add('modo-registro');
+});
+
+mostrarLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    card.classList.remove('modo-registro');
+});

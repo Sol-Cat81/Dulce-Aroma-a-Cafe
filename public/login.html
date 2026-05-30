@@ -15,7 +15,7 @@
   
     <!--panel principal-->
    
-    <div class="card">
+    <div class="card" id="card">
 
         <!-- panel de imagen izquierdo-->
         <div class="panel-imagen">
@@ -26,10 +26,65 @@
             </div>
         </div>
 
-        <!-- panel derecho formulario -->
-        <div class="panel-form">
+        <!--panel de registro-->
+        <div class="panel-form panel-registro"">
             <!--logo-->
             <div class="logo">
+                   <img src="asset/img/logo-simple.png" alt="" width="110" height="100">
+                <div class="logo-texto">
+                    <span class="logo-linea1">Dulce Aroma</span>
+                    <span class="logo-linea2">a Café</span>
+                </div>
+            </div>
+
+            <!-- titulo de form -->
+            <h1 class="titulo">Bienvenido,<br><strong>registrarsesión</strong></h1>
+
+            <!--formulario de inicio-->
+            <form action="">
+
+                <div class="campo">
+                    <label for="">Nombre usuario</label>
+                    <input type="text" id="nombre-usuario" placeholder="Tu nombre de usuario">
+                </div>
+
+                 <div class="campo">
+                    <label for="">Correo </label>
+                    <input type="text" id="correo-usuario" placeholder="EJ: juan@gamil">
+                </div>
+
+                 <div class="campo">
+                    <label for="">Telefono</label>
+                    <input type="text" id="telefono-usuario" placeholder="EJ: 123456789">
+                </div>
+
+                 <div class="campo">
+                    <label for="">Direccion</label>
+                    <input type="text" id="dirrecion-usuario" placeholder="EJ: avenida belgrano">
+                </div>
+
+                <div class="campo">
+                    <label for="">Contraseña</label>
+                    <input type="password" id="password-register" placeholder="Contraseña">
+                </div>
+
+               <button type="button" id="btnCrearRegistro">Crear cuenta</button>
+            </form>
+
+            <!-- Separador visual -->
+            <div class="separador">
+                <span></span> o <span></span>
+            </div>
+
+
+           <a href="#" class="btn-registro" id="mostrarLogin">Ya tengo una cuenta</a>
+
+        </div>
+
+        <!-- panel derecho formulario -->
+        <div class="panel-form panel-login">
+            <!--logo-->
+            <div class="logo-session">
                    <img src="asset/img/logo-simple.png" alt="" width="110" height="100">
                 <div class="logo-texto">
                     <span class="logo-linea1">Dulce Aroma</span>
@@ -53,7 +108,7 @@
                     <input type="password" id="password" placeholder="Contraseña">
                 </div>
 
-                <button type="button" id="btnEnviar">enviar</button>
+                <button type="button" id="btnEnviar">Iniciar</button>
 
             </form>
 
@@ -62,9 +117,8 @@
                 <span></span> o <span></span>
             </div>
 
-
-            <a href="#" class="btn-registro">Crear una cuenta</a>
-
+            <a href="#" class="btn-registro" id="mostrarRegistro">Crear una cuenta</a>
+          
         </div>
     </div>
 
