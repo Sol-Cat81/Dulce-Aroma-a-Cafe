@@ -66,8 +66,9 @@ function crearFilaMenu(comida) {
             <td>${comida.descripcion}</td>
             <td>${comida.precio}</td>
             <td>
-                <button class="editar">Editar</button>
-                <button class="activo">Activar</button>
+                <button class="editar" data-accion="editar-menu" data-id="${comida.id}">Editar</button>
+                <button class="activo" data-accion="eliminar-menu" data-id="${comida.id}">Eliminar</button>
+        
             </td>
         </tr>
     `;
@@ -81,8 +82,8 @@ function crearFilaProducto(producto) {
             <td>${producto.direccion}</td>
             <td>${producto.precio}</td>
             <td>
-                <button class="editar">Editar</button>
-                <button class="activo">Activar</button>
+                <button class="editar" data-accion="editar-producto" data-id="${producto.id}">Editar</button>
+                <button class="activo" data-accion="eliminar-producto" data-id="${producto.id}">Eliminar</button>
             </td>
         </tr>
     `;
@@ -159,11 +160,221 @@ function agregarProducto(evento) {
     cargarProductos();
 }
 
+
+// Edita una comida del menu usando su id
+function editarMenu(id) {
+    // Obtiene la lista actual del menu desde localStor
+    const menu = obtenerLista('menu');
+
+    // Busca la posicion de la comida que tenga el mismo id
+    const posicion = menu.findIndex((comida) => comida.id === id);
+
+    // Si no encuentra la comida termine la funcio 
+    if (posicion === -1) {
+        return;
+    }
+
+    // Guarda la comida encontrada 
+    const comida = menu[posicion];
+
+    // Pide el nuevo nombre y deja el anterior como valor sugerido
+    const nuevoNombre = prompt('Editar nombre:', comida.nombre);
+
+    // Si no se agrega nada se cansela
+    if (nuevoNombre === null) {
+        return;
+    }
+
+    // Pide la nueva descripcion y deja la anterior como valor sugerido
+    const nuevaDescripcion = prompt('Editar descripcion:', comida.descripcion);
+
+    // Si no se agrega nada se cansela 
+     if (nuevaDescripcion === null) {
+        return;
+    }
+
+    // Pide el nuevo precio y deja el anterior como valor sugerido
+    const nuevoPrecio = prompt('Editar precio:', comida.precio);
+
+    // Si no se agrega nada se cansela
+    if (nuevoPrecio === null) {
+        return;
+    }
+
+    // Pide la nueva categoria y deja la anterior como valor sugerido
+    const nuevaCategoria = prompt('Editar categoria: cafe, licuados, pasteleria, panaderia o sin-tacc', comida.categoria);
+
+    // Si no se agrega nada se cansela
+    if (nuevaCategoria === null) {
+        return;
+    }
+
+    // Reemplaza los datos anteriores por los nuevos
+    menu[posicion] = {
+        id: comida.id,
+        nombre: nuevoNombre,
+        descripcion: nuevaDescripcion,
+        precio: Number(nuevoPrecio),
+        categoria: nuevaCategoria
+    };
+
+    // Guarda el menu editado en localStorage
+    guardarLista('menu', menu);
+
+    // Vuelve a cargar la tabla para mostrar el cambio
+    cargarMenu();
+}
+
+// Elimina una comida del menu usando su id
+function eliminarMenu(id) {
+    // Pregunta antes de eliminar para evitar borrados
+    const confirma = confirm('¿Seguro que queres eliminar esta comida del menu?');
+
+    // Si cansela no hace nada
+    if (confirma === false) {
+        return;
+    }
+
+    // Obtiene la lista actual del menu.
+    const menu = obtenerLista('menu');
+
+    // Crea una nueva lista sin la comida eliminada
+    const menuActualizado = menu.filter((comida) => comida.id !== id);
+
+    // Guarda la nueva lista en localStorage
+    guardarLista('menu', menuActualizado);
+
+    // Vuelve a cargar la tabla
+    cargarMenu();
+}
+// Edita un producto de merch usando su id.
+function editarProducto(id) {
+    // Obtiene la lista actual de productos desde localStorage.
+    const productos = obtenerLista('merch');
+
+    // Busca la posicion del producto que tenga el mismo id.
+    const posicion = productos.findIndex((producto) => producto.id === id);
+
+    if (posicion === -1) {
+        return;
+    }
+
+    const producto = productos[posicion];
+
+    const nuevoNombre = prompt('Editar nombre:', producto.nombre);
+
+    if (nuevoNombre === null) {
+        return;
+    }
+
+    const nuevaDireccion = prompt('Editar imagen o direccion:', producto.direccion);
+
+    if (nuevaDireccion === null) {
+        return;
+    }
+
+    const nuevoPrecio = prompt('Editar precio:', producto.precio);
+
+    if (nuevoPrecio === null) {
+        return;
+    }
+
+    const nuevaCategoria = prompt('Editar categoria: remeras, gorras, tazas, vasos u otros', producto.categoria);
+
+    if (nuevaCategoria === null) {
+        return;
+    }
+
+    // Reemplaza los datos anteriores por los nuevos
+    productos[posicion] = {
+        id: producto.id,
+        nombre: nuevoNombre,
+        direccion: nuevaDireccion,
+        precio: Number(nuevoPrecio),
+        categoria: nuevaCategoria
+    };
+
+    // Guarda los productos editados
+    guardarLista('merch', productos);
+
+    // Vuelve a cargar la tabla para mostrar el cambio
+    cargarProductos();
+}
+
+// Elimina un producto de merch usando su id.
+function eliminarProducto(id) {
+    
+    const confirma = confirm('¿Seguro que queres eliminar este producto?');
+
+    if (confirma === false) {
+        return;
+    }
+
+    // Obtiene la lista actual de productos
+    const productos = obtenerLista('merch');
+
+    // Crea una nueva lista sin el producto eliminado
+    const productosActualizados = productos.filter((producto) => producto.id !== id);
+
+    // Guarda la nueva lista 
+    guardarLista('merch', productosActualizados);
+
+    // Vuelve a cargar la tabla
+    cargarProductos();
+}
+
+// detecta si se presiono editar o elominar
+function manejarAccionesMenu(evento) {
+    // guarda el boton presionado
+    const boton = evento.target;
+
+    // Lee la accion guardada en data-accion.
+    const accion = boton.dataset.accion;
+
+    // Lee el id guardado en data-id y lo convierte a numero.
+    const id = Number(boton.dataset.id);
+
+    // Si la accion es editar menu, llama a la funcion editar.
+    if (accion === 'editar-menu') {
+        editarMenu(id);
+    }
+
+    // Si la accion es eliminar menu, llama a la funcion eliminar.
+    if (accion === 'eliminar-menu') {
+        eliminarMenu(id);
+    }
+}
+
+
+//detectamos si se preciona editar o eliminar 
+function manejarAccionesProductos(evento){
+    //guardar el boton precionado
+    const boton = evento.target;
+    //lee la accion guardada en data-accion
+    const accion = boton.dataset.accion;
+    //lee el ide guardado en data-id y lo convierte en numero
+    const id = Number (boton.dataset.id);
+
+    //si la accion es editar llama la funcion editar
+    if(accion === 'editar-producto'){
+        editarProducto(id);
+    }
+    //si la accion es eliminar
+    if (accion === 'eliminar-producto'){
+        eliminarProducto(id);
+    }
+}
+
 // Cuando carga la pagina, conecta formularios y carga tablas
+
 window.addEventListener('load', () => {
     formMenu.addEventListener('submit', agregarMenu);
 
     formProducto.addEventListener('submit', agregarProducto);
+
+    bodyTabla.addEventListener('click', manejarAccionesMenu);
+
+    bodyTablaProduc.addEventListener('click', manejarAccionesProductos);
 
     cargarMenu();
 
