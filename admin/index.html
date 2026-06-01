@@ -46,27 +46,30 @@
                     <br>
                 </div>
                 <div class="row">
-                    <label for="">Categoria</label>
-                    <select name="" id="" class="select">
-                        <option value="">Cafe</option>
-                        <option value="">Licuados</option>
-                        <option value="">Pasteleria</option>
-                        <option value="">Panaderia</option>
-                        <option value="">Sin Tacc</option>
+                    <label for="categoriaMenu">Categoria</label>
+                    <select name="" id="categoriaMenu" class="select">
+                        <option value="cafe">Cafe</option>
+                        <option value="licuados">Licuados</option>
+                        <option value="pasteleria">Pasteleria</option>
+                        <option value="panaderia">Panaderia</option>
+                        <option value="sin-tacc">Sin Tacc</option>
                     </select>
+                    <br>
+                    <button type="submit" class="editar">Agregar</button>
                 </div>
             </form>
             <br>
             <div class="cabezal-menu">
                 <h3>Productos registrados</h3>
                 <div class="filtro">
-                    <label for="" class="molestar a nico con otro filtro >:D">Filtrar</label>
-                    <select name="" id="" class="select">
-                        <option value="">Cafe</option>
-                        <option value="">Licuados</option>
-                        <option value="">Pasteleria</option>
-                        <option value="">Panaderia</option>
-                        <option value="">Sin Tacc</option>
+                    <label for="filtroMenu" class="molestar a nico con otro filtro >:D">Filtrar</label>
+                    <select name="" id="filtroMenu" class="select">
+                        <option value="">Todos</option>
+                        <option value="cade">Cafe</option>
+                        <option value="licuados">Licuados</option>
+                        <option value="pasteleria">Pasteleria</option>
+                        <option value="panaderia">Panaderia</option>
+                        <option value="sin-tacc">Sin Tacc</option>
                     </select>
                 </div>
                
@@ -88,44 +91,46 @@
     
     </table>
     </div>
-            </section>
+    </section>
             <section id="Productos" class="seccion-panel">
                 <br>
                 <h2>Productos</h2>
                 <br>
             <h3>Agregar nuevo producto</h3>
-            <form action="">
+            <form action="" id="formProducto">
                 <div class="row">
-                    <label for="">Nombre:</label>
+                    <label for="nombreProducto">Nombre:</label>
                     <br>
-                    <input type="text" placeholder="Nombre del producto" class="ingreso-info">
+                    <input type="text" id="nombreProducto" placeholder="Nombre del producto" class="ingreso-info">
                     <br>
                     <br>
-                    <label for="">Precio:</label>
+                    <label for="precioProducto">Precio:</label>
                     <br>
-                    <input type="number" name="" id="" placeholder="Ingrese el precio" class="ingreso-info">
+                    <input type="number" name="" id="precioProducto" placeholder="Ingrese el precio" class="ingreso-info">
                     <br>
                 </div>
                 <div class="row">
-                    <label for="">Imagen:</label>
+                    <label for="img-producto">Imagen:</label>
                     <br>
                     <div class="contenedor-carga">
-                    <input type="file" id="img-producto" class="input">
-                    <label for="img-producto" class="boton">
+                    <input type="file" id="imgproducto" class="input">
+                    <label for="imgproducto" class="boton">
                         Seleccionar imagen
                     </label>
                     </div>
                     <br>
                 </div>
                 <div class="row">
-                    <label for="">Categoria</label>
-                    <select name="" id="" class="select">
-                        <option value="">Remeras</option>
-                        <option value="">Gorras</option>
-                        <option value="">Tazas</option>
-                        <option value="">Vasos</option>
-                        <option value="">Otro</option>
+                    <label for="categoriaProducto">Categoria</label>
+                    <select name="" id="categoriaProducto" class="select">
+                        <option value="remeras">Remeras</option>
+                        <option value="gorras">Gorras</option>
+                        <option value="tazas">Tazas</option>
+                        <option value="vasos">Vasos</option>
+                        <option value="otros">Otro</option>
                     </select>
+                    <br>
+                    <button type="submit" class="editar">Agregar</button>
                 </div>
             </form>
             <br>
@@ -133,7 +138,7 @@
             <h3>Productos registrados</h3>
             <br>
             <div class="content-tabla">
-                <table class="tabla">
+                <table id="productable" class="tabla">
                 <thead>
                     <tr>
                         <th>Producto</th>
