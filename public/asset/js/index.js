@@ -10,6 +10,12 @@ const filtroMenu = document.getElementById('filtro-menu')
 let selectFiltroMenu = ''
 let table
 
+const productoGuardado = JSON.parse(localStorage.getItem('merch'))
+const contenedorMerch = document.querySelector('.swiper-wrapper')
+const filtroMerch = document.getElementById('filtro-merch')
+let selectFiltroMerch = ''
+// swiper - motion - chartjs - lucide
+// nomenclatura BEM
 /* Slider de productos con la libreria swiper */
 const swiper = new Swiper('.swiper', {
             direction: 'horizontal',
@@ -68,11 +74,44 @@ function filtrar_Menu(){
     cargaMenu(resultadoMenu)
 }
 function filtrar(comida){
-    console.log(comida.categoria, selectFiltroMenu)
-    if(selectFiltroMenu){
-        return comida.categoria === selectFiltroMenu
+    if(selectFiltroMenu.toLowerCase()){
+        return comida.categoria.toLowerCase() === selectFiltroMenu
     } else{
         return comida
+    }
+}
+
+function cargaMerch(productoGuardado){
+    contenedorMerch.innerHTML=""
+    let carga = ``
+
+    productoGuardado.forEach(prod=>{
+        carga+=`
+        <div class="swiper-slide">
+            <div class="producto">
+                <img src="${prod.direccion}" alt="">
+                <div class="infoprod">
+                    <div class="nombre">${prod.nombre}</div>
+                    <div class="precio">${prod.precio}</div>
+                    <button class="btn btn-dark comprar-merch">
+                        comprar 
+                    </button>
+                </div>
+            </div>
+        </div>
+        `
+    })
+    contenedorMerch.innerHTML= carga
+}
+function filtrarMerch(){
+    const resultadoMerch = productoGuardado.filter(filtrarM)
+    cargaMerch(resultadoMerch)
+}
+function filtrarM(prod){
+    if(selectFiltroMerch.toLowerCase()){
+        return prod.categoria.toLowerCase() === selectFiltroMerch
+    } else{
+        return prod
     }
 }
 
@@ -126,16 +165,32 @@ window.addEventListener('load', ()=>{
     });
 
     cargaMenu(menu)
+    cargaMerch(productoGuardado)
 })
 // filtro menu
 filtroMenu.addEventListener('change',e =>{
-    seleccionMenu = e.target.value;
-    console.log(seleccionMenu)
+    let seleccionMenu = e.target.value;
     if(seleccionMenu == "todos"){
         selectFiltroMenu = ''
     }else{
         selectFiltroMenu = seleccionMenu;
     }
-    
     filtrar_Menu()
+
+    let seleccionMerch = e.target.value;
+    if(seleccionMerch == "todos"){
+        selectFiltroMerch = ''
+    }else{
+        selectFiltroMerch = seleccionMerch;
+    }
+    filtrarMerch()
+})
+filtroMerch.addEventListener('change',e =>{
+    let seleccionMerch = e.target.value;
+    if(seleccionMerch == "todos"){
+        selectFiltroMerch = ''
+    }else{
+        selectFiltroMerch = seleccionMerch;
+    }
+    filtrarMerch()
 })

@@ -86,7 +86,7 @@
             <div class="row">
                 <div class="col-md-8 h2">Menu</div>
                 <div class="col-md-4 filtro">
-                    <label for="" class="filTitu">Filtrar</label>
+                    Filtrar
                     <select name="filtro-menu" id="filtro-menu" class="select">
                         <option value="todos">Todos</option>
                         <option value="cafe">Cafe</option>
@@ -136,19 +136,15 @@
                     <div class="h2">Merch Oficial</div>
                 </div>
                 <div class="col-md-4">
-                    <div class="dropdown">
-                        <button class="btn boton dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Filtrar por...
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" data-filtro="todos" href="#">Todos</a></li>
-                            <li><a class="dropdown-item" data-filtro="remeras" href="#">Remeras</a></li>
-                            <li><a class="dropdown-item" data-filtro="gorras" href="#">Gorras</a></li>
-                            <li><a class="dropdown-item" data-filtro="tazas" href="#">Tazas</a></li>
-                            <li><a class="dropdown-item" data-filtro="vasos" href="#">Vasos
-                            <li><a class="dropdown-item" data-filtro="otros" href="#">Otros</a></li>
-                        </ul>
-                    </div>
+                    Filtrar
+                    <select name="filtro-mech" id="filtro-merch" class="select">
+                        <option value="todos">Todos</option>
+                        <option value="remeras">Remeras</option>
+                        <option value="gorras">Gorras</option>
+                        <option value="tazas">Tazas</option>
+                        <option value="vasos">Vasos</option>
+                        <option value="otros">Otros</option>
+                    </select>
                 </div>
             </div>
             <br>
@@ -156,82 +152,6 @@
             <div class="row slider">
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <!-- Slides -->
-                         <!--productos-->
-                        <div class="swiper-slide" data-categoria="remeras">
-                            <div class="producto">
-                                <img src="/admin/asset/img/images.jpg" alt="">
-                                <div class="infoprod">
-                                    <div class="nombre">Camisa prueba</div>
-                                    <div class="precio">$15000</div>
-                                    <button class="btn btn-dark comprar-merch">
-                                    comprar 
-                                </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="remeras">
-                            <div class="producto">
-                                <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
-                                <div class="infoprod">
-                                    <div class="nombre">Camisa</div>
-                                    <div class="precio">$15000</div>
-                                    <button class="btn btn-dark comprar-merch">
-                                    comprar 
-                                </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="vasos">
-                            <div class="producto">
-                                <img src="https://propagadorcristiano.com.ar/wp-content/uploads/2020/05/ID-CA_-_Camisas_todas.jpg" alt="">
-                                <div class="infoprod">
-                                    <div class="nombre">vaso</div>
-                                    <div class="precio">$15000</div>
-                                    <button class="btn btn-dark comprar-merch">
-                                    comprar 
-                                </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="gorras">
-                            <div class="producto">
-                                <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
-                                <div class="infoprod">
-                                    <div class="nombre">gorras</div>
-                                    <div class="precio">$15000</div>
-                                    <button class="btn btn-dark comprar-merch">
-                                    comprar 
-                                </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="tazas">
-                            <div class="producto">
-                                <img src="https://propagadorcristiano.com.ar/wp-content/uploads/2020/05/ID-CA_-_Camisas_todas.jpg" alt="">
-                                <div class="infoprod">
-                                    <div class="nombre">Camisa</div>
-                                    <div class="precio">$15000</div>
-                                    <button class="btn btn-dark comprar-merch">
-                                    comprar 
-                                </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" data-sub-categoria="merch" data-categoria="otros">
-                            <div class="producto">
-                                <img src="https://production.cdn.vaypol.com/variants/y7ajtlvyi6fo97udzipo837rqkzn/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4" alt="">
-                                <div class="infoprod">
-                                    <div class="nombre">Camisa</div>
-                                    <div class="precio">$15000</div>
-                                    <button class="btn btn-dark comprar-merch">
-                                    comprar 
-                                </button>
-                                </div>
-                            </div>
-                        </div>
                         ...
                     </div>
                     <div class="swiper-pagination"></div>
@@ -352,99 +272,5 @@
     <!-- Enlace para los iconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
-
-//filtracion de menu
-document.addEventListener("DOMContentLoaded", function () {
-
-  // seleccion  de la lista de selecion
-  const opcionesFiltro = document.querySelectorAll("#menu .dropdown-item[data-filtro]");
-
-  // Seleccionamos todas las filas de la tabla menu
-  const filasMenu = document.querySelectorAll("#menu .table-group-divider tr");
-
-  // Recorremos cada opción del filtrado por y que lo almacene
-  opcionesFiltro.forEach(function (opcion) {
-
-    opcion.addEventListener("click", function (evento) {
-
-     evento.preventDefault();
-      // Leemos el valor del atributo data-filtro de la opción filtrado
-      // cafe , panaderia ,etc
-      const categoriaSeleccionada = this.dataset.filtro;
-
-      // Recorremos cada fila de la tabla para mostrar u ocultar
-      filasMenu.forEach(function (fila) {
-
-        // Leemo el atributo data-categoria de la fila
-        // Si tiene múltiples categorias que lo espare
-        const categoriasFila = fila.dataset.categoria || "";
-
-        // luego de que se separre que lo una en un string
-        const arrayCategorias = categoriasFila.split(" ");
-
-        if (categoriaSeleccionada === "todos") {
-          // Si el filtro esta en todos que muestre todos sin importar su categoria
-          fila.style.display = "";
-
-        } else if (arrayCategorias.includes(categoriaSeleccionada)) {
-          // Si la categoría coincide con la varianble de filtrado que lo muestre
-          fila.style.display = "";
-
-        } else {
-          // y si no coincide que lo oculte
-          fila.style.display = "none";
-        }
-      });
-    });
-  });
-});
-
-//filtrado de merch
-document.addEventListener("DOMContentLoaded", function (){
-
-    //gurdamos la seccion de merch
-    const seccionProductos = document.querySelector("#productos");
-
-    //buscamos los botones dentro de los productos
-    const botonesFiltro  = seccionProductos.querySelectorAll(".dropdown-item[data-filtro]");
-
-    const productos = seccionProductos.querySelectorAll(".swiper-slide");
-
-    //recoremos los botones
-    botonesFiltro.forEach(function(boton){
-
-        boton.addEventListener("click", function(evento){
-
-            evento.preventDefault();
-
-            const categoriaSeleccionada = boton.dataset.filtro;
-
-            //recoremos todos los productos
-            productos.forEach(function(producto){
-
-                //obtenemos su categoria
-                const categoriaProducto = producto.dataset.categoria;
-
-                if(categoriaSeleccionada === "todos"){
-
-                    producto.style.display = "block";
-                
-                }else if(categoriaProducto === categoriaSeleccionada){
-                    
-                    producto.style.display = "block";
-                
-                }else{
-
-                    producto.style.display = "none";
-
-                }
-            });
-        });
-    });
-}) ;
-// swiper - motion - chartjs - lucide
-// nomenclatura BEM
-    </script>
 </body>
 </html>
