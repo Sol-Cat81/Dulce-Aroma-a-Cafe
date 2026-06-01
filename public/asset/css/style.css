@@ -117,6 +117,19 @@ header{
     width: 6.5rem;
 }
 /* menu de opciones */
+.select{
+    background-color: #FFF7EC;
+    width: auto;
+    height: 30px;
+    margin-top: 10px;
+    border: 2px solid #422B23;
+    border-radius: 5px;
+}
+.btn-agregar{
+    color: #FFF7EC;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 .menu-opciones{
     height: auto;
 }

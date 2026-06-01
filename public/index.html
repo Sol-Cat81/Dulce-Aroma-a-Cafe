@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="asset/img/logo-simple.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="asset/css/style.css">
     <title>Dulce Aroma a Cafe</title>
 </head>
@@ -85,19 +86,13 @@
             <div class="row">
                 <div class="col-md-8 h2">Menu</div>
                 <div class="col-md-4 filtro">
-                    <div class="dropdown">
-                        <button class="btn boton dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Filtrar por...
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" data-filtro="todos">Todos</a></li>
-                            <li><a class="dropdown-item" href="#" data-filtro="cafe">cafe</a></li>
-                            <li><a class="dropdown-item" href="#" data-filtro="licuados">Licuados</a></li>
-                            <li><a class="dropdown-item" href="#" data-filtro="pasteleria" >Pasteleria</a></li>
-                            <li><a class="dropdown-item" href="#" data-filtro="panaderia" >panaderia</a></li>
-                            <li><a class="dropdown-item" href="#" data-filtro="sin-tacc">Sin TACC</a></li>
-                        </ul>
-                    </div>
+                    <label for="" class="filTitu">Filtrar</label>
+                    <select name="filtro-menu" id="filtro-menu" class="select">
+                        <option value="todos">Todos</option>
+                        <option value="cafe">Cafe</option>
+                        <option value="licuados">Licuados</option>
+                        <option value="panaderia">Panaderia</option>
+                        <option value="pasteleria">Pasteleria</option>
                     </select>
                 </div>
             </div>
@@ -105,345 +100,18 @@
             <!-- Tabla menu -->
             <div class="row">
                 <div class="col content-tabla">
-                    <table class="tabla">
+                    <table class="tabla" id="menutabla">
                     <thead>
                         <tr>
                             <th scope="col">Comida</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Precio</th>
+                            <th scope="col">Comprar</th>
                         </tr>
                     </thead>
-                    <tbody class="table-group-divider">
-
-                        <!-- CAFÉ -->
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Espresso</td>
-                            <td>Café concentrado</td>
-                            <td>$1.500</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Cappuccino</td>
-                            <td>Espresso con leche vaporizada</td>
-                            <td>$2.200</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Latte</td>
-                            <td>Café suave con leche caliente</td>
-                            <td>$2.300</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Americano</td>
-                            <td>Espresso con agua caliente</td>
-                            <td>$1.700</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Mocha</td>
-                            <td>Café con chocolate y leche</td>
-                            <td>$2.700</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Macchiato</td>
-                            <td>Espresso con espuma de leche</td>
-                            <td>$2.000</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Flat White</td>
-                            <td>Café intenso con leche cremosa</td>
-                            <td>$2.400</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Cold Brew</td>
-                            <td>Café frío infusionado</td>
-                            <td>$2.600</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Affogato</td>
-                            <td>Espresso con helado</td>
-                            <td>$2.900</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="cafe" data-sub-categoria="menu">
-                            <td>Café Doble</td>
-                            <td>Doble shot de espresso</td>
-                            <td>$2.100</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-
-                        <!-- PANADERIA -->
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Medialunas</td>
-                            <td>Clásicas de manteca x3</td>
-                            <td>$1.800</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Factura de crema</td>
-                            <td>Masa dulce con crema pastelera</td>
-                            <td>$1.600</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Chipá</td>
-                            <td>Panecillo de queso</td>
-                            <td>$1.700</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Tostado</td>
-                            <td>Jamón y queso caliente</td>
-                            <td>$2.800</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Pan de campo</td>
-                            <td>Pan artesanal crocante</td>
-                            <td>$2.200</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Bagel</td>
-                            <td>Pan redondo suave</td>
-                            <td>$2.000</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Croissant</td>
-                            <td>Hojaldre francés</td>
-                            <td>$2.300</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Pan integral</td>
-                            <td>Pan con harina integral</td>
-                            <td>$2.100</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Rosca dulce</td>
-                            <td>Con azúcar y frutas</td>
-                            <td>$2.500</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="panaderia" data-sub-categoria="menu">
-                            <td>Pepas</td>
-                            <td>Galletas con membrillo</td>
-                            <td>$1.900</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-
-                        <!-- PASTELERIA -->
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Brownie</td>
-                            <td>Chocolate semi amargo y nueces</td>
-                            <td>$2.000</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Cheesecake</td>
-                            <td>Tarta cremosa de queso</td>
-                            <td>$3.000</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Lemon Pie</td>
-                            <td>Crema de limón y merengue</td>
-                            <td>$2.800</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Tiramisú</td>
-                            <td>Postre italiano con café</td>
-                            <td>$3.200</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Red Velvet</td>
-                            <td>Torta roja con crema</td>
-                            <td>$3.300</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Budín de limón</td>
-                            <td>Esponjoso y cítrico</td>
-                            <td>$2.200</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Alfajor artesanal</td>
-                            <td>Relleno con dulce de leche</td>
-                            <td>$1.700</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Cookie</td>
-                            <td>Galleta con chips de chocolate</td>
-                            <td>$1.600</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Selva Negra</td>
-                            <td>Torta de chocolate y cerezas</td>
-                            <td>$3.500</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="pasteleria" data-sub-categoria="menu">
-                            <td>Flan casero</td>
-                            <td>Con dulce de leche</td>
-                            <td>$2.400</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-
-                        <!-- LICUADOS -->
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado de banana</td>
-                            <td>Dulce de banana con leche</td>
-                            <td>$2.500</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado de frutilla</td>
-                            <td>Frutillas frescas y leche</td>
-                            <td>$2.700</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado tropical</td>
-                            <td>Mango y ananá</td>
-                            <td>$3.000</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado verde</td>
-                            <td>Espinaca y manzana</td>
-                            <td>$2.900</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado de durazno</td>
-                            <td>Durazno y yogur</td>
-                            <td>$2.800</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado energético</td>
-                            <td>Avena y banana</td>
-                            <td>$3.100</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado cítrico</td>
-                            <td>Naranja y limón</td>
-                            <td>$2.600</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado berries</td>
-                            <td>Frutos rojos</td>
-                            <td>$3.200</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado de chocolate</td>
-                            <td>Chocolate y leche fría</td>
-                            <td>$3.000</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="licuados" data-sub-categoria="menu">
-                            <td>Licuado detox</td>
-                            <td>Manzana y pepino</td>
-                            <td>$3.100</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-
-                        <!-- SIN TACC -->
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Pan libre de gluten</td>
-                            <td>Pan hecho con harina premezcla</td>
-                            <td>$1.800</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Cookie sin TACC</td>
-                            <td>Galleta apta celíacos</td>
-                            <td>$1.900</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Brownie sin TACC</td>
-                            <td>Chocolate sin gluten</td>
-                            <td>$2.300</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Muffin sin TACC</td>
-                            <td>Esponjoso de vainilla</td>
-                            <td>$2.100</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Pizza sin gluten</td>
-                            <td>Masa especial apta</td>
-                            <td>$3.400</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Budín sin TACC</td>
-                            <td>Budín artesanal</td>
-                            <td>$2.200</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Tarta sin gluten</td>
-                            <td>Vegetales y queso</td>
-                            <td>$3.000</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Alfajor sin TACC</td>
-                            <td>Dulce de leche artesanal</td>
-                            <td>$2.000</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Crackers sin gluten</td>
-                            <td>Snack crocante</td>
-                            <td>$1.700</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-                        <tr data-categoria="sin-tacc" data-sub-categoria="menu">
-                            <td>Torta sin TACC</td>
-                            <td>Chocolate apta celíacos</td>
-                            <td>$3.200</td>
-                            <td><button class="btn btn-dark comprar-menu">agregar</button></td>
-                        </tr>
-
+                    <tbody class="table-group-divider" id="bodyTabla">
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                        </li>
-                    </ul>
-                </nav>
                 </div>
             </div>
             <br>
@@ -670,20 +338,20 @@
             <h6>Copyright © 2026 Dulce Aroma a Cafe</h6> <br>
         </div>
     </footer>
-    <!--carrito de compra-->
-    <script src="asset/js/carrito.js"></script>
     <!-- Enlace de la libreria(swiper) para el carrusel -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <!-- Libreria datatable -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
     
     <script src="asset/js/index.js"></script>
+    <!--carrito de compra-->
+    <script src="asset/js/carrito.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <!-- Enlace de la libreria(swiper) para el carrusel -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <!-- Enlace para los iconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!-- script para el carrusel -->
     <script>
 
 //filtracion de menu
