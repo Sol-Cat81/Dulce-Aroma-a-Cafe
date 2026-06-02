@@ -13,6 +13,22 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
+.Activo{
+    background-color: aquamarine;
+    color: #422B23;
+    border: 0px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.Desactivo{
+    background-color: rgb(255, 102, 102);
+    color: #422B23;
+    border: 0px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 /* --- cabezal --- */
 

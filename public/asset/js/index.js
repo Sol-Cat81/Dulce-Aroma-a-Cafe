@@ -65,12 +65,14 @@ function cargaMenu(menu) {
     table.clear()// borra la anterior tabla
 
     menu.forEach(comida => {// recorremos el array menu y cargamos la tabla
-        table.row.add([
+        if(comida.estado){
+            table.row.add([
             comida.nombre,
             comida.descripcion,
             `$` + comida.precio,
             `<div class="btn-agre" onclick="agregar(${comida.id},'consumible')" id="btn-agregar"><ion-icon name="add-outline"></ion-icon> Agregar </div>`
         ])
+        }
     })
 
     table.draw()
@@ -92,20 +94,22 @@ function cargaMerch(productoGuardado){
     let carga = ``
 
     productoGuardado.forEach(prod=>{
-        carga+=`
-        <div class="swiper-slide">
-            <div class="producto">
-                <img src="${prod.direccion}" alt="">
-                <div class="infoprod">
-                    <div class="nombre">${prod.nombre}</div>
-                    <div class="precio">${prod.precio}</div>
-                    <button class="btn comprar-merch" id="btn-agregar" onclick="agregar(${prod.id},'merch')">
-                        comprar 
-                    </button>
+        if(prod.estado){
+            carga+=`
+                <div class="swiper-slide">
+                    <div class="producto">
+                        <img src="${prod.direccion}" alt="">
+                        <div class="infoprod">
+                            <div class="nombre">${prod.nombre}</div>
+                            <div class="precio">${prod.precio}</div>
+                            <button class="btn comprar-merch" id="btn-agregar" onclick="agregar(${prod.id},'merch')">
+                                comprar 
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        `
+                `
+        }
     })
     contenedorMerch.innerHTML= carga
 }
@@ -154,9 +158,9 @@ window.addEventListener('load', ()=>{
         responsive: true,
         language: {
         lengthMenu: "Mostrar _MENU_ registros por página",
-        zeroRecords: "Ningún usuario encontrado",
+        zeroRecords: "Ninguna comida encontrada",
         info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
-        infoEmpty: "Ningún usuario encontrado",
+        infoEmpty: "Ninguna comida encontrada",
         infoFiltered: "(filtrados desde _MAX_ registros totales)",
         search: "Buscar:",
         loadingRecords: "Cargando...",
