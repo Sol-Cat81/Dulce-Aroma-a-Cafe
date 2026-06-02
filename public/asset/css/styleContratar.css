@@ -1,11 +1,12 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
 }
-body{
+
+body {
     background-color: #FFF7EC;
     font-family: 'contenido';
     color: #422B23;
@@ -17,13 +18,15 @@ body{
     font-family: 'titulo';
     src: url('../font/stylecasual.otf');
 }
+
 @font-face {
     font-family: 'contenido';
     src: url('../font/AnonymousPro-Regular.ttf');
 }
+
 /* ---- Barra de navegacion */
 
-header{
+header {
     width: 100%;
     position: fixed;
     top: 0;
@@ -33,11 +36,13 @@ header{
     background: transparent;
     transition: .4s ease;
 }
-.scrolled{
+
+.scrolled {
     background-color: #422B23;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.537);
 }
-.contenedor-nav{
+
+.contenedor-nav {
     width: 100%;
     height: 100%;
     max-width: 1280px;
@@ -47,51 +52,53 @@ header{
     align-items: center;
     padding: 0% 30px;
 }
+
 /* logo */
-.logo{
+.logo {
     font-size: 3rem;
     font-family: 'titulo';
     display: flex;
     align-items: center;
 }
-.logo img{
+
+.logo img {
     width: 6.5rem;
 }
-header a{
+
+header a {
     color: #FFF7EC;
     text-decoration: none;
 }
-header a:hover{
+
+header a:hover {
     color: #EFD8D6;
     text-shadow: 2px 2px 2px black;
 }
 
 /* --- hero --- */
-.baner{
+.baner {
     width: 100%;
     height: 40vh;
     object-fit: cover;
 }
-.logo-hero{
+
+.logo-hero {
     width: 100%;
     margin-top: -15vh;
 }
-h1{
+
+h1 {
     font-family: 'titulo';
     font-size: 3rem;
 }
 
 /* ---- ofertas de chamba ---- */
-.cards-empleo{
+.cards-empleo {
     color: #FFF7EC;
     gap: 20px;
 }
-.ofertas{
-    background-color: #422B23;
-    border-radius: 15px;
-    padding: 20px;
-}
-.nosotros{
+
+.nosotros {
     background-color: #422B23;
     border-radius: 15PX;
     padding: 20px;
@@ -99,33 +106,208 @@ h1{
 
 /* ---- responsive ----- */
 
-@media(max-width:950px){
+@media(max-width:950px) {
     /* -- Barra de navegacion -- */
 
     /* -- Pie -- */
-    .pie-nombre{
+    .pie-nombre {
         font-size: 250%;
     }
 }
-@media(max-width:580px){
+
+@media(max-width:580px) {
+
     /* -- Barra de navegacion -- */
-    .logo{
+    .logo {
         font-size: 2rem;
     }
-    .logo img{
+
+    .logo img {
         width: 5rem;
     }
-    .contenedor-nav{
+
+    .contenedor-nav {
         padding: 0px 10px;
     }
+
     /* ---- Pie de pagina ---- */
-    footer img{
+    footer img {
         width: 70%;
     }
 }
-@media(max-width:400px){
+
+@media(max-width:400px) {
+
     /* -- Barra de navegacion -- */
-    .logo img{
+    .logo img {
         display: none;
     }
+}
+
+/*tarjeta de empleado*/
+
+.ofertas {
+    background-color: #422B23;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+}
+
+/* descripcion del puesto */
+
+.descripcion-puesto {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+/* contenedor de etiquetas */
+
+.badges-empleo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* etiquetas visuales */
+
+.badge-info {
+    background-color: #FFF7EC;
+    color: #422B23;
+    padding: 8px 12px;
+    border-radius: 50px;
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* boton postularse */
+
+.btn-postularse {
+    border: none;
+    background-color: #D9A066;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-postularse:hover {
+    transform: translateY(-2px);
+}
+
+
+.form-postulacion {
+    background-color: #422B23;
+    color: #ffffff;
+    padding: 30px;
+    margin-top: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-postulacion h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.subtitulo-formulario {
+    text-align: center;
+    color: #dbd6d6;
+    margin-bottom: 20px;
+}
+
+.form-postulacion label {
+    font-weight: bold;
+    font-size: .95rem;
+    color: #ffffff;
+    margin-bottom: -5px;
+}
+
+.form-postulacion input  {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: .3s;
+}
+
+.form-postulacion input:focus {
+    outline: none;
+    border-color: #D9A066;
+    box-shadow: 0 0 10px rgba(217, 160, 102, .3);
+}
+
+#archivo-recluta {
+    padding: 10px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+
+.form-postulacion button {
+    margin-top: 10px;
+    background-color: #422B23;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form-postulacion button:hover {
+    background-color: #5b3a2f;
+    transform: translateY(-2px);
+}
+
+.mensaje-exito {
+    display: none;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+}
+
+.form-postulacion {
+    animation: aparecer .4s ease;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* clase usada por javascript */
+.oculto {
+    display: none;
+}
+
+/* mensaje de exito */
+.mensaje-exito {
+    display: none;
+    color: green;
+    font-weight: bold;
 }

@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="asset/img/logo-simple.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="asset/css/styleContratar.css">
     <title>Dulce Aroma a Cafe</title>
 </head>
+
 <body>
     <header>
         <!-- Barra de navegacion -->
         <div class="contenedor-nav">
             <a href="index.html">
                 <div class="logo">
-                <img src="asset/img/logo-simple.png" alt="">
-                <span>Dulce Aroma a Cafe</span>
-            </div>
+                    <img src="asset/img/logo-simple.png" alt="">
+                    <span>Dulce Aroma a Cafe</span>
+                </div>
             </a>
         </div>
     </header>
@@ -38,29 +41,156 @@
     <section class=" container cards-empleo">
         <div class="row">
             <div class="col-md-8">
-            <div class="ofertas">
-                <h2>Bartender</h2>
-                <span><ion-icon name="location-outline"></ion-icon> Ubicacion</span>
-                <br>
-                <span><ion-icon name="briefcase-outline"></ion-icon> Trabajo</span>
-                <br>
+                <div class="ofertas">
+
+                    <!-- Titulo del puesto -->
+                    <h2>Bartender</h2>
+                    <!-- Descripcion -->
+                    <p class="descripcion-puesto">
+                        Buscamos una persona responsable, amable y con buena presencia
+                        para atender clientes, preparar bebidas y trabajar en equipo.
+                    </p>
+
+                    <!-- Etiquetas informativas -->
+                    <div class="badges-empleo">
+
+                        <span class="badge-info">
+                            <ion-icon name="location-outline"></ion-icon>
+                            Tucumán
+                        </span>
+
+                        <span class="badge-info">
+                            <ion-icon name="briefcase-outline"></ion-icon>
+                            Presencial
+                        </span>
+
+                        <span class="badge-info">
+                            <ion-icon name="time-outline"></ion-icon>
+                            Turno mañana
+                        </span>
+
+                        <span class="badge-info">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            Full Time
+                        </span>
+
+                    </div>
+
+                    <!-- Boton que abrira el formulario -->
+                    <button type="button" id="btn-postularse" class="btn-postularse">
+                        Postularse
+                    </button>
+
+                </div>
+                <form action="" class="form-postulacion oculto" id="form-postulacion">
+                    <h2>formulario de postulacion</h2>
+                    <p class="subtitulo-formulario">
+                        Complete los datos para enviar su solicitud.
+                    </p>
+
+                    <label for="nombre-recluta">Nombre completo</label>
+                    <input type="text" name="" id="nombre-recluta" placeholder="juan perez martines" required>
+                    <label for="email"> correo </label>
+                    <input type="email" name="" id="correo-recluta" placeholder="ejemplo@gmail.com" required>
+                    <label for="telefono">numero de telefono</label>
+                    <input type="tel" name="" id="telefono-recluta" placeholder="12452455" required>
+                    <label for="archivo-recluta">Acrhivo-cv</label>
+                    <input type="file" name="" id="archivo-recluta">
+                    <button type="submit">enviar</button>
+                    <p id="mensaje-exito" class="mensaje-exito">
+                        ¡Tu postulación fue enviada correctamente!
+                    </p>
+                </form>
+            </div>
+            <br>
+            <div class="col-md-4 nosotros">
+                <b>Nosotros</b>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, asperiores veniam
+                    consequatur porro ipsa incidunt ipsum aliquid odit, numquam eligendi nam obcaecati harum
+                    exercitationem non deserunt. Quidem possimus itaque adipisci.
+                    Neque laborum quibusdam, sint dolorem autem harum repellendus numquam aliquam culpa magnam suscipit,
+                    voluptas illo ipsum? Vel eaque quae explicabo labore, inventore commodi reiciendis ducimus magni
+                    fugit dolorem nihil maiores!
+                </p>
             </div>
         </div>
-        <br>
-        <div class="col-md-4 nosotros">
-            <b>Nosotros</b>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, asperiores veniam consequatur porro ipsa incidunt ipsum aliquid odit, numquam eligendi nam obcaecati harum exercitationem non deserunt. Quidem possimus itaque adipisci.
-                Neque laborum quibusdam, sint dolorem autem harum repellendus numquam aliquam culpa magnam suscipit, voluptas illo ipsum? Vel eaque quae explicabo labore, inventore commodi reiciendis ducimus magni fugit dolorem nihil maiores!
-            </p>
-        </div>
-        </div>
     </section>
+    <script>
+
+        // Boton de postularse
+        const btnPostularse =
+            document.getElementById("btn-postularse");
+
+        // Formulario
+        const formulario =
+            document.getElementById("form-postulacion");
+
+        // Mensaje de exito
+        const mensajeExito =
+            document.getElementById("mensaje-exito");
+
+
+        //mostar y ocultar 
+        btnPostularse.addEventListener(
+            "click",
+            function () {
+
+                // alterna la clase oculto
+                formulario.classList.toggle("oculto");
+
+                // si el formulario esta visible
+                if (
+                    !formulario.classList.contains("oculto")
+                ) {
+
+                    btnPostularse.textContent =
+                        "Cerrar formulario";
+
+                } else {
+
+                    btnPostularse.textContent =
+                        "Postularse";
+
+                }
+            }
+        );
+
+        //envio de formulario
+
+        formulario.addEventListener(
+            "submit",
+            function (evento) {
+
+                // evita recargar la pagina
+                evento.preventDefault();
+
+                // muestra el mensaje
+                mensajeExito.style.display =
+                    "block";
+
+                // limpia todos los campos
+                formulario.reset();
+
+                // despues de 3 segundos
+                setTimeout(function () {
+
+                    // oculta mensaje
+                    mensajeExito.style.display =
+                        "none";
+
+                }, 3000);
+            }
+        );
+    </script>
     <script src="asset/js/index.js"></script>
     <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <!-- Enlace para los iconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

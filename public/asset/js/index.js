@@ -193,3 +193,4 @@ filtroMerch.addEventListener('change',e =>{
     }
     filtrarMerch()
 })
+
