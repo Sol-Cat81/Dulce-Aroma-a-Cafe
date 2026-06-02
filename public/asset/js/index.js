@@ -139,15 +139,7 @@ responsive();
 window.addEventListener("resize", responsive);
 
 /* para cuando el menu sale del hero */
-window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 100){
-        header.classList.add("scrolled");
-    }else{
-        header.classList.remove("scrolled");
-    }
-
-});
 /* cuando la pagina carga se configura la tabla y se carga el local store */
 window.addEventListener('load', ()=>{
     table = new DataTable('#menutabla', {

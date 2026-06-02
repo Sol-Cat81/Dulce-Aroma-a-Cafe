@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="cabezal_contratar" class="">
         <!-- Barra de navegacion -->
         <div class="contenedor-nav">
             <a href="index.html">
@@ -106,13 +106,25 @@
             <div class="col-md-4 nosotros">
                 <b>Nosotros</b>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, asperiores veniam
-                    consequatur porro ipsa incidunt ipsum aliquid odit, numquam eligendi nam obcaecati harum
-                    exercitationem non deserunt. Quidem possimus itaque adipisci.
-                    Neque laborum quibusdam, sint dolorem autem harum repellendus numquam aliquam culpa magnam suscipit,
-                    voluptas illo ipsum? Vel eaque quae explicabo labore, inventore commodi reiciendis ducimus magni
-                    fugit dolorem nihil maiores!
-                </p>
+                        Dulce Aroma a Café” nació mucho antes de tener un local, un logo o una idea clara
+                        de negocio. Nació en nuestras mañanas de cursado, entre apuntes, trabajos
+                        prácticos, nervios por los exámenes y largas charlas acompañadas siempre por una
+                        taza de café.
+                        <br>
+                        Todos los días, sin falta, nos juntábamos antes de entrar a clases o en los recreos
+                        para compartir un café. Ese pequeño momento se convirtió en nuestro lugar seguro.
+                        Mientras estudiábamos, soñábamos con tener algún día un espacio propio donde
+                        otras personas también pudieran sentirse cómodas, relajadas y acompañadas.
+                        Con el tiempo entendimos que no queríamos abrir solamente una cafetería.
+                        Queríamos crear un ambiente cálido, donde cada aroma recordara a hogar, amistad
+                        y buenos momentos. Así nació “Dulce Aroma a Café”, un lugar pensado para
+                        quienes necesitan una pausa en medio de la rutina, una charla sincera o
+                        simplemente disfrutar de un rico café.
+                        <br>
+                        Hoy “Dulce Aroma a Café” no es solo una cafetería. Es el recuerdo vivo de nuestra
+                        amistad y de cómo algo tan simple como compartir un café todos los días pudo
+                        transformarse en un gran sueño hecho realidad.
+                    </p>
             </div>
         </div>
     </section>
@@ -182,8 +194,16 @@
                 }, 3000);
             }
         );
+        const cabezal = document.querySelector('header')
+        window.addEventListener("scroll", () => {
+
+            if(window.scrollY > 80){
+                cabezal.classList.add("scrolled");
+            }else{
+                cabezal.classList.remove("scrolled");
+            }
+        });
     </script>
-    <script src="asset/js/index.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
