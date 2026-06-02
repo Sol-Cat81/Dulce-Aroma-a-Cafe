@@ -33,6 +33,10 @@ body{
     z-index: 1000;
     display: none;
 }
+.modal-content li{
+    display: flex;
+    justify-content: space-between;
+}
 #carrito {
   background-color: white;
   color: black;
@@ -52,6 +56,38 @@ body{
     color: #422B23;
     font-weight: bold;
     font-size: 10px;
+}
+.btn-cerrar{
+    background-color: #422B23;
+    color: #FFF7EC;
+    transition: 1s;
+}
+.btn-cerrar:hover{
+    background-color: #EFD8D6;
+    color: #422B23;
+    border: 1px solid #422B23;
+}
+.btn-terminar{
+    background-color: #FFF7EC;
+    color: #422B23;
+    border: 1px solid #422B23;
+    transition: 1s;
+}
+.btn-terminar:hover{
+    background-color: #EFD8D6;
+    color: #422B23;
+    border: 1px solid #422B23;
+}
+.modal-content{
+    background-color: #FFF7EC;
+}
+.list-group-item{
+    background-color: #FFF7EC;
+}
+.list-group-item ion-icon{
+    color: #422B23;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /* ITEMS DEL CARRITO */
@@ -125,11 +161,6 @@ header{
     border: 2px solid #422B23;
     border-radius: 5px;
 }
-.btn-agregar{
-    color: #FFF7EC;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
 .menu-opciones{
     height: auto;
 }
@@ -182,28 +213,22 @@ header a:hover{
 }
 
 /* ---- Menu ---- */
-
 .content-tabla{
+    width: 100%;
     background-color: #422B23;
     color: #FFF7EC;
-    padding: 20px 20px 5px 20px;
+    padding: 20px;
     border-radius: 15px;
+    overflow-x: auto;
 }
 .tabla{
     width: 100%;
     height: auto;
 }
-.tabla th{
-    text-align: center;
-    border-bottom: 2px solid #FFF7EC;
+.btn-agre{
+    cursor: pointer;
 }
-td{
-    padding: 5px 0px;
-    border-bottom: 1px solid #5a392e;
-}
-.dropdown-menu{
-    background-color: #422B23;
-}
+
 .boton{
     background-color: #422B23;
     color: #FFF7EC;
@@ -223,13 +248,6 @@ td{
 
 .img{
     width: 100%;
-}
-.dropdown-item{
-    color: #FFF7EC;
-}
-.dropdown-item:hover{
-    background-color: #EFD8D6;
-    color: #422B23;
 }
 
 /* ---- productos-merch ---- */
@@ -355,10 +373,10 @@ footer img{
     font-size: 1.5rem;
     margin-top: 20px;
 }
-.list-group-item{
+.li{
     background-color: #422B23;
 }
-.list-group-item a{
+.li a{
     color: #FFF7EC;
     text-decoration: none;
 }

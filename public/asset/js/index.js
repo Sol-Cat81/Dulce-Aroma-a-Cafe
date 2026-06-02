@@ -1,22 +1,27 @@
-/* variables */
-const menuOpciones = document.querySelector(".menu-opciones");
-const header = document.querySelector("header");
-const contenedor = document.querySelector(".contenedor-nav");
-const btnMenu = document.getElementById("btn-menu");
+/* ---------- VARIABLES ---------- */
 
+/* Para el cabezal */
+const menuOpciones = document.querySelector(".menu-opciones");// contenedor de las opciones de navegacion
+const header = document.querySelector("header");// cabezal
+const contenedor = document.querySelector(".contenedor-nav");// contenedor principal
+const btnMenu = document.getElementById("btn-menu");// boton para desplegar el menu
+
+/* Para el filtro del menu */
 const menu = JSON.parse(localStorage.getItem('menu'))
-const bodyTabla = document.getElementById('bodyTabla')
-const filtroMenu = document.getElementById('filtro-menu')
-let selectFiltroMenu = ''
-let table
+const bodyTabla = document.getElementById('bodyTabla')//cuerpo de la tabla menu
+const filtroMenu = document.getElementById('filtro-menu')// select para filtrar menu
+let selectFiltroMenu = ''// guarda la seleccion del menu
+let table// para la tabla
 
+/* Para el filtro del slider */
 const productoGuardado = JSON.parse(localStorage.getItem('merch'))
-const contenedorMerch = document.querySelector('.swiper-wrapper')
-const filtroMerch = document.getElementById('filtro-merch')
-let selectFiltroMerch = ''
+const contenedorMerch = document.querySelector('.swiper-wrapper')// contenedor para las cards de los productos
+const filtroMerch = document.getElementById('filtro-merch')// select para filtrar el slider
+let selectFiltroMerch = ''// guarda la seleccion de la merch
 // swiper - motion - chartjs - lucide
 // nomenclatura BEM
-/* Slider de productos con la libreria swiper */
+
+/* configurecion del Slider de productos (con la libreria swiper) */
 const swiper = new Swiper('.swiper', {
             direction: 'horizontal',
             loop: true,
@@ -50,20 +55,21 @@ const swiper = new Swiper('.swiper', {
                 slidesPerView: "auto",
             }
         }
-
 });
 
-/* FUNCIONES */
+/* ---------- FUNCIONES ---------- */
+
+/* para cargar el menu */
 function cargaMenu(menu) {
 
-    table.clear()
+    table.clear()// borra la anterior tabla
 
-    menu.forEach(comida => {
+    menu.forEach(comida => {// recorremos el array menu y cargamos la tabla
         table.row.add([
             comida.nombre,
             comida.descripcion,
-            comida.precio,
-            `<ion-icon name="bag-add-outline" class="btn-agregar" onclick="comprar[${comida.id}]" id="btn-agregar"></ion-icon>`
+            `$` + comida.precio,
+            `<div class="btn-agre" onclick="agregar(${comida.id},'consumible')" id="btn-agregar"><ion-icon name="add-outline"></ion-icon> Agregar </div>`
         ])
     })
 
@@ -93,7 +99,7 @@ function cargaMerch(productoGuardado){
                 <div class="infoprod">
                     <div class="nombre">${prod.nombre}</div>
                     <div class="precio">${prod.precio}</div>
-                    <button class="btn btn-dark comprar-merch">
+                    <button class="btn comprar-merch" id="btn-agregar" onclick="agregar(${prod.id},'merch')">
                         comprar 
                     </button>
                 </div>
@@ -115,12 +121,12 @@ function filtrarM(prod){
     }
 }
 
-/* EVENTOS */
-/* para desplegar el menu */
+/* ---------- EVENTOS ---------- */
+/* para desplegar el menu cuando se haga click en las 3 lineas (para telefono) */
 btnMenu.addEventListener("click", () => {
     menuOpciones.classList.toggle("mostrar");
 });
-
+/* para ocultar las opciones del menu y se muestre el icono de 3 rayas */
 const responsive = () => {
     if(window.innerWidth < 950){
         header.appendChild(menuOpciones);
@@ -133,7 +139,6 @@ responsive();
 window.addEventListener("resize", responsive);
 
 /* para cuando el menu sale del hero */
-
 window.addEventListener("scroll", () => {
 
     if(window.scrollY > 100){
@@ -143,9 +148,10 @@ window.addEventListener("scroll", () => {
     }
 
 });
-
+/* cuando la pagina carga se configura la tabla y se carga el local store */
 window.addEventListener('load', ()=>{
     table = new DataTable('#menutabla', {
+        scrollX: true,
         responsive: true,
         language: {
         lengthMenu: "Mostrar _MENU_ registros por página",
@@ -167,7 +173,7 @@ window.addEventListener('load', ()=>{
     cargaMenu(menu)
     cargaMerch(productoGuardado)
 })
-// filtro menu
+// filtro del menu 
 filtroMenu.addEventListener('change',e =>{
     let seleccionMenu = e.target.value;
     if(seleccionMenu == "todos"){
@@ -176,15 +182,8 @@ filtroMenu.addEventListener('change',e =>{
         selectFiltroMenu = seleccionMenu;
     }
     filtrar_Menu()
-
-    let seleccionMerch = e.target.value;
-    if(seleccionMerch == "todos"){
-        selectFiltroMerch = ''
-    }else{
-        selectFiltroMerch = seleccionMerch;
-    }
-    filtrarMerch()
 })
+/* filtro del slider merch */
 filtroMerch.addEventListener('change',e =>{
     let seleccionMerch = e.target.value;
     if(seleccionMerch == "todos"){

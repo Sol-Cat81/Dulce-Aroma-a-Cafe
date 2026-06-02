@@ -11,6 +11,9 @@ const merchInicial = [
     { id: 2, nombre: 'Gorra estampada', direccion: '/admin/asset/img/ChatGPT-Image-gorra.png', precio: 4000, categoria: 'gorras' },
     { id: 3, nombre: 'Taza con el logo', direccion: '/admin/asset/img/taza1.png', precio: 8000, categoria: 'tazas' }
 ];
+
+let pedidos = []
+let detallePedido = []
 // nose qie tiene que llevar la de usuario xD
 
 //mostrar datos del menu iniciales al momento
