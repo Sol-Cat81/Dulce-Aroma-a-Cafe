@@ -1,157 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="asset/img/logo-simple.png" type="image/x-icon">
-     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="asset/css/styleAdmin.css">
     <title>Dulce Aroma a Cafe - admin</title>
 </head>
+
 <body>
     <header>
         <h1>Admin</h1>
     </header>
     <div class="contenedor">
-    <aside>
-        <b>Panel</b>
-        <ul>
-             <li class="opcion-panel activo-panel" data-section="Menu">Menu</li>
-             <li class="opcion-panel" data-section="Productos">Productos</li>
-             <li class="opcion-panel" data-section="pedidos">Pedidos</li>
-             <li class="opcion-panel" data-section="reclutamiento">Reclutamiento</li>
-        </ul>
-    </aside>
+        <aside>
+            <b>Panel</b>
+            <ul>
+                <li class="opcion-panel activo-panel" data-section="Menu">Menu</li>
+                <li class="opcion-panel" data-section="Productos">Productos</li>
+                <li class="opcion-panel" data-section="pedidos">Pedidos</li>
+                <li class="opcion-panel" data-section="reclutamiento">Reclutamiento</li>
+            </ul>
+        </aside>
         <main>
             <section id="Menu" class="seccion-panel seccion-activa">
                 <h2>Menu</h2>
-            <br>
-            <h3>Agregar nueva comida al menu</h3>
-            <form action="" id="formMenu">
-                <div class="row">
-                    <label for="">Nombre:</label>
-                    <br>
-                    <input type="text" id="nombreMenu" placeholder="Nombre del producto" class="ingreso-info">
-                    <br>
-                    <br>
-                    <label for="">Precio:</label>
-                    <br>
-                    <input type="number" name="" id="precioMenu" placeholder="Ingrese el precio" class="ingreso-info">
-                    <br>
+                <br>
+                <h3>Agregar nueva comida al menu</h3>
+                <form action="" id="formMenu">
+                    <div class="row">
+                        <label for="">Nombre:</label>
+                        <br>
+                        <input type="text" id="nombreMenu" placeholder="Nombre del producto" class="ingreso-info">
+                        <br>
+                        <br>
+                        <label for="">Precio:</label>
+                        <br>
+                        <input type="number" name="" id="precioMenu" placeholder="Ingrese el precio"
+                            class="ingreso-info">
+                        <br>
+                    </div>
+                    <div class="row">
+                        <label for="">Descripcion:</label>
+                        <br>
+                        <input type="text" name="" id="descripcionMenu" placeholder="Cafe" class="ingreso-info">
+                        <br>
+                    </div>
+                    <div class="row">
+                        <label for="categoriaMenu">Categoria</label>
+                        <select name="" id="categoriaMenu" class="select">
+                            <option value="cafe">Cafe</option>
+                            <option value="licuados">Licuados</option>
+                            <option value="pasteleria">Pasteleria</option>
+                            <option value="panaderia">Panaderia</option>
+                            <option value="sin-tacc">Sin Tacc</option>
+                        </select>
+                        <br>
+                        <button type="submit" class="editar">Agregar</button>
+                    </div>
+                </form>
+                <br>
+                <div class="cabezal-menu">
+                    <h3>Productos registrados</h3>
+                    <div class="filtro">
+                        <label for="filtroMenu" class="molestar a nico con otro filtro >:D">Filtrar</label>
+                        <select name="" id="filtroMenu" class="select">
+                            <option value="">Todos</option>
+                            <option value="cade">Cafe</option>
+                            <option value="licuados">Licuados</option>
+                            <option value="pasteleria">Pasteleria</option>
+                            <option value="panaderia">Panaderia</option>
+                            <option value="sin-tacc">Sin Tacc</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="row">
-                    <label for="">Descripcion:</label>
-                    <br>
-                    <input type="text" name="" id="descripcionMenu" placeholder="Cafe" class="ingreso-info">
-                    <br>
+                <br>
+                <div class="content-tabla">
+                    <table id="menutabla" class="tabla">
+                        <thead>
+                            <tr>
+                                <th>Comida</th>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyTabla">
+                        </tbody>
+                    </table>
                 </div>
-                <div class="row">
-                    <label for="categoriaMenu">Categoria</label>
-                    <select name="" id="categoriaMenu" class="select">
-                        <option value="cafe">Cafe</option>
-                        <option value="licuados">Licuados</option>
-                        <option value="pasteleria">Pasteleria</option>
-                        <option value="panaderia">Panaderia</option>
-                        <option value="sin-tacc">Sin Tacc</option>
-                    </select>
-                    <br>
-                    <button type="submit" class="editar">Agregar</button>
-                </div>
-            </form>
-            <br>
-            <div class="cabezal-menu">
-                <h3>Productos registrados</h3>
-                <div class="filtro">
-                    <label for="filtroMenu" class="molestar a nico con otro filtro >:D">Filtrar</label>
-                    <select name="" id="filtroMenu" class="select">
-                        <option value="">Todos</option>
-                        <option value="cade">Cafe</option>
-                        <option value="licuados">Licuados</option>
-                        <option value="pasteleria">Pasteleria</option>
-                        <option value="panaderia">Panaderia</option>
-                        <option value="sin-tacc">Sin Tacc</option>
-                    </select>
-                </div>
-               
-            </div>
-            <br>
-            <div class="content-tabla">
-        <table id="menutabla" class="tabla">
-    <thead>
-        <tr>
-            <th>Comida</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-
-    <tbody id="bodyTabla">
-    </tbody>
-    
-    </table>
-    </div>
-    </section>
+            </section>
             <section id="Productos" class="seccion-panel">
                 <br>
                 <h2>Productos</h2>
                 <br>
-            <h3>Agregar nuevo producto</h3>
-            <form action="" id="formProducto">
-                <div class="row">
-                    <label for="nombreProducto">Nombre:</label>
-                    <br>
-                    <input type="text" id="nombreProducto" placeholder="Nombre del producto" class="ingreso-info">
-                    <br>
-                    <br>
-                    <label for="precioProducto">Precio:</label>
-                    <br>
-                    <input type="number" name="" id="precioProducto" placeholder="Ingrese el precio" class="ingreso-info">
-                    <br>
-                </div>
-                <div class="row">
-                    <label for="img-producto">Imagen:</label>
-                    <br>
-                    <div class="contenedor-carga">
-                    <input type="file" id="imgProducto" class="input">
-                    <label for="imgProducto" class="boton">
-                        Seleccionar imagen
-                    </label>
+                <h3>Agregar nuevo producto</h3>
+                <form action="" id="formProducto">
+                    <div class="row">
+                        <label for="nombreProducto">Nombre:</label>
+                        <br>
+                        <input type="text" id="nombreProducto" placeholder="Nombre del producto" class="ingreso-info">
+                        <br>
+                        <br>
+                        <label for="precioProducto">Precio:</label>
+                        <br>
+                        <input type="number" name="" id="precioProducto" placeholder="Ingrese el precio"
+                            class="ingreso-info">
+                        <br>
                     </div>
-                    <br>
+                    <div class="row">
+                        <label for="img-producto">Imagen:</label>
+                        <br>
+                        <div class="contenedor-carga">
+                            <input type="file" id="imgProducto" class="input">
+                            <label for="imgProducto" class="boton">
+                                Seleccionar imagen
+                            </label>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="row">
+                        <label for="categoriaProducto">Categoria</label>
+                        <select name="" id="categoriaProducto" class="select">
+                            <option value="remeras">Remeras</option>
+                            <option value="gorras">Gorras</option>
+                            <option value="tazas">Tazas</option>
+                            <option value="vasos">Vasos</option>
+                            <option value="otros">Otro</option>
+                        </select>
+                        <br>
+                        <button type="submit" class="editar">Agregar</button>
+                    </div>
+                </form>
+                <br>
+                <br>
+                <h3>Productos registrados</h3>
+                <br>
+                <div class="content-tabla">
+                    <table id="productable" class="tabla">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Dirección de imagen</th>
+                                <th>Precio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyTablaProduc">
+                        </tbody>
+
+                    </table>
                 </div>
-                <div class="row">
-                    <label for="categoriaProducto">Categoria</label>
-                    <select name="" id="categoriaProducto" class="select">
-                        <option value="remeras">Remeras</option>
-                        <option value="gorras">Gorras</option>
-                        <option value="tazas">Tazas</option>
-                        <option value="vasos">Vasos</option>
-                        <option value="otros">Otro</option>
-                    </select>
-                    <br>
-                    <button type="submit" class="editar">Agregar</button>
-                </div>
-            </form>
-            <br>
-            <br>
-            <h3>Productos registrados</h3>
-            <br>
-            <div class="content-tabla">
-                <table id="productable" class="tabla">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Dirección de imagen</th>
-                        <th>Precio</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-               <tbody id="bodyTablaProduc">
-                </tbody>
-    
-            </table>
-            </div>
             </section>
             <section id="pedidos" class="seccion-panel">
                 <br><br>
@@ -236,9 +237,11 @@
             </section>
         </main>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
     <script src="asset/js/localStorage.js"></script>
     <script src="asset/js/adminPanel.js"></script>
 </body>
+
 </html>

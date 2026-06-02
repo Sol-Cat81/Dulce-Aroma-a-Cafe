@@ -149,7 +149,7 @@ function agregarProducto(evento) {
     const productoNuevo = {
         id: crearId(productos),
         nombre: nombreProducto.value,
-        direccion: imagen,
+        direccion: '/admin/asset/img/' + imagen,
         precio: Number(precioProducto.value),
         categoria: categoriaProducto.value
     };

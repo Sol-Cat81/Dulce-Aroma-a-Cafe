@@ -64,6 +64,10 @@ form{
 .row{
     flex: 25%;
 }
+.content-tabla{
+    background-color: #FFF7EC !important;
+    color: #422B23 !important;
+}
 .ingreso-info,.select{
     background-color: #FFF7EC;
     width: 300px;
@@ -71,11 +75,6 @@ form{
     margin-top: 10px;
     border: 2px solid #422B23;
     border-radius: 5px;
-}
-.content-tabla{
-    background-color: #FFF7EC;
-    padding: 20px;
-    border-radius: 15px;
 }
 .tabla{
     width: 100%;
