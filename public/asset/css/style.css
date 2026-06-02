@@ -80,6 +80,7 @@ body{
 }
 .modal-content{
     background-color: #FFF7EC;
+    color: #422B23;
 }
 .list-group-item{
     background-color: #FFF7EC;
@@ -88,6 +89,30 @@ body{
     color: #422B23;
     font-size: 1.5rem;
     cursor: pointer;
+}
+.btn-sumar{
+    background-color: #422B23;
+    color: #EFD8D6;
+}
+.btn-sumar:hover{
+    background-color: #644135;
+    color: #FFF7EC;
+}
+.btn-restar{
+    background-color: #EFD8D6;
+    color: #422B23;
+    border: 1px solid #422B23;
+}
+.btn-restar:hover{
+    background-color: #FFF7EC;
+    border: 1px solid #422B23;
+}
+.btn-cantidad{
+    border: 1px solid #422B23;
+    color: #422B23;
+}
+.btn-cantidad:hover{
+    border: 1px solid #422B23;
 }
 
 /* ITEMS DEL CARRITO */

@@ -81,9 +81,9 @@ function subirCarrito(lista){
                 <span>${elem.nombre}</span>
                 <span>$${elem.precio}c/u</span>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-secondary" onclick="sumarCantidad(${elem.id},'${elem.tipo}')">+</button>
-                    <button type="button" class="btn btn-outline-secondary">${elem.cantidad}</button>
-                    <button type="button" class="btn btn-secondary" onclick="restarCantidad(${elem.id},'${elem.tipo}')">-</button>
+                    <button type="button" class="btn btn-sumar" onclick="sumarCantidad(${elem.id},'${elem.tipo}')">+</button>
+                    <button type="button" class="btn btn-cantidad">${elem.cantidad}</button>
+                    <button type="button" class="btn btn-restar" onclick="restarCantidad(${elem.id},'${elem.tipo}')">-</button>
                 </div>
                 <span><ion-icon name="trash-outline" onclick="eliminarItem(${elem.id},'${elem.tipo}')"></ion-icon></span>
                 </li>
@@ -95,9 +95,9 @@ function subirCarrito(lista){
                 <span>${elem.nombre}</span>
                 <span>$${elem.precio}c/u</span>
                 <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-secondary btn-sumar" onclick="sumarCantidad(${elem.id},'${elem.tipo}')">+</button>
-                <button type="button" class="btn btn-outline-secondary">${elem.cantidad}</button>
-                <button type="button" class="btn btn-secondary btn-restar" onclick="restarCantidad(${elem.id},'${elem.tipo}')"">-</button>
+                <button type="button" class="btn btn-sumar" onclick="sumarCantidad(${elem.id},'${elem.tipo}')">+</button>
+                <button type="button" class="btn btn-cantidad">${elem.cantidad}</button>
+                <button type="button" class="btn btn-restar" onclick="restarCantidad(${elem.id},'${elem.tipo}')"">-</button>
             </div>
                 <span><ion-icon name="trash-outline" onclick="eliminarItem(${elem.id},'${elem.tipo}')"></ion-icon></span>
                 </li>
