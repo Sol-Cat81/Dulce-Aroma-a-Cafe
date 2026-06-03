@@ -217,6 +217,14 @@ header a:hover{
 #btn-menu{
     display: none;
 }
+.dropdown-menu{
+    background-color: #FFF7EC;
+    color: #422B23;
+}
+.dropdown-item:hover{
+    background-color: #eae2d9;
+    text-shadow: 0px 0px 0px #FFF7EC;
+}
 
 /* ---- Carrusel (hero) ---- */
 .carousel{

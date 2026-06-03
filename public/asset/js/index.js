@@ -21,6 +21,11 @@ let selectFiltroMerch = ''// guarda la seleccion de la merch
 // swiper - motion - chartjs - lucide
 // nomenclatura BEM
 
+/* para el usuario */
+const users = JSON.parse(localStorage.getItem('usuarios'))
+const usuario = JSON.parse(sessionStorage.getItem('usuario'))
+const btnLogin = document.getElementById('loginUsuario')
+
 /* configurecion del Slider de productos (con la libreria swiper) */
 const swiper = new Swiper('.swiper', {
             direction: 'horizontal',
@@ -58,6 +63,15 @@ const swiper = new Swiper('.swiper', {
 });
 
 /* ---------- FUNCIONES ---------- */
+
+/* cerrar sesion */
+function cerrarSesion(){
+    if(usuario != null){
+        sessionStorage.clear()
+        usuario = null
+        window.location.reload(true);
+    }
+}
 
 /* para cargar el menu */
 function cargaMenu(menu) {
@@ -126,6 +140,34 @@ function filtrarM(prod){
 }
 
 /* ---------- EVENTOS ---------- */
+
+/* para detectar el login del usuario */
+window.addEventListener('load',()=>{
+    let bus = usuario - 1
+    if(usuario === null){
+    }else{
+        users.forEach(cliente =>{
+            if(cliente.id === usuario){
+                btnLogin.innerHTML = `
+                <div class="dropdown">
+                <button class="btn dropdown-toggle hb" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    ${cliente.nombre}
+                </button>
+                <ul class="dropdown-menu">
+                    <li onclick="cerrarSesion()"><a class="dropdown-item" href=""> Cerrar sesion</a></li>
+                </ul>
+                </div>`
+            }else{
+                btnLogin.innerHTML = `
+                <a href="login.html">
+                    <ion-icon name="person-outline"></ion-icon>
+                </a>
+                `
+            }
+        })
+    }
+})
+
 /* para desplegar el menu cuando se haga click en las 3 lineas (para telefono) */
 btnMenu.addEventListener("click", () => {
     menuOpciones.classList.toggle("mostrar");

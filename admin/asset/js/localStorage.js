@@ -13,6 +13,10 @@ const merchInicial = [
 ];
 let pedidos = []
 let detallePedido = []
+let usuarios = [
+    {id: 1, nombre: 'Messi', gmail: 'messi@gmail.com', telefono: 3863452039, direccion: 'Monteros,av. san cristonomo 34', password: 'S4lch1p4p4', estado: false}
+]
+localStorage.setItem('usuarios',JSON.stringify(usuarios))
 localStorage.setItem('pedidos',JSON.stringify(pedidos))
 localStorage.setItem('detallePedido',JSON.stringify(detallePedido))
 // nose qie tiene que llevar la de usuario xD
