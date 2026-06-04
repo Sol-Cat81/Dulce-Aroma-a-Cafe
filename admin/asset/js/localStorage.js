@@ -26,6 +26,8 @@ localStorage.setItem('detallePedido',JSON.stringify(detallePedido))
 let tablaMenu = null;
 
 let tablaProducto = null;
+
+let tablaUsuarios = null
 if (localStorage.getItem('menu') === null){
     localStorage.setItem('menu',JSON.stringify(menuInicial));
 }
@@ -48,7 +50,7 @@ function guardarLista (clave,lista){
 function activarOdesactivar(id, tipo){
     let indice = id - 1
     if(tipo === 'producto'){
-        console.log(merch)
+        const merch = obtenerLista('merch')
         if(merch[indice]){
             merch[indice].estado = !merch[indice].estado
         }else{
@@ -58,6 +60,7 @@ function activarOdesactivar(id, tipo){
         guardarLista('merch', merch);
         cargarProductos()
     }else{
+        const menu = obtenerLista('menu')
         if(menu[indice]){
             menu[indice].estado = !menu[indice].estado
         }else{
@@ -136,6 +139,25 @@ function crearFilaProducto(producto) {
     `;
 }
 
+function crearFilaUsuario(usuario) {
+    let activo =''
+    if(usuario.estado){
+        activo = 'Activo'
+    }else{
+        activo = 'Desactivo'
+    }
+    return `
+        <tr>
+            <td>${usuario.id}</td>
+            <td>${usuario.nombre}</td>
+            <td>${usuario.direccion}</td>
+            <td>${usuario.telefono}</td>
+            <td>${usuario.gmail}</td>
+            <td><button class="${activo}">${activo}</button></td>
+        </tr>
+    `;
+}
+
 // Carga los datos del menu en la tabla
 function cargarMenu() {
     const menu = obtenerLista('menu');
@@ -157,6 +179,16 @@ function cargarProductos() {
     bodyTablaProduc.innerHTML = productos.map(crearFilaProducto).join('');
 
     tablaProducto = activarTabla('#productable');
+}
+
+function cargarUsuarios(){
+    const user = obtenerLista('usuarios')
+
+    destruirTabla(tablaUsuarios)
+
+    bodyTablaUsuarios.innerHTML = user.map(crearFilaUsuario).join('')
+
+    tablaUsuarios = activarTabla('#tablaUsuarios')
 }
 
 //agregar una comida nueva
@@ -430,4 +462,6 @@ window.addEventListener('load', () => {
     cargarMenu();
 
     cargarProductos();
+
+    cargarUsuarios()
 });

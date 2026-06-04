@@ -67,6 +67,8 @@ const swiper = new Swiper('.swiper', {
 /* cerrar sesion */
 function cerrarSesion(){
     if(usuario != null){
+        users[usuario - 1].estado = false
+        localStorage.setItem('usuarios', JSON.stringify(users));
         sessionStorage.clear()
         usuario = null
         window.location.reload(true);
@@ -143,6 +145,7 @@ function filtrarM(prod){
 
 /* para detectar el login del usuario */
 window.addEventListener('load',()=>{
+    console.log(users)
     let bus = usuario - 1
     if(usuario === null){
     }else{

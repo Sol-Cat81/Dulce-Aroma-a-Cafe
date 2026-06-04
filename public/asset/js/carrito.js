@@ -153,7 +153,9 @@ function eliminarItem(id, tipo){
     actualizarCantidadCarrito(lista)
     subirCarrito(lista)
 }
+
 /* ---------- EVENTOS ---------- */
+
 window.addEventListener('load',() =>{
     if(lista.length === 0){
         contenedorCarrito.innerHTML ='<p>Carrito Vacio</p>'

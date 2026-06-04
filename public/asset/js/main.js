@@ -16,19 +16,18 @@ btnEnviar.addEventListener('click',()=>{
 
         }else
             {
-                console.log(users)
-            users.forEach(usuario => {
-            if(usuario.nombre === nombre.value && usuario.password === password.value)
+            for(let i = 0; i < users.length; i++){
+                console.log('hola')
+                if(users[i].nombre === nombre.value && users[i].password === password.value)
             {
+                users[i].estado = true
+                localStorage.setItem('usuarios', JSON.stringify(users));
                 sessionStorage.clear()
-                sessionStorage.setItem('usuario', usuario.id);
+                sessionStorage.setItem('usuario', users[i].id);
                 window.location.href = ".../../index.html";
 
-            }else
-            {
-                alert("usuario no existe")
             }
-    });
+            }
         }
 })
 
