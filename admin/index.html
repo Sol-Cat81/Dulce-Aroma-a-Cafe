@@ -208,32 +208,78 @@
                 <br>
             </section>
             <section id="reclutamiento" class="seccion-panel">
-                <br><br>
-                <h2>Reclutamiento</h2>
+                <h2>Crear nueva postulacion</h2>
                 <br>
-                <h3>Postulantes</h3>
+                <form class="form-postulacion">
+
+                    <div class="campo">
+                        <label for="cargo-postulacion">Cargo</label>
+                        <input type="text" id="cargo-postulacion">
+                    </div>
+
+                    <div class="campo">
+                        <label for="descripcion-postulacion">Descripción</label>
+                        <input type="text" id="descripcion-postulacion">
+                    </div>
+
+                    <div class="campo">
+                        <label for="ubicacion-postulacion">Ubicación</label>
+                        <input type="text" id="ubicacion-postulacion">
+                    </div>
+
+                    <div class="campo">
+                        <label for="modalidad-postulacion">Modo de trabajo</label>
+                        <select id="modalidad-postulacion">
+                            <option value="presencial">Presencial</option>
+                            <option value="remoto">Remoto</option>
+                            <option value="hibrido">Híbrido</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="turno-postulacion">Turno</label>
+                        <select id="turno-postulacion">
+                            <option value="mañana">Mañana</option>
+                            <option value="tarde">Tarde</option>
+                            <option value="noche">Noche</option>
+                        </select>
+                    </div>
+
+                    <div class="horario-postulacion">
+                        <div class="campo">
+                            <label for="hora-inicio">Desde</label>
+                            <input type="time" id="hora-inicio">
+                        </div>
+
+                        <div class="campo">
+                            <label for="hora-fin">Hasta</label>
+                            <input type="time" id="hora-fin">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="agregar">
+                        Agregar
+                    </button>
+
+                </form>
+                <h2>Reclutamiento</h2>
                 <br>
                 <div class="content-tabla">
                     <table class="tabla">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Email</th>
-                                <th>Archivo cv</th>
-                                <th>Puesto</th>
+                                <th>Cargo</th>
+                                <th>Descripcion</th>
+                                <th>Ubicacion</th>
+                                <th>Modo de trabajo</th>
+                                <th>turno</th>
+                                <th>hora inicio</th>
+                                <th>hora fin</th>
                                 <th>Estado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                         <tbody id="bodyTablaReclutacion">
                         </tbody>
                     </table>
                 </div>
@@ -262,6 +308,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="asset/js/localStorage.js"></script>
     <script src="asset/js/adminPanel.js"></script>
+    <script src="asset/js/localStorageR.js"></script>
 </body>
 
 </html>
