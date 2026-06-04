@@ -145,9 +145,12 @@ function filtrarM(prod){
 
 /* para detectar el login del usuario */
 window.addEventListener('load',()=>{
-    console.log(users)
-    let bus = usuario - 1
     if(usuario === null){
+        btnLogin.innerHTML = `
+                <a href="login.html">
+                    <ion-icon name="person-outline"></ion-icon>
+                </a>
+                `
     }else{
         users.forEach(cliente =>{
             if(cliente.id === usuario){
@@ -160,12 +163,6 @@ window.addEventListener('load',()=>{
                     <li onclick="cerrarSesion()"><a class="dropdown-item" href=""> Cerrar sesion</a></li>
                 </ul>
                 </div>`
-            }else{
-                btnLogin.innerHTML = `
-                <a href="login.html">
-                    <ion-icon name="person-outline"></ion-icon>
-                </a>
-                `
             }
         })
     }

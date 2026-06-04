@@ -14,10 +14,8 @@ btnEnviar.addEventListener('click',()=>{
         {
             window.location.href = ".../../../admin/index.html";
 
-        }else
-            {
+        }else{
             for(let i = 0; i < users.length; i++){
-                console.log('hola')
                 if(users[i].nombre === nombre.value && users[i].password === password.value)
             {
                 users[i].estado = true
@@ -25,7 +23,7 @@ btnEnviar.addEventListener('click',()=>{
                 sessionStorage.clear()
                 sessionStorage.setItem('usuario', users[i].id);
                 window.location.href = ".../../index.html";
-
+                return;
             }
             }
         }

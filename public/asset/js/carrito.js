@@ -6,14 +6,17 @@ const btnTerminarCompra = document.getElementById('btnTerminarCompra')
 const btnCargaCarrito = document.getElementById('btn-agregar')
 const botonCarrito = document.getElementById('svgCarrito')
 
-const pedidos = JSON.parse(localStorage.getItem('pedidos')) || []
-const detallePedido = JSON.parse(localStorage.getItem('detallePedido')) || []
-
 let lista = []
 
+
 /* ---------- FUNCIONES ---------- */
+
 function agregar(id,tipo){
-    const filtro = lista.filter(clase => clase.tipo === tipo)
+    if(usuario === null){
+        alert('Por favor, inicie sesion para poder realizar compras.')
+        window.location.href = "/public/login.html";
+    }else{
+        const filtro = lista.filter(clase => clase.tipo === tipo)
     const existe = filtro.find(busca => busca.id === id)
   
     if(existe){
@@ -55,6 +58,7 @@ function agregar(id,tipo){
 }
 actualizarCantidadCarrito(lista)
 subirCarrito(lista)
+    }
 }
 
 function actualizarCantidadCarrito(lista){
@@ -116,7 +120,7 @@ function subirCarrito(lista){
         <p class="text-end">Total:$${SumTotal}</p>`
         footerCarrito.innerHTML =`
         <button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" id="btnTerminarCompra" class="btn btn-terminar">Terminar compra</button>`
+        <button type="button" id="btnTerminarCompra" class="btn btn-terminar" onclick="cargarPedido()">Terminar compra</button>`
     }else{
         contenedorCarrito.innerHTML ='<p>Carrito Vacio</p>'
         footerCarrito.innerHTML = '<button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>'
@@ -154,6 +158,45 @@ function eliminarItem(id, tipo){
     subirCarrito(lista)
 }
 
+function cargarPedido(){
+    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || []
+    const detallePedido = JSON.parse(localStorage.getItem('detallePedido')) || []
+    console.log(pedidos)
+    console.log(typeof pedidos)
+    console.log(pedidos.length)
+    console.log(Array.isArray(pedidos))
+    if(lista.length === 0){
+        alert('El carrito esta vacio')
+    }else{
+        let idPedido = pedidos.length + 1
+        const SumTotal = lista.reduce((acum, elem) => acum + elem.precio*elem.cantidad, 0)
+        let pedido = {
+            id: idPedido,
+            Cliente: users[usuario - 1].nombre,
+            direccion: users[usuario - 1].direccion,
+            total: SumTotal,
+            estado: 'preparacion'
+        }
+        pedidos[pedidos.length] = pedido
+        localStorage.setItem('pedidos', JSON.stringify(pedidos));
+        lista.forEach(item =>{
+            let detalle = {
+                id: detallePedido.length + 1,
+                idPedido: idPedido,
+                item: item.nombre,
+                cantidad: item.cantidad,
+                subTotal: item.precio * item.cantidad
+            }
+            detallePedido.push(detalle)
+        })
+        localStorage.setItem('detallePedido', JSON.stringify(detallePedido));
+        alert('Compra realizada con exito!')
+        lista = []
+        actualizarCantidadCarrito(lista)
+        subirCarrito(lista)
+    }
+}
+
 /* ---------- EVENTOS ---------- */
 
 window.addEventListener('load',() =>{
@@ -162,3 +205,4 @@ window.addEventListener('load',() =>{
         footerCarrito.innerHTML = '<button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>'
     }
 })
+
