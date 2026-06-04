@@ -39,36 +39,38 @@
 
             <!-- titulo de form -->
             <h1 class="titulo">Bienvenido,<br><strong>registrarsesión</strong></h1>
-
+=
             <!--formulario de inicio-->
             <form action="">
 
                 <div class="campo">
                     <label for="">Nombre usuario</label>
-                    <input type="text" id="nombre-usuario" placeholder="Tu nombre de usuario">
+                    <input type="text" id="nombre-usuario" placeholder="Tu nombre de usuario" required>
+                    <div id="AlertaNombre" style="display: none; color: red; margin-top: 10px;"></div>
                 </div>
 
                  <div class="campo">
                     <label for="">Correo </label>
-                    <input type="text" id="correo-usuario" placeholder="EJ: juan@gamil">
+                    <input type="email" id="correo-usuario" placeholder="EJ: juan@gamil" required>
+                    <div id="AlertaCorreo" style="display: none; color: red; margin-top: 10px;"></div>
                 </div>
 
                  <div class="campo">
                     <label for="">Telefono</label>
-                    <input type="text" id="telefono-usuario" placeholder="EJ: 123456789">
+                    <input type="number" id="telefono-usuario" placeholder="EJ: 123456789" required>
                 </div>
 
                  <div class="campo">
                     <label for="">Direccion</label>
-                    <input type="text" id="dirrecion-usuario" placeholder="EJ: avenida belgrano">
+                    <input type="text" id="dirrecion-usuario" placeholder="EJ: avenida belgrano" required>
                 </div>
 
                 <div class="campo">
                     <label for="">Contraseña</label>
-                    <input type="password" id="password-register" placeholder="Contraseña">
+                    <input type="password" id="password-register" placeholder="Contraseña" required>
                 </div>
 
-               <button type="button" id="btnCrearRegistro">Crear cuenta</button>
+               <button type="submit" id="btnCrearRegistro">Crear cuenta</button>
             </form>
 
             <!-- Separador visual -->
@@ -100,12 +102,12 @@
 
                 <div class="campo">
                     <label for="">Nombre</label>
-                    <input type="text" id="nombre" placeholder="Tu nombre de usuario">
+                    <input type="text" id="nombre" placeholder="Tu nombre de usuario" required>
                 </div>
 
                 <div class="campo">
                     <label for="">Contraseña</label>
-                    <input type="password" id="password" placeholder="Contraseña">
+                    <input type="password" id="password" placeholder="Contraseña" required>
                 </div>
 
                 <button type="button" id="btnEnviar">Iniciar</button>
