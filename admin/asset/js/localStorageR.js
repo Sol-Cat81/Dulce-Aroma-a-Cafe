@@ -26,7 +26,8 @@ const reclutas = [
     }
 ]
 
-
+//para diferenciar si el formulario esta creando o editando una ya existente
+let idEditado = null;
 
 // Verificamos si ya existe información guardada
 if (!localStorage.getItem("postulaciones")) {
@@ -162,20 +163,47 @@ function eliminarPostulacion(id) {
 function editarPostulacion(id) {
 
     // Recuperamos los datos
+
     const postulacionesGuardadas = JSON.parse(
         localStorage.getItem("postulaciones")
     );
 
-    // Buscamos la postulacion
     const postulacion = postulacionesGuardadas.find(
         postulacion => postulacion.id === id
     );
 
-    // Mostramos información
-    alert(
-        "Editar postulación: " +
-        postulacion.cargo
-    );
+    if(!postulacion){
+        return;
+    }
+
+    // Cargar datos en el formulario
+    document.getElementById("cargo-postulacion").value =
+        postulacion.cargo;
+
+    document.getElementById("descripcion-postulacion").value =
+        postulacion.descripcion;
+
+    document.getElementById("ubicacion-postulacion").value =
+        postulacion.ubicacion;
+
+    document.getElementById("modalidad-postulacion").value =
+        postulacion.modo;
+
+    document.getElementById("turno-postulacion").value =
+        postulacion.turno;
+
+    document.getElementById("hora-inicio").value =
+        postulacion.hora_inicio;
+
+    document.getElementById("hora-fin").value =
+        postulacion.hora_fin;
+
+    // Guardamos el id que se está editando
+    idEditando = id;
+
+    // Cambiar texto del botón
+    document.querySelector(".agregar").textContent =
+        "Guardar cambios";
 }
 
 mostrarPostulaciones();
@@ -220,8 +248,41 @@ function crearPostulacion(evento){
 
     // Recuperamos las postulaciones guardadas
     const postulacionesGuardadas = JSON.parse(
-        localStorage.getItem("postulaciones")
+    localStorage.getItem("postulaciones"));
+
+    if(idEditando !== null){
+
+    const postulacionEditar =
+        postulacionesGuardadas.find(
+            p => p.id === idEditando
+        );
+
+    postulacionEditar.cargo = cargo;
+    postulacionEditar.descripcion = descripcion;
+    postulacionEditar.ubicacion = ubicacion;
+    postulacionEditar.modo = modo;
+    postulacionEditar.turno = turno;
+    postulacionEditar.hora_inicio = horaInicio;
+    postulacionEditar.hora_fin = horaFin;
+
+    localStorage.setItem(
+        "postulaciones",
+        JSON.stringify(postulacionesGuardadas)
     );
+
+    mostrarPostulaciones();
+
+    formularioPostulacion.reset();
+
+    idEditando = null;
+
+    document.querySelector(".agregar").textContent =
+        "Agregar";
+
+    alert("Postulación actualizada correctamente");
+
+    return;
+    }
 
     // Generamos un id nuevo
     let nuevoId ;
