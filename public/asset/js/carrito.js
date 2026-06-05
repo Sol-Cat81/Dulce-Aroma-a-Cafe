@@ -161,10 +161,6 @@ function eliminarItem(id, tipo){
 function cargarPedido(){
     const pedidos = JSON.parse(localStorage.getItem('pedidos')) || []
     const detallePedido = JSON.parse(localStorage.getItem('detallePedido')) || []
-    console.log(pedidos)
-    console.log(typeof pedidos)
-    console.log(pedidos.length)
-    console.log(Array.isArray(pedidos))
     if(lista.length === 0){
         alert('El carrito esta vacio')
     }else{
@@ -177,7 +173,7 @@ function cargarPedido(){
             total: SumTotal,
             estado: 'preparacion'
         }
-        pedidos[pedidos.length] = pedido
+        pedidos.push(pedido)
         localStorage.setItem('pedidos', JSON.stringify(pedidos));
         lista.forEach(item =>{
             let detalle = {

@@ -11,7 +11,8 @@ body{
 
 .contenedor{
     display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
 }
 .Activo{
     background-color: aquamarine;
@@ -93,7 +94,7 @@ form{
     border-radius: 5px;
 }
 .tabla{
-    width: 100%;
+    width: auto;
     height: auto;
 }
 .tabla th{
@@ -263,6 +264,28 @@ td{
 
 .agregar:hover{
     background-color: #5a3f2d;
+}
+/* --- Pedidos --- */
+.selectPedido{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 0px;
+}
+.pendiente{
+    background-color: red;
+    color: white;
+}
+.preparando{
+    background-color: yellow;
+    color: #422B23;
+}
+.enviado{
+    background-color: #2719a7;
+    color: white;
+}
+.entregado{
+    background-color: #4CAF50;
+    color: white;
 }
 
 /*tabla de reclutamiento */
