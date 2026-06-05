@@ -41,45 +41,7 @@
     <section class=" container cards-empleo">
         <div class="row">
             <div class="col-md-8">
-                <div class="ofertas">
-
-                    <!-- Titulo del puesto -->
-                    <h2>Bartender</h2>
-                    <!-- Descripcion -->
-                    <p class="descripcion-puesto">
-                        Buscamos una persona responsable, amable y con buena presencia
-                        para atender clientes, preparar bebidas y trabajar en equipo.
-                    </p>
-
-                    <!-- Etiquetas informativas -->
-                    <div class="badges-empleo">
-
-                        <span class="badge-info">
-                            <ion-icon name="location-outline"></ion-icon>
-                            Tucumán
-                        </span>
-
-                        <span class="badge-info">
-                            <ion-icon name="briefcase-outline"></ion-icon>
-                            Presencial
-                        </span>
-
-                        <span class="badge-info">
-                            <ion-icon name="time-outline"></ion-icon>
-                            Turno mañana
-                        </span>
-
-                        <span class="badge-info">
-                            <ion-icon name="calendar-outline"></ion-icon>
-                            Full Time
-                        </span>
-
-                    </div>
-
-                    <!-- Boton que abrira el formulario -->
-                    <button type="button" id="btn-postularse" class="btn-postularse">
-                        Postularse
-                    </button>
+                <div id="contenedor-vacantes">
 
                 </div>
                 <form action="" class="form-postulacion oculto" id="form-postulacion">
@@ -128,83 +90,8 @@
             </div>
         </div>
     </section>
-    <script>
-
-        // Boton de postularse
-        const btnPostularse =
-            document.getElementById("btn-postularse");
-
-        // Formulario
-        const formulario =
-            document.getElementById("form-postulacion");
-
-        // Mensaje de exito
-        const mensajeExito =
-            document.getElementById("mensaje-exito");
-
-
-        //mostar y ocultar 
-        btnPostularse.addEventListener(
-            "click",
-            function () {
-
-                // alterna la clase oculto
-                formulario.classList.toggle("oculto");
-
-                // si el formulario esta visible
-                if (
-                    !formulario.classList.contains("oculto")
-                ) {
-
-                    btnPostularse.textContent =
-                        "Cerrar formulario";
-
-                } else {
-
-                    btnPostularse.textContent =
-                        "Postularse";
-
-                }
-            }
-        );
-
-        //envio de formulario
-
-        formulario.addEventListener(
-            "submit",
-            function (evento) {
-
-                // evita recargar la pagina
-                evento.preventDefault();
-
-                // muestra el mensaje
-                mensajeExito.style.display =
-                    "block";
-
-                // limpia todos los campos
-                formulario.reset();
-
-                // despues de 3 segundos
-                setTimeout(function () {
-
-                    // oculta mensaje
-                    mensajeExito.style.display =
-                        "none";
-
-                }, 3000);
-            }
-        );
-        const cabezal = document.querySelector('header')
-        window.addEventListener("scroll", () => {
-
-            if(window.scrollY > 80){
-                cabezal.classList.add("scrolled");
-            }else{
-                cabezal.classList.remove("scrolled");
-            }
-        });
-    </script>
     <!-- Bootstrap -->
+        <script src="../admin/asset/js/localStorageR.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

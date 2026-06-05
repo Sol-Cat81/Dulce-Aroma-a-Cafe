@@ -26,6 +26,7 @@ const reclutas = [
     }
 ]
 
+
 //para diferenciar si el formulario esta creando o editando una ya existente
 let idEditado = null;
 
@@ -51,7 +52,14 @@ if (!localStorage.getItem("reclutas")) {
 function mostrarPostulaciones() {
 
     // Obtenemos el tbody
-    const bodyTabla = document.getElementById("bodyTablaReclutacion");
+    const bodyTabla =
+        document.getElementById(
+            "bodyTablaReclutacion"
+        );
+
+    if(!bodyTabla){
+        return;
+    }
 
     // Limpiamos el contenido anterior
     bodyTabla.innerHTML = "";
@@ -206,7 +214,7 @@ function editarPostulacion(id) {
         "Guardar cambios";
 }
 
-mostrarPostulaciones();
+
 
 // Obtenemos el formulario
 const formularioPostulacion = document.querySelector(".form-postulacion");
@@ -474,3 +482,83 @@ function cambiarEstadoRecluta (idRecluta,nuevoEstado){
 
     verPostulantes(idPostulacion);
 }
+
+function mostrarVacantesPublicas(){
+
+    console.log("funcion ejecutada con exito")
+
+    const contenedor =
+        document.getElementById("contenedor-vacantes");
+
+    // Si no existe estamos en admin
+    if(!contenedor){
+        return;
+    }
+
+    const postulacionesGuardadas =
+        JSON.parse(
+            localStorage.getItem("postulaciones")
+        ) || [];
+
+    const vacantesAbiertas =
+        postulacionesGuardadas.filter(
+            postulacion => postulacion.estado === true
+        );
+
+    contenedor.innerHTML = "";
+
+    vacantesAbiertas.forEach(postulacion => {
+
+        contenedor.innerHTML += `
+            <div class="ofertas">
+
+                <h2>
+                    ${postulacion.cargo}
+                </h2>
+
+                <p class="descripcion-puesto">
+                    ${postulacion.descripcion}
+                </p>
+
+                <div class="badges-empleo">
+
+                    <span class="badge-info">
+                        <ion-icon name="location-outline"></ion-icon>
+                        ${postulacion.ubicacion}
+                    </span>
+
+                    <span class="badge-info">
+                        <ion-icon name="briefcase-outline"></ion-icon>
+                        ${postulacion.modo}
+                    </span>
+
+                    <span class="badge-info">
+                        <ion-icon name="time-outline"></ion-icon>
+                        ${postulacion.turno}
+                    </span>
+
+                    <span class="badge-info">
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        ${postulacion.hora_inicio}
+                        -
+                        ${postulacion.hora_fin}
+                    </span>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-postularse">
+
+                    Postularse
+
+                </button>
+            </div>
+             <br><br>
+        `;
+    });
+
+}
+
+mostrarPostulaciones();
+mostrarVacantesPublicas();
