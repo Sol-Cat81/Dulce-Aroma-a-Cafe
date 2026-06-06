@@ -208,7 +208,7 @@ td{
     border-bottom: 1px solid #5a392e;
 }
 /*reclutacion*/
-.form-postulacion{
+.form-postulacion-admin{
     display: flex;
     align-items: end;
     gap: 20px;
@@ -219,20 +219,20 @@ td{
 
 }
 
-.campo{
+.form-postulacion-admin .campo{
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.campo label{
+.form-postulacion-admin .campo label{
     font-size: 14px;
     font-weight: 600;
     color: #444;
 }
 
-.campo input,
-.campo select{
+.form-postulacion-admin .campo input,
+.form-postulacion-admin .campo select{
     width: 180px;
     padding: 10px;
     border: 1px solid #d6d6d6;
@@ -240,17 +240,17 @@ td{
     outline: none;
 }
 
-.campo input:focus,
-.campo select:focus{
+.form-postulacion-admin .campo input:focus,
+.form-postulacion-admin .campo select:focus{
     border-color: #8b5e3c;
 }
 
-.horario-postulacion{
+.form-postulacion-admin .horario-postulacion{
     display: flex;
     gap: 15px;
 }
 
-.agregar{
+.form-postulacion-admin .agregar{
     padding: 10px 20px;
     border: none;
     border-radius: 6px;
@@ -261,7 +261,7 @@ td{
     height: 42px;
 }
 
-.agregar:hover{
+.form-postulacion-admin .agregar:hover{
     background-color: #5a3f2d;
 }
 
