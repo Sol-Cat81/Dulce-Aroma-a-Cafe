@@ -812,30 +812,7 @@ function abrirCV(idRecluta){
     window.open(url,"_black");
 }
 
-function inicializarHeader(){
 
-    const cabezal =
-        document.querySelector("header");
-
-    if(!cabezal){
-        return;
-    }
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if(window.scrollY > 80){
-                cabezal.classList.add("scrolled");
-            }
-            else{
-                cabezal.classList.remove("scrolled");
-            }
-
-        }
-    );
-
-}
 
 console.log(
     JSON.parse(localStorage.getItem("postulaciones"))
@@ -849,5 +826,3 @@ mostrarVacantesPublicas();
 inicializarEventosContratar();
 
 inicializarFormularioContratar();
-
-inicializarHeader();
