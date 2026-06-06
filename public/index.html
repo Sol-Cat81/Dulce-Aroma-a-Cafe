@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="asset/img/logo-simple.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css">
     <link rel="stylesheet" href="asset/css/style.css">
     <title>Dulce Aroma a Cafe</title>
 </head>
+
 <body>
     <header>
         <!-- Barra de navegacion -->
@@ -43,22 +46,57 @@
     </header>
     <main>
         <!-- Modal Carrito -->
-        <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title fs-5" id="staticBackdropLabel">
-                    <ion-icon name="cart-outline"></ion-icon>
-                    Carrito
-                </h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer">
-            </div>
+        <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="staticBackdropLabel">
+                            <ion-icon name="cart-outline"></ion-icon>
+                            Carrito
+                        </h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- Modal Historial -->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body-historial">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body-detalleHistorial">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-target="#exampleModalToggle"
+                            data-bs-toggle="modal">Regresar</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Seccion Hero (carrusel) -->
         <div id="carouselCafe" class="carousel slide" data-bs-ride="carousel">
@@ -72,26 +110,29 @@
             <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                    <img src="https://huupa.coffee/cdn/shop/articles/cafe_f0b62203-0f99-4d66-bc8a-f7afaf67131b.jpg?v=1774395944" class="d-block w-100" alt="">
+                    <img src="https://huupa.coffee/cdn/shop/articles/cafe_f0b62203-0f99-4d66-bc8a-f7afaf67131b.jpg?v=1774395944"
+                        class="d-block w-100" alt="">
                 </div>
 
-            <div class="carousel-item">
-                <img src="https://static.bainet.es/clip/15a656a1-045f-4425-bf0d-5ed8a4f3932e_source-aspect-ratio_1600w_0.jpg" class="d-block w-100" alt="">
+                <div class="carousel-item">
+                    <img src="https://static.bainet.es/clip/15a656a1-045f-4425-bf0d-5ed8a4f3932e_source-aspect-ratio_1600w_0.jpg"
+                        class="d-block w-100" alt="">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="https://sehablacafe.com/wp-content/uploads/2021/11/usos-del-cafe-en-la-reposteria.jpg"
+                        class="d-block w-100" alt="">
+                </div>
+
             </div>
 
-            <div class="carousel-item">
-                <img src="https://sehablacafe.com/wp-content/uploads/2021/11/usos-del-cafe-en-la-reposteria.jpg" class="d-block w-100" alt="">
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCafe" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
 
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCafe" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselCafe" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCafe" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
         <!-- MENU -->
         <section id="menu" class="container aco">
@@ -136,12 +177,14 @@
                 <div class="col-md-6">
                     <div class="h2 hb">Sin Cargo</div>
                     <p class="hb">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsum obcaecati velit saepe maxime consequuntur, tempora incidunt minima vero dolore eveniet ipsam cupiditate eius, sint reiciendis repudiandae id illo molestias.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsum obcaecati velit saepe
+                        maxime consequuntur, tempora incidunt minima vero dolore eveniet ipsam cupiditate eius, sint
+                        reiciendis repudiandae id illo molestias.
                     </p>
                 </div>
             </div>
         </section>
-            <!-- tienda de merch oficial -->
+        <!-- tienda de merch oficial -->
         <section id="productos" class="container aco">
             <div class="row">
                 <div class="col-md-8">
@@ -178,37 +221,37 @@
         <section id="nosotros" class="fondo" style="border-radius: 0px;">
             <div class="container aco">
                 <div class="row">
-                <div class="h2 hb">Sobre Nosotros</div>
-                <div class="col-md-6">
-                    <img src="asset/img/IMG_4125.PNG" alt="">
+                    <div class="h2 hb">Nuestra Historia</div>
+                    <div class="col-md-6">
+                        <img src="asset/img/IMG_4125.PNG" alt="">
+                    </div>
+                    <br>
+                    <div class="col-md-6 hb align-self-center">
+                        <p>
+                            Dulce Aroma a Café” nació mucho antes de tener un local, un logo o una idea clara
+                            de negocio. Nació en nuestras mañanas de cursado, entre apuntes, trabajos
+                            prácticos, nervios por los exámenes y largas charlas acompañadas siempre por una
+                            taza de café.
+                            <br>
+                            Todos los días, sin falta, nos juntábamos antes de entrar a clases o en los recreos
+                            para compartir un café. Mientras estudiábamos, soñábamos con tener algún día un espacio
+                            propio donde
+                            otras personas también pudieran sentirse cómodas, relajadas y acompañadas.
+                            Con el tiempo entendimos que no queríamos abrir solamente una cafetería.
+                            Queríamos crear un ambiente cálido, donde cada aroma recordara a hogar, amistad
+                            y buenos momentos. Así nació “Dulce Aroma a Café”, un lugar pensado para
+                            quienes necesitan una pausa en medio de la rutina, una charla sincera o
+                            simplemente disfrutar de un rico café.
+                            <br>
+                            Hoy “Dulce Aroma a Café” no es solo una cafetería. Es el recuerdo vivo de nuestra
+                            amistad y de cómo algo tan simple como compartir un café todos los días pudo
+                            transformarse en un gran sueño hecho realidad.
+                        </p>
+                        <a href="https://share.google/aMtf2cCZWUM4hMF1R">
+                            <button class="sucursal">Sucursal</button>
+                        </a>
+                    </div>
                 </div>
-                <br>
-                <div class="col-md-6 hb align-self-center">
-                    <p>
-                        Dulce Aroma a Café” nació mucho antes de tener un local, un logo o una idea clara
-                        de negocio. Nació en nuestras mañanas de cursado, entre apuntes, trabajos
-                        prácticos, nervios por los exámenes y largas charlas acompañadas siempre por una
-                        taza de café.
-                        <br>
-                        Todos los días, sin falta, nos juntábamos antes de entrar a clases o en los recreos
-                        para compartir un café. Ese pequeño momento se convirtió en nuestro lugar seguro.
-                        Mientras estudiábamos, soñábamos con tener algún día un espacio propio donde
-                        otras personas también pudieran sentirse cómodas, relajadas y acompañadas.
-                        Con el tiempo entendimos que no queríamos abrir solamente una cafetería.
-                        Queríamos crear un ambiente cálido, donde cada aroma recordara a hogar, amistad
-                        y buenos momentos. Así nació “Dulce Aroma a Café”, un lugar pensado para
-                        quienes necesitan una pausa en medio de la rutina, una charla sincera o
-                        simplemente disfrutar de un rico café.
-                        <br>
-                        Hoy “Dulce Aroma a Café” no es solo una cafetería. Es el recuerdo vivo de nuestra
-                        amistad y de cómo algo tan simple como compartir un café todos los días pudo
-                        transformarse en un gran sueño hecho realidad.
-                    </p>
-                    <a href="https://share.google/aMtf2cCZWUM4hMF1R">
-                        <button class="sucursal">Sucursal</button>
-                    </a>
-                </div>
-            </div>
             </div>
         </section>
         <!-- Seccion para contratar -->
@@ -239,7 +282,8 @@
                         <div class="col-lg-5 text-center col-sm-4 text-center">
                             <img src="asset/img/logo.png" alt="">
                         </div>
-                        <div class="col-lg-7 col-sm-7 align-self-center text-center h2 hb pie-nombre">Dulce aroma a Cafe</div>
+                        <div class="col-lg-7 col-sm-7 align-self-center text-center h2 hb pie-nombre">Dulce aroma a Cafe
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -273,16 +317,20 @@
     <!-- Enlace de la libreria(swiper) para el carrusel -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <!-- Libreria datatable -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
-    
+
     <script src="asset/js/index.js"></script>
     <!--carrito de compra-->
     <script src="asset/js/carrito.js"></script>
     <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <!-- Enlace para los iconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

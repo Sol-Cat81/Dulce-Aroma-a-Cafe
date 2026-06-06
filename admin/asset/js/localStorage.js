@@ -17,12 +17,19 @@ let detallePedido = []
 let usuarios = [
     {id: 1, nombre: 'Messi', gmail: 'messi@gmail.com', telefono: 3863452039, direccion: 'Monteros,av. san cristonomo 34', password: 'S4lch1p4p4', estado: false}
 ]
-localStorage.setItem('usuarios',JSON.stringify(usuarios))
-localStorage.setItem('pedidos',JSON.stringify(pedidos))
-localStorage.setItem('detallePedido',JSON.stringify(detallePedido))
+//localStorage.setItem('usuarios',JSON.stringify(usuarios))
+//localStorage.setItem('pedidos',JSON.stringify(pedidos))
+//localStorage.setItem('detallePedido',JSON.stringify(detallePedido))
 // nose qie tiene que llevar la de usuario xD
 //mostrar datos del menu iniciales al momento
 const bodyTablaUsuarios = document.getElementById('bodyTablaUsuarios')
+
+const modalDetalle = document.querySelector('.modal-body')
+
+const modalHistorial = document.querySelector('.modal-body-historial')
+const tituloHistorial = document.querySelector('#exampleModalToggleLabel')
+const tituloDetalleHistorial = document.querySelector('#exampleModalToggleLabel2')
+const modalDetalleHistorial = document.querySelector('.modal-body-detalleHistorial')
 
 //para evitar que se inicie dos veces y evitar comflicto entre la libreri
 let tablaMenu = null;
@@ -30,6 +37,9 @@ let tablaMenu = null;
 let tablaProducto = null;
 
 let tablaUsuarios = null
+
+let tablaPedidos = null
+
 if (localStorage.getItem('menu') === null){
     localStorage.setItem('menu',JSON.stringify(menuInicial));
 }
@@ -56,7 +66,7 @@ function activarOdesactivar(id, tipo){
         if(merch[indice]){
             merch[indice].estado = !merch[indice].estado
         }else{
-            console.log('no esxiste')
+            console.log('no existe')
             return
         }
         guardarLista('merch', merch);
@@ -66,7 +76,7 @@ function activarOdesactivar(id, tipo){
         if(menu[indice]){
             menu[indice].estado = !menu[indice].estado
         }else{
-            console.log('no esxiste')
+            console.log('no existe')
             return
         }
         guardarLista('menu', menu)
@@ -92,7 +102,23 @@ function destruirTabla(tabla) {
 // Activa DataTable en una tabla HTML
 function activarTabla(selector) {
     return new DataTable(selector, {
-        responsive: true
+        scrollX: true,
+        responsive: true,
+        language: {
+        lengthMenu: "Mostrar _MENU_ registros por página",
+        zeroRecords: "No se encontraron coincidencias",
+        info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
+        infoEmpty: "Sin contenido",
+        infoFiltered: "(filtrados desde _MAX_ registros totales)",
+        search: "Buscar:",
+        loadingRecords: "Cargando...",
+        paginate: {
+            first: "Primero",
+            last: "Último",
+            next: "Siguiente",
+            previous: "Anterior"
+        }
+    }
     });
 }
 
@@ -156,9 +182,61 @@ function crearFilaUsuario(usuario) {
             <td>${usuario.telefono}</td>
             <td>${usuario.gmail}</td>
             <td><button class="${activo}">${activo}</button></td>
+            <td><button class="editar" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" onclick="historialUsuario(${usuario.id})">Historial</button></td>
         </tr>
     `;
 }
+
+function crearFilaPedido(pedido) {
+    let estado =''
+    if(pedido.estado === 'pendiente'){
+        estado = `
+        <option selected>Pendiente</option>
+        <option value="preparando">Preparando</option>
+        <option value="enviado">Enviado</option>
+        <option value="entregado">Entregado</option>
+        `
+    }else if(pedido.estado === 'preparando'){
+        estado = `
+        <option selected>Preparando</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="enviado">Enviado</option>
+        <option value="entregado">Entregado</option>
+        `
+    }else if(pedido.estado === 'enviado'){
+        estado = `
+        <option selected>Enviado</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="preparando">Preparando</option>
+        <option value="entregado">Entregado</option>
+        `
+    }else if(pedido.estado === 'entregado'){
+        estado = `
+        <option selected>Enviado</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="preparando">Preparando</option>
+        <option value="enviado">Enviado</option>
+        `
+    }
+    return `
+        <tr>
+            <td>${pedido.id}</td>
+            <td>${pedido.Cliente}</td>
+            <td>${pedido.direccion}</td>
+            <td>${pedido.total}</td>
+            <td>
+            <select class="selectPedido ${pedido.estado}" data-id="${pedido.id}">
+            ${estado}
+            </select>
+            </td>
+            <td>
+            <button type="button" class="editar" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="verDetalle(${pedido.id},'detallePedido')">
+            Ver detalle
+            </button>
+            </td>
+        </tr>
+    `;
+}// pediente preparando enviado entregado
 
 // Carga los datos del menu en la tabla
 function cargarMenu() {
@@ -192,13 +270,67 @@ function cargarUsuarios(){
 
     bodyTablaUsuarios.innerHTML = user.map(crearFilaUsuario).join('')
 
-    console.log(bodyTablaUsuarios.innerHTML)
-
-    //tablaUsuarios = activarTabla('#tablaUsuarios')
+    tablaUsuarios = activarTabla('#tablaUsuarios')
 
     console.log('tabla cargada')
 }
 
+function cargarPedidos(){
+    const pedidos = obtenerLista('pedidos')
+
+    console.log(pedidos)
+
+    destruirTabla(tablaPedidos)
+
+    bodyTablaPedidos.innerHTML = pedidos.map(crearFilaPedido).join('')
+
+    tablaPedidos = activarTabla('#tablaPedidos')
+
+}
+
+function verDetalle(id, donde){
+    console.log(id)
+    const pedi = JSON.parse(localStorage.getItem('pedidos')) || []
+    const detallePedi = JSON.parse(localStorage.getItem('detallePedido')) || []
+    let indice = id - 1
+    let detalles = ''
+    detallePedi.forEach(element => {
+        if(element.idPedido === id){
+            detalles +=`
+            <li class="list-group-item">
+            <span>${element.item}</span>
+            <span>x${element.cantidad}</span>
+            <span>${element.subTotal}</span>
+            </li>
+            `
+        }
+    });
+    if(donde === 'detallePedido'){
+        modalDetalle.innerHTML = `
+        Pedido Num: #${pedi[indice].id}</br>
+        Cliente: ${pedi[indice].Cliente}</br>
+        Direccion: ${pedi[indice].direccion}</br>
+        Estado: ${pedi[indice].estado}</br>
+        <h5>Total:$${pedi[indice].total}</h5>
+        <ul class="list-group list-group-flush">
+            ${detalles}
+        </ul>
+        `
+}else{
+    tituloDetalleHistorial.innerHTML = `Detalle del pedido #${pedi[indice].id}`
+    modalDetalleHistorial.innerHTML = `
+        Pedido Num: #${pedi[indice].id}</br>
+        Cliente: ${pedi[indice].Cliente}</br>
+        Direccion: ${pedi[indice].direccion}</br>
+        Estado: ${pedi[indice].estado}</br>
+        <h5>Total:$${pedi[indice].total}</h5>
+        <ul class="list-group list-group-flush">
+            ${detalles}
+        </ul>
+        `
+}
+    }
+//'detallePedido' 'detalleHistorialUsuario'
 //agregar una comida nueva
 function agregarMenu(evento) {
     evento.preventDefault();
@@ -456,6 +588,46 @@ function manejarAccionesProductos(evento){
     }
 }
 
+function historialUsuario(id){
+    const ped = obtenerLista('pedidos')
+    const users = obtenerLista('usuarios')
+    const pedidosUsuario = ped.filter(elem => elem.idCliente === id)
+    let contenidoHistorial = ''
+    pedidosUsuario.forEach(ped =>{
+        contenidoHistorial+=`
+        <tr>
+        <td>${ped.id}</td>
+        <td>${ped.estado}</td>
+        <td>$${ped.total}</td>
+        <td>
+        <button class="editar" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+         onclick="verDetalle(${ped.id},'detalleHistorialUsuario')">Ver</button>
+        </td>
+        </tr>
+        `
+    })
+    tituloHistorial.innerHTML = `Historial de ${users[id - 1].nombre}`
+    if(contenidoHistorial === ''){
+        modalHistorial.innerHTML = `<br>El usuario no a realizado algun pedido hasta el momento..<br><br>`
+    }else{
+        modalHistorial.innerHTML = `
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>P.Num</th>
+                    <th>Estado</th>
+                    <th>Total</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+            ${contenidoHistorial}
+            </tbody>
+        </table>
+        `
+    }
+}
+
 // Cuando carga la pagina, conecta formularios y carga tablas
 
 window.addEventListener('load', () => {
@@ -472,4 +644,29 @@ window.addEventListener('load', () => {
     cargarProductos();
 
     cargarUsuarios();
+
+    cargarPedidos()
+});
+bodyTablaPedidos.addEventListener('change', function(e){
+
+    if(!e.target.classList.contains('selectPedido')){
+        return;
+    }
+
+    const nuevoEstado = e.target.value;
+    const idPedido = Number(e.target.dataset.id);
+    
+    const pedidos = obtenerLista('pedidos');
+
+    const pedido = pedidos.find(p => p.id === idPedido);
+
+    if(!pedido){
+        return;
+    }
+
+    pedido.estado = nuevoEstado;
+
+    guardarLista('pedidos', pedidos);
+
+    cargarPedidos()
 });
