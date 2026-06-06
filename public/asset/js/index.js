@@ -25,6 +25,11 @@ let selectFiltroMerch = ''// guarda la seleccion de la merch
 const users = JSON.parse(localStorage.getItem('usuarios'))
 const usuario = JSON.parse(sessionStorage.getItem('usuario'))
 const btnLogin = document.getElementById('loginUsuario')
+/* Historial usuario */
+const modalHistorial = document.querySelector('.modal-body-historial')
+const tituloHistorial = document.querySelector('#exampleModalToggleLabel')
+const tituloDetalleHistorial = document.querySelector('#exampleModalToggleLabel2')
+const modalDetalleHistorial = document.querySelector('.modal-body-detalleHistorial')
 
 /* configurecion del Slider de productos (con la libreria swiper) */
 const swiper = new Swiper('.swiper', {
@@ -141,6 +146,72 @@ function filtrarM(prod){
     }
 }
 
+function obtenerLista(clave){
+    return JSON.parse(localStorage.getItem(clave)) || []
+}
+function historialUsuario(id){
+    const ped = obtenerLista('pedidos')
+    const users = obtenerLista('usuarios')
+    const pedidosUsuario = ped.filter(elem => elem.idCliente === id)
+    let contenidoHistorial = ''
+    let cantidadCompras = 1
+    pedidosUsuario.forEach(ped =>{
+        contenidoHistorial+=`
+        <tr class="tr">
+        <td>${cantidadCompras++}</td>
+        <td>${ped.estado}</td>
+        <td>$${ped.total}</td>
+        <td>
+        <button class="editar" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+         onclick="verDetalle(${ped.id})">Ver</button>
+        </td>
+        </tr>
+        `
+    })
+    tituloHistorial.innerHTML = `<ion-icon name="bag-handle"></ion-icon> Mis Compras`
+    modalHistorial.innerHTML = `
+        <table class="tabla">
+            <thead>
+                <tr class="tr">
+                    <th>Num</th>
+                    <th>Estado</th>
+                    <th>Total</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+            ${contenidoHistorial}
+            </tbody>
+        </table>
+        `
+}
+function verDetalle(id){
+    console.log(id)
+    const pedi = JSON.parse(localStorage.getItem('pedidos')) || []
+    const detallePedi = JSON.parse(localStorage.getItem('detallePedido')) || []
+    let indice = id - 1
+    let detalles = ''
+    detallePedi.forEach(element => {
+        if(element.idPedido === id){
+            detalles +=`
+            <li class="list-group-item">
+            <span>${element.item}</span>
+            <span>x${element.cantidad}</span>
+            <span>${element.subTotal}</span>
+            </li>
+            `
+        }
+    });
+    tituloDetalleHistorial.innerHTML = `Detalle de la compra`
+    modalDetalleHistorial.innerHTML = `
+        Estado: ${pedi[indice].estado}</br>
+        <h5>Total:$${pedi[indice].total}</h5>
+        <ul class="list-group list-group-flush">
+            ${detalles}
+        </ul>
+        `
+    }
+
 /* ---------- EVENTOS ---------- */
 
 /* para detectar el login del usuario */
@@ -161,6 +232,8 @@ window.addEventListener('load',()=>{
                 </button>
                 <ul class="dropdown-menu">
                     <li onclick="cerrarSesion()"><a class="dropdown-item" href=""> Cerrar sesion</a></li>
+                    <li><a class="dropdown-item" href="" onclick="historialUsuario(${cliente.id})"
+                     data-bs-target="#exampleModalToggle" data-bs-toggle="modal"> Mis Compras</a></li>
                 </ul>
                 </div>`
             }

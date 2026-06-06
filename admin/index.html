@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="asset/img/logo-simple.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="asset/css/styleAdmin.css">
     <title>Dulce Aroma a Cafe - admin</title>
 </head>
@@ -30,27 +31,27 @@
                 <h2>Menu</h2>
                 <br>
                 <h3>Agregar nueva comida al menu</h3>
-                <form action="" id="formMenu">
-                    <div class="row">
+                <form action="" id="formMenu" class="form">
+                    <div class="info">
                         <label for="">Nombre:</label>
                         <br>
                         <input type="text" id="nombreMenu" placeholder="Nombre del producto" class="ingreso-info" required>
                         <br>
                         <br>
+                        <input type="text" id="nombreMenu" placeholder="Nombre del producto" class="ingreso-info">
+                    </div>
+                    <div class="info">
                         <label for="">Precio:</label>
                         <br>
-                        <input type="number" name="" id="precioMenu" placeholder="Ingrese el precio"
-                            class="ingreso-info">
-                        <br>
+                        <input type="number" name="" id="precioMenu" placeholder="Ingrese el precio" class="ingreso-info">
                     </div>
-                    <div class="row">
+                    <div class="info">
                         <label for="">Descripcion:</label>
                         <br>
                         <input type="text" name="" id="descripcionMenu" placeholder="Cafe" class="ingreso-info">
-                        <br>
                     </div>
-                    <div class="row">
-                        <label for="categoriaMenu">Categoria</label>
+                    <div class="info">
+                        <label for="categoriaMenu">Categoria</label><br>
                         <select name="" id="categoriaMenu" class="select">
                             <option value="cafe">Cafe</option>
                             <option value="licuados">Licuados</option>
@@ -58,9 +59,9 @@
                             <option value="panaderia">Panaderia</option>
                             <option value="sin-tacc">Sin Tacc</option>
                         </select>
-                        <br>
-                        <button type="submit" class="editar">Agregar</button>
+                        <button type="submit" class="btn-agregar">Agregar</button>
                     </div>
+                    
                 </form>
                 <br>
                 <div class="cabezal-menu">
@@ -95,24 +96,21 @@
                 </div>
             </section>
             <section id="Productos" class="seccion-panel">
-                <br>
                 <h2>Productos</h2>
                 <br>
                 <h3>Agregar nuevo producto</h3>
-                <form action="" id="formProducto">
-                    <div class="row">
+                <form action="" id="formProducto" class="form">
+                    <div class="info">
                         <label for="nombreProducto">Nombre:</label>
                         <br>
                         <input type="text" id="nombreProducto" placeholder="Nombre del producto" class="ingreso-info">
-                        <br>
-                        <br>
+                    </div>
+                    <div class="info">
                         <label for="precioProducto">Precio:</label>
                         <br>
-                        <input type="number" name="" id="precioProducto" placeholder="Ingrese el precio"
-                            class="ingreso-info">
-                        <br>
+                        <input type="number" name="" id="precioProducto" placeholder="Ingrese el precio" class="ingreso-info">
                     </div>
-                    <div class="row">
+                    <div class="info">
                         <label for="img-producto">Imagen:</label>
                         <br>
                         <div class="contenedor-carga">
@@ -121,10 +119,9 @@
                                 Seleccionar imagen
                             </label>
                         </div>
-                        <br>
                     </div>
-                    <div class="row">
-                        <label for="categoriaProducto">Categoria</label>
+                    <div class="info">
+                        <label for="categoriaProducto">Categoria</label><br>
                         <select name="" id="categoriaProducto" class="select">
                             <option value="remeras">Remeras</option>
                             <option value="gorras">Gorras</option>
@@ -132,8 +129,7 @@
                             <option value="vasos">Vasos</option>
                             <option value="otros">Otro</option>
                         </select>
-                        <br>
-                        <button type="submit" class="editar">Agregar</button>
+                        <button type="submit" class="btn-agregar">Agregar</button>
                     </div>
                 </form>
                 <br>
@@ -158,24 +154,23 @@
                 </div>
             </section>
             <section id="pedidos" class="seccion-panel">
-                <br><br>
                 <h2>Pedidos</h2>
                 <br>
                 <div class="totalpedidos">
                     <div class="miniCardPe">
                         Total de pedidos
                         <br>
-                        <h2>20</h2>
+                        <h2 id="totalPedidos"></h2>
                     </div>
                     <div class="miniCardPe">
                         Pedidos pendientes
                         <br>
-                        <h2>20</h2>
+                        <h2 id="pedidosPendientes"></h2>
                     </div>
                     <div class="miniCardPe">
                         Pedidos entregados
                         <br>
-                        <h2>20</h2>
+                        <h2 id="pedidosEntregados"></h2>
                     </div>
                 </div>
                 <br>
@@ -191,11 +186,28 @@
                                 <th>Detalle</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="bodyTablaPedidos">
                         </tbody>
                     </table>
                 </div>
                 <br>
+                <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="staticBackdropLabel">
+                            Informacion del Pedido
+                        </h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
             </section>
             <section id="reclutamiento" class="seccion-panel">
                 <h2>Crear nueva postulacion</h2>
@@ -284,18 +296,49 @@
                             <th>Telefono</th>
                             <th>Gmail</th>
                             <th>Estado</th>
+                            <th>Historial</th>
                         </tr>
                     </thead>
                     <tbody id="bodyTablaUsuarios"></tbody>
                 </table>
+                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body-historial">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body-detalleHistorial">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Regresar</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
             </section>
         </main>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="asset/js/localStorage.js"></script>
     <script src="asset/js/adminPanel.js"></script>
     <script src="asset/js/localStorageR.js"></script>

@@ -225,6 +225,28 @@ header a:hover{
     background-color: #eae2d9;
     text-shadow: 0px 0px 0px #FFF7EC;
 }
+.modal-body-detalleHistorial,.modal-body-historial{
+    padding: 20px;
+}
+.editar{
+    color: #FFF7EC;
+    background-color: #824834;
+    width: auto;
+    height: 30px;
+    border-radius: 5px;
+    border: 0px;
+    padding: 5px 10px;
+    transition: 1s;
+    margin: 5px 0px;
+}
+.editar:hover{
+    background-color: #FFF7EC;
+    color: #422B23;
+    border: 1px solid #422B23;
+}
+.tr{
+    border-bottom: 1px solid #824834;
+}
 
 /* ---- Carrusel (hero) ---- */
 .carousel{
