@@ -403,8 +403,9 @@ function verPostulantes(idPostulacion){
                             <th>Nombre</th>
                             <th>Correo</th>
                             <th>Teléfono</th>
-                            <th>CV</th>
-                            <th>Estado</th>
+                            <th><center>CV</center></th>
+                            <th><center>Estado</center></th>
+                            <th><center>Acciones</center></th>
                         </tr>
                     </thead>
 
@@ -417,6 +418,7 @@ function verPostulantes(idPostulacion){
                                     <td>${recluta.correo}</td>
                                     <td>${recluta.numeroTelefono}</td>
                                     <td>${recluta.archivo_cv}</td>
+                                    
                                     <td>
                                         <button class=" ${recluta.estado === "pendiente" 
                                             ? "estado-recluta-activo"
@@ -440,6 +442,16 @@ function verPostulantes(idPostulacion){
                                         </button>
                                     </td>
 
+                                    <td>
+                                        <button class= "btn-cv" onclick="abrirCV(${recluta.id})">
+                                        ver CV
+                                        </button>
+
+                                        <button class = "btn-eliminar-recluta" onclick = "eliminarRecluta(${recluta.id}, ${idPostulacion})">
+                                            eliminar
+                                        </button>
+                                    </td>
+                                    
                                 </tr>`).join("")
                         }
 
@@ -455,6 +467,51 @@ function verPostulantes(idPostulacion){
         "afterend",
         filaDetalle
     );
+}
+
+//funcion para eliminar postulantes
+
+function eliminarRecluta(idRecluta,idPostulacion){
+
+    let reclutasGuardados =
+        JSON.parse(
+            localStorage.getItem("reclutas")
+        );
+
+    reclutasGuardados =
+        reclutasGuardados.filter(
+            recluta => recluta.id !== idRecluta
+        );
+
+    localStorage.setItem(
+        "reclutas",
+        JSON.stringify(reclutasGuardados)
+    );
+
+    const detalle =
+        document.getElementById(
+            `detalle-${idPostulacion}`
+        );
+
+    if(detalle){
+        detalle.remove();
+    }
+
+    verPostulantes(idPostulacion);
+}
+
+//funcion para ver CV
+
+function abrirCV(idRecluta){
+    const reclutasGuardados = JSON.parse(localStorage.getItem("reclutas"));
+
+    const recluta = reclutasGuardados.find(r => r.id === idRecluta);
+
+    if(!recluta){
+        return;
+    }
+
+    window.open(recluta.archivo_base64,"_back");
 }
 
 function cambiarEstadoRecluta (idRecluta,nuevoEstado){
@@ -521,7 +578,6 @@ function mostrarVacantesPublicas(){
                 <p class="descripcion-puesto">
                     ${postulacion.descripcion}
                 </p>
-
                 <div class="badges-empleo">
 
                     <span class="badge-info">
@@ -635,7 +691,6 @@ function inicializarEventosContratar(){
 
 }
 
-
 function inicializarFormularioContratar(){
 
     const formularios =
@@ -657,52 +712,104 @@ function inicializarFormularioContratar(){
 
                 const telefono = formulario.querySelector(".telefono-recluta").value;
 
-                const archivo = formulario.querySelector("archivo-recluta").files[0];
+                const inputArchivo = formulario.querySelector(".archivo-recluta");
+                const archivo = inputArchivo.files[0];
 
                 const idPostulacion = Number(formulario.dataset.postulacion);
 
                 //creamos una constante que sera un file reader para pasar los archivos cv a base 64
                 const lector = new FileReader();
 
-                lector.onload= function(){
+                lector.onload = function(){
 
-                    const reclutasGuardados = JSON.parse(localStorage.getItem("reclutas"))||[];
-                }
+    const reclutasGuardados =
+        JSON.parse(
+            localStorage.getItem("reclutas")
+        ) || [];
 
-                //creamos un nuevo id para el recluta
+    let nuevoId = 1;
 
-                let nuevoId = 1;
+    if(reclutasGuardados.length > 0){
 
-                if(reclutasGuardados.length > 0){
-                    nuevoId = reclutasGuardados[reclutasGuardados - 1].id + 1;
-                }
+        nuevoId =
+            reclutasGuardados[
+                reclutasGuardados.length - 1
+            ].id + 1;
+    }
 
-                //crear el objeto recluta
+    const nuevoRecluta = {
 
-                const nuevoRecluta = {
-                    id: nuevoId ,
-                    idPostulacion: idPostulacion,
-                    nombre: nombre,
-                    correo: correo,
-                    archivo_cv: archivo.name,
-                    archivo_base64: lector.result,
-                    estado: "pendiente"
-                }
+        id: nuevoId,
 
-                reclutasGuardados.push(nuevoRecluta);
+        id_postulacion: idPostulacion,
 
-                localStorage.setItem("reclutas",JSON,stringify(reclutasGuardados));
+        nombre: nombre,
 
-                alert("postulacion enviada correctamente");
+        correo: correo,
 
-                formulario.reset();
+        numeroTelefono: telefono,
 
-                lector.readAsDataURL(archivo);
+        archivo_cv: archivo.name,
 
+        archivo_base64: lector.result,
+
+        estado: "pendiente"
+    };
+
+    reclutasGuardados.push(
+        nuevoRecluta
+    );
+
+    localStorage.setItem(
+        'reclutas',
+        JSON.stringify(
+            reclutasGuardados
+        )
+    );
+
+    alert(
+        "Postulación enviada correctamente"
+    );
+
+    formulario.reset();
+                };  
+                lector.readAsDataURL(archivo);           
             }
         );
-
     });
+}
+
+function abrirCV(idRecluta){
+    
+    const reclutasGuardados = JSON.parse(localStorage.getItem("reclutas"))||[];
+
+    //recorrera el todos los reclutas hasta que coincida con el recluta que hicimos click
+    const recluta = reclutasGuardados.find(r => r.id === idRecluta);
+
+    if(!recluta){
+        alert("no se encontro el recluta");
+        return
+    }
+
+    const base64 = recluta.archivo_base64;
+
+    const byteString = atob( base64.split(",")[1]);
+
+    const mimeString = base64.split(",")[0].split(":")[1].split(";")[0];
+
+    const ab = new ArrayBuffer(byteString.length);
+
+    const ia = new Uint8Array(ab);
+
+    for(let i = 0; i < byteString.length; i++){
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    const blob = new Blob([ab],{type: mimeString});
+
+    const url = URL.createObjectURL(blob);
+
+    window.open(url,"_black");
 }
 
 function inicializarHeader(){
@@ -733,6 +840,7 @@ function inicializarHeader(){
 console.log(
     JSON.parse(localStorage.getItem("postulaciones"))
 );
+
 
 mostrarPostulaciones();
 
