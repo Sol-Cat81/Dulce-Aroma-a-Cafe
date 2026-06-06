@@ -23,7 +23,6 @@ let usuarios = [
 // nose qie tiene que llevar la de usuario xD
 //mostrar datos del menu iniciales al momento
 const bodyTablaUsuarios = document.getElementById('bodyTablaUsuarios')
-const selectEstado = document.getElementById('selectEstado')
 
 //para evitar que se inicie dos veces y evitar comflicto entre la libreri
 let tablaMenu = null;
@@ -182,28 +181,28 @@ function crearFilaUsuario(usuario) {
 
 function crearFilaPedido(pedido) {
     let estado =''
-    if(pedido.estado = 'pendiente'){
+    if(pedido.estado === 'pendiente'){
         estado = `
         <option selected>Pendiente</option>
         <option value="preparando">Preparando</option>
         <option value="enviado">Enviado</option>
         <option value="entregado">Entregado</option>
         `
-    }else if(pedido.estado = 'preparando'){
+    }else if(pedido.estado === 'preparando'){
         estado = `
         <option selected>Preparando</option>
         <option value="pendiente">Pendiente</option>
         <option value="enviado">Enviado</option>
         <option value="entregado">Entregado</option>
         `
-    }else if(pedido.estado = 'enviado'){
+    }else if(pedido.estado === 'enviado'){
         estado = `
         <option selected>Enviado</option>
         <option value="pendiente">Pendiente</option>
         <option value="preparando">Preparando</option>
         <option value="entregado">Entregado</option>
         `
-    }else if(pedido.estado = 'entregado'){
+    }else if(pedido.estado === 'entregado'){
         estado = `
         <option selected>Enviado</option>
         <option value="pendiente">Pendiente</option>
@@ -218,7 +217,7 @@ function crearFilaPedido(pedido) {
             <td>${pedido.direccion}</td>
             <td>${pedido.total}</td>
             <td>
-            <select class="selectPedido ${pedido.estado}" data-id="${pedido.id}" id="selectEstado">
+            <select class="selectPedido ${pedido.estado}" data-id="${pedido.id}">
             ${estado}
             </select>
             </td>
@@ -278,10 +277,6 @@ function cargarPedidos(){
     bodyTablaPedidos.innerHTML = pedidos.map(crearFilaPedido).join('')
 
     tablaPedidos = activarTabla('#tablaPedidos')
-
-}
-
-function cambiarEstado(){
 
 }
 
@@ -542,12 +537,6 @@ function manejarAccionesProductos(evento){
     }
 }
 
-function detectarEstado(evento){
-    const select = evento.target
-
-    const eleccion = evento.target.value
-}
-
 // Cuando carga la pagina, conecta formularios y carga tablas
 
 window.addEventListener('load', () => {
@@ -567,9 +556,26 @@ window.addEventListener('load', () => {
 
     cargarPedidos()
 });
-selectEstado.addEventListener('change', e =>{
-    const seleccionEstado = e.target.value;
-    const idPedido = Number(e.dataset.id)
-    console.log(idPedido)
-    cambiarEstado()
-})
+bodyTablaPedidos.addEventListener('change', function(e){
+
+    if(!e.target.classList.contains('selectPedido')){
+        return;
+    }
+
+    const nuevoEstado = e.target.value;
+    const idPedido = Number(e.target.dataset.id);
+    
+    const pedidos = obtenerLista('pedidos');
+
+    const pedido = pedidos.find(p => p.id === idPedido);
+
+    if(!pedido){
+        return;
+    }
+
+    pedido.estado = nuevoEstado;
+
+    guardarLista('pedidos', pedidos);
+
+    cargarPedidos()
+});

@@ -71,27 +71,35 @@ main{
     color: #422B23;
     padding: 30px;
 }
-form{
+.form{
     display: flex;
-    margin-top: 20px;
-    background-color: #FFF7EC;
+    align-items:baseline;
+    gap: 20px;
+    flex-wrap: wrap;
     padding: 20px;
-    border-radius: 15px;
+    background-color: #fff;
+    border-radius: 10px;
 }
-.row{
-    flex: 25%;
+.btn-agregar{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #6f4e37;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    height: 42px;
 }
 .content-tabla{
     background-color: #FFF7EC !important;
     color: #422B23 !important;
 }
 .ingreso-info,.select{
-    background-color: #FFF7EC;
-    width: 300px;
-    height: 30px;
-    margin-top: 10px;
-    border: 2px solid #422B23;
-    border-radius: 5px;
+    width: 180px;
+    padding: 10px;
+    border: 1px solid #d6d6d6;
+    border-radius: 6px;
+    outline: none;
 }
 .tabla{
     width: auto;

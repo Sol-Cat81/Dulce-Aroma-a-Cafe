@@ -30,27 +30,24 @@
                 <h2>Menu</h2>
                 <br>
                 <h3>Agregar nueva comida al menu</h3>
-                <form action="" id="formMenu">
-                    <div class="row">
+                <form action="" id="formMenu" class="form">
+                    <div class="info">
                         <label for="">Nombre:</label>
                         <br>
                         <input type="text" id="nombreMenu" placeholder="Nombre del producto" class="ingreso-info">
-                        <br>
-                        <br>
+                    </div>
+                    <div class="info">
                         <label for="">Precio:</label>
                         <br>
-                        <input type="number" name="" id="precioMenu" placeholder="Ingrese el precio"
-                            class="ingreso-info">
-                        <br>
+                        <input type="number" name="" id="precioMenu" placeholder="Ingrese el precio" class="ingreso-info">
                     </div>
-                    <div class="row">
+                    <div class="info">
                         <label for="">Descripcion:</label>
                         <br>
                         <input type="text" name="" id="descripcionMenu" placeholder="Cafe" class="ingreso-info">
-                        <br>
                     </div>
-                    <div class="row">
-                        <label for="categoriaMenu">Categoria</label>
+                    <div class="info">
+                        <label for="categoriaMenu">Categoria</label><br>
                         <select name="" id="categoriaMenu" class="select">
                             <option value="cafe">Cafe</option>
                             <option value="licuados">Licuados</option>
@@ -58,9 +55,9 @@
                             <option value="panaderia">Panaderia</option>
                             <option value="sin-tacc">Sin Tacc</option>
                         </select>
-                        <br>
-                        <button type="submit" class="editar">Agregar</button>
+                        <button type="submit" class="btn-agregar">Agregar</button>
                     </div>
+                    
                 </form>
                 <br>
                 <div class="cabezal-menu">
@@ -298,7 +295,7 @@
     <script src="asset/js/localStorage.js"></script>
     <script src="asset/js/adminPanel.js"></script>
     <script src="asset/js/localStorageR.js"></script>
-    <script type="module" src="asset/js/pedidos.js"></script>
+    <script src="asset/js/pedidos.js"></script>
 </body>
 
 </html>

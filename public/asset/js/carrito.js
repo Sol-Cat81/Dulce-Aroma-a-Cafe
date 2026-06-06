@@ -169,9 +169,10 @@ function cargarPedido(){
         let pedido = {
             id: idPedido,
             Cliente: users[usuario - 1].nombre,
+            idCliente:users[usuario - 1],
             direccion: users[usuario - 1].direccion,
             total: SumTotal,
-            estado: 'preparacion'
+            estado: 'pendiente'
         }
         pedidos.push(pedido)
         localStorage.setItem('pedidos', JSON.stringify(pedidos));
