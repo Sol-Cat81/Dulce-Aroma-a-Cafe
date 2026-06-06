@@ -217,10 +217,12 @@ function editarPostulacion(id) {
 
 
 // Obtenemos el formulario
-const formularioPostulacion = document.querySelector(".form-postulacion");
+const formularioPostulacion = document.querySelector(".form-postulacion-admin");
 
 // Cuando se envía el formulario
-formularioPostulacion.addEventListener("submit", crearPostulacion);
+if(formularioPostulacion){
+    formularioPostulacion.addEventListener("submit",crearPostulacion);
+}
 
 function crearPostulacion(evento){
 
@@ -543,22 +545,201 @@ function mostrarVacantesPublicas(){
                         -
                         ${postulacion.hora_fin}
                     </span>
-
                 </div>
+                 <button
+                        type="button"
+                        class="btn-postularse"
+                        data-id="${postulacion.id}">
+                        Postularse
+                        </button>
+                    
+                            <form
+        class="form-postulacion oculto"
+        data-postulacion="${postulacion.id}">
+        <h2>formulario de postulacion</h2>
+                    <p class="subtitulo-formulario">
+                        Complete los datos para enviar su solicitud.
+                    </p>
 
-                <button
-                    type="button"
-                    class="btn-postularse">
+        <label for="nombre-recluta">Nombre completo</label>
+        <input
+            type="text"
+            class="nombre-recluta"
+            placeholder="Nombre completo"
+            required>
+        <label for="email"> correo </label>
+        <input
+            type="email"
+            class="correo-recluta"
+            placeholder="Correo"
+            required>
+        <label for="telefono">numero de telefono</label>
+        <input
+            type="tel"
+            class="telefono-recluta"
+            placeholder="Teléfono"
+            required>
+        <label for="archivo-recluta">Acrhivo-cv</label>
+        <input type="file" class="archivo-recluta">
 
-                    Postularse
+        <button type="submit">
+            Enviar
+        </button>
+        <p id="mensaje-exito" class="mensaje-exito">
+                        ¡Tu postulación fue enviada correctamente!
+                    </p>
 
-                </button>
+    </form>
             </div>
              <br><br>
         `;
     });
+}
+function inicializarEventosContratar(){
+
+    const botones =
+        document.querySelectorAll(
+            ".btn-postularse"
+        );
+
+    botones.forEach(boton => {
+
+        boton.addEventListener(
+            "click",
+            function(){
+
+                const formulario =
+                    boton.nextElementSibling;
+
+                formulario.classList.toggle(
+                    "oculto"
+                );
+
+                if(
+                    formulario.classList.contains(
+                        "oculto"
+                    )
+                ){
+                    boton.textContent =
+                        "Postularse";
+                }
+                else{
+                    boton.textContent =
+                        "Cerrar formulario";
+                }
+
+            }
+        );
+
+    });
 
 }
 
+
+function inicializarFormularioContratar(){
+
+    const formularios =
+        document.querySelectorAll(
+            ".form-postulacion"
+        );
+
+    formularios.forEach(formulario => {
+
+        formulario.addEventListener(
+            "submit",
+            function(evento){
+
+                evento.preventDefault();
+
+                const nombre = formulario.querySelector(".nombre-recluta").value;
+
+                const correo = formulario.querySelector(".correo-recluta").value;
+
+                const telefono = formulario.querySelector(".telefono-recluta").value;
+
+                const archivo = formulario.querySelector("archivo-recluta").files[0];
+
+                const idPostulacion = Number(formulario.dataset.postulacion);
+
+                //creamos una constante que sera un file reader para pasar los archivos cv a base 64
+                const lector = new FileReader();
+
+                lector.onload= function(){
+
+                    const reclutasGuardados = JSON.parse(localStorage.getItem("reclutas"))||[];
+                }
+
+                //creamos un nuevo id para el recluta
+
+                let nuevoId = 1;
+
+                if(reclutasGuardados.length > 0){
+                    nuevoId = reclutasGuardados[reclutasGuardados - 1].id + 1;
+                }
+
+                //crear el objeto recluta
+
+                const nuevoRecluta = {
+                    id: nuevoId ,
+                    idPostulacion: idPostulacion,
+                    nombre: nombre,
+                    correo: correo,
+                    archivo_cv: archivo.name,
+                    archivo_base64: lector.result,
+                    estado: "pendiente"
+                }
+
+                reclutasGuardados.push(nuevoRecluta);
+
+                localStorage.setItem("reclutas",JSON,stringify(reclutasGuardados));
+
+                alert("postulacion enviada correctamente");
+
+                formulario.reset();
+
+                lector.readAsDataURL(archivo);
+
+            }
+        );
+
+    });
+}
+
+function inicializarHeader(){
+
+    const cabezal =
+        document.querySelector("header");
+
+    if(!cabezal){
+        return;
+    }
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if(window.scrollY > 80){
+                cabezal.classList.add("scrolled");
+            }
+            else{
+                cabezal.classList.remove("scrolled");
+            }
+
+        }
+    );
+
+}
+
+console.log(
+    JSON.parse(localStorage.getItem("postulaciones"))
+);
+
 mostrarPostulaciones();
+
 mostrarVacantesPublicas();
+
+inicializarEventosContratar();
+
+inicializarFormularioContratar();
+
+inicializarHeader();
