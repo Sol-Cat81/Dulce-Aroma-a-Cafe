@@ -169,7 +169,7 @@ function cargarPedido(){
         let pedido = {
             id: idPedido,
             Cliente: users[usuario - 1].nombre,
-            idCliente:users[usuario - 1],
+            idCliente:users[usuario - 1].id,
             direccion: users[usuario - 1].direccion,
             total: SumTotal,
             estado: 'pendiente'

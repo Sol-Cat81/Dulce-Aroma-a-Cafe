@@ -24,6 +24,13 @@ let usuarios = [
 //mostrar datos del menu iniciales al momento
 const bodyTablaUsuarios = document.getElementById('bodyTablaUsuarios')
 
+const modalDetalle = document.querySelector('.modal-body')
+
+const modalHistorial = document.querySelector('.modal-body-historial')
+const tituloHistorial = document.querySelector('#exampleModalToggleLabel')
+const tituloDetalleHistorial = document.querySelector('#exampleModalToggleLabel2')
+const modalDetalleHistorial = document.querySelector('.modal-body-detalleHistorial')
+
 //para evitar que se inicie dos veces y evitar comflicto entre la libreri
 let tablaMenu = null;
 
@@ -175,6 +182,7 @@ function crearFilaUsuario(usuario) {
             <td>${usuario.telefono}</td>
             <td>${usuario.gmail}</td>
             <td><button class="${activo}">${activo}</button></td>
+            <td><button class="editar" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" onclick="historialUsuario(${usuario.id})">Historial</button></td>
         </tr>
     `;
 }
@@ -222,7 +230,7 @@ function crearFilaPedido(pedido) {
             </select>
             </td>
             <td>
-            <button type="button" class="editar" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" class="editar" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="verDetalle(${pedido.id},'detallePedido')">
             Ver detalle
             </button>
             </td>
@@ -280,6 +288,49 @@ function cargarPedidos(){
 
 }
 
+function verDetalle(id, donde){
+    console.log(id)
+    const pedi = JSON.parse(localStorage.getItem('pedidos')) || []
+    const detallePedi = JSON.parse(localStorage.getItem('detallePedido')) || []
+    let indice = id - 1
+    let detalles = ''
+    detallePedi.forEach(element => {
+        if(element.idPedido === id){
+            detalles +=`
+            <li class="list-group-item">
+            <span>${element.item}</span>
+            <span>x${element.cantidad}</span>
+            <span>${element.subTotal}</span>
+            </li>
+            `
+        }
+    });
+    if(donde === 'detallePedido'){
+        modalDetalle.innerHTML = `
+        Pedido Num: #${pedi[indice].id}</br>
+        Cliente: ${pedi[indice].Cliente}</br>
+        Direccion: ${pedi[indice].direccion}</br>
+        Estado: ${pedi[indice].estado}</br>
+        <h5>Total:$${pedi[indice].total}</h5>
+        <ul class="list-group list-group-flush">
+            ${detalles}
+        </ul>
+        `
+}else{
+    tituloDetalleHistorial.innerHTML = `Detalle del pedido #${pedi[indice].id}`
+    modalDetalleHistorial.innerHTML = `
+        Pedido Num: #${pedi[indice].id}</br>
+        Cliente: ${pedi[indice].Cliente}</br>
+        Direccion: ${pedi[indice].direccion}</br>
+        Estado: ${pedi[indice].estado}</br>
+        <h5>Total:$${pedi[indice].total}</h5>
+        <ul class="list-group list-group-flush">
+            ${detalles}
+        </ul>
+        `
+}
+    }
+//'detallePedido' 'detalleHistorialUsuario'
 //agregar una comida nueva
 function agregarMenu(evento) {
     evento.preventDefault();
@@ -534,6 +585,46 @@ function manejarAccionesProductos(evento){
     //si la accion es eliminar
     if (accion === 'eliminar-producto'){
         eliminarProducto(id);
+    }
+}
+
+function historialUsuario(id){
+    const ped = obtenerLista('pedidos')
+    const users = obtenerLista('usuarios')
+    const pedidosUsuario = ped.filter(elem => elem.idCliente === id)
+    let contenidoHistorial = ''
+    pedidosUsuario.forEach(ped =>{
+        contenidoHistorial+=`
+        <tr>
+        <td>${ped.id}</td>
+        <td>${ped.estado}</td>
+        <td>$${ped.total}</td>
+        <td>
+        <button class="editar" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+         onclick="verDetalle(${ped.id},'detalleHistorialUsuario')">Ver</button>
+        </td>
+        </tr>
+        `
+    })
+    tituloHistorial.innerHTML = `Historial de ${users[id - 1].nombre}`
+    if(contenidoHistorial === ''){
+        modalHistorial.innerHTML = `<br>El usuario no a realizado algun pedido hasta el momento..<br><br>`
+    }else{
+        modalHistorial.innerHTML = `
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>P.Num</th>
+                    <th>Estado</th>
+                    <th>Total</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+            ${contenidoHistorial}
+            </tbody>
+        </table>
+        `
     }
 }
 
