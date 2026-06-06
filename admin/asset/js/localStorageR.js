@@ -214,8 +214,6 @@ function editarPostulacion(id) {
         "Guardar cambios";
 }
 
-
-
 // Obtenemos el formulario
 const formularioPostulacion = document.querySelector(".form-postulacion-admin");
 
