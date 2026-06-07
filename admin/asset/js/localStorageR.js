@@ -817,11 +817,11 @@ function abrirCV(idRecluta){
 }
 
 
-
 console.log(
     JSON.parse(localStorage.getItem("postulaciones"))
 );
 mostrarPostulaciones();
 mostrarVacantesPublicas();
 inicializarEventosContratar();
+
 inicializarFormularioContratar();
