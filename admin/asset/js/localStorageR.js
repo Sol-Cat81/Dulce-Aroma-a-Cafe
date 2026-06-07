@@ -214,8 +214,6 @@ function editarPostulacion(id) {
         "Guardar cambios";
 }
 
-
-
 // Obtenemos el formulario
 const formularioPostulacion = document.querySelector(".form-postulacion-admin");
 
@@ -226,6 +224,7 @@ if(formularioPostulacion){
 
 function crearPostulacion(evento){
 
+    console.log("ENTRÓ A CREAR POSTULACIÓN");
     // Evita que la página se recargue
     evento.preventDefault();
 
@@ -260,11 +259,11 @@ function crearPostulacion(evento){
     const postulacionesGuardadas = JSON.parse(
     localStorage.getItem("postulaciones"));
 
-    if(idEditando !== null){
+    if(idEditado !== null){
 
     const postulacionEditar =
         postulacionesGuardadas.find(
-            p => p.id === idEditando
+            p => p.id === idEditado
         );
 
     postulacionEditar.cargo = cargo;
@@ -351,6 +350,7 @@ function crearPostulacion(evento){
     alert("Postulación creada correctamente");
 }
 
+
 function verPostulantes(idPostulacion){
 
     console.log(
@@ -420,6 +420,7 @@ function verPostulantes(idPostulacion){
                                     <td>${recluta.archivo_cv}</td>
                                     
                                     <td>
+                                    <div class="estado-container">
                                         <button class=" ${recluta.estado === "pendiente" 
                                             ? "estado-recluta-activo"
                                             : "estado-recluta"
@@ -440,9 +441,11 @@ function verPostulantes(idPostulacion){
                                         } " onclick = " cambiarEstadoRecluta (${recluta.id},'descartado') ">
                                         Descartado
                                         </button>
+                                        </div>
                                     </td>
 
                                     <td>
+                                        <div class="estado-container">
                                         <button class= "btn-cv" onclick="abrirCV(${recluta.id})">
                                         ver CV
                                         </button>
@@ -450,6 +453,7 @@ function verPostulantes(idPostulacion){
                                         <button class = "btn-eliminar-recluta" onclick = "eliminarRecluta(${recluta.id}, ${idPostulacion})">
                                             eliminar
                                         </button>
+                                        </div>
                                     </td>
                                     
                                 </tr>`).join("")
@@ -816,12 +820,8 @@ function abrirCV(idRecluta){
 console.log(
     JSON.parse(localStorage.getItem("postulaciones"))
 );
-
-
 mostrarPostulaciones();
-
 mostrarVacantesPublicas();
-
 inicializarEventosContratar();
 
 inicializarFormularioContratar();
