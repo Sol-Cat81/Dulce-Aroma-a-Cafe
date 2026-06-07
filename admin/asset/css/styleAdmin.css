@@ -441,20 +441,15 @@ td{
 
 .tabla-postulantes{
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: fixed;
 }
 
+
+.tabla-postulantes td,
 .tabla-postulantes th{
-    padding: 10px;
-    text-align: left;
-    border-bottom: 2px solid #ddd;
+    word-break: break-word;
 }
 
-.tabla-postulantes th{
-    padding: 10px;
-    text-align: left;
-    border-bottom: 2px solid #ddd;
-}
 .estado-recluta{
     border: none;
     padding: 6px 10px;
@@ -493,4 +488,7 @@ td{
     background-color: #992424;
     color: white;
     margin-right: 5px;
+}
+.estado-container{
+    white-space: nowrap;
 }
