@@ -239,8 +239,12 @@ function crearFilaPedido(pedido) {
 }// pediente preparando enviado entregado
 
 // Carga los datos del menu en la tabla
-function cargarMenu() {
-    const menu = obtenerLista('menu');
+function cargarMenu(menuFiltrado = null) {
+    const menuCompleto = obtenerLista('menu');
+    const filtroActual = document.getElementById('filtroMenu')?.value.toLowerCase() || '';
+    const menu = menuFiltrado || menuCompleto.filter((comida) => {
+        return filtroActual === '' || comida.categoria.toLowerCase() === filtroActual;
+    });
 
     destruirTabla(tablaMenu);
 
