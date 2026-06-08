@@ -28,3 +28,26 @@ opcionesPanel.forEach(function(opcion){
         opcion.classList.add("activo-panel")
     })
 })
+
+const filtroMenu = document.getElementById('filtroMenu');
+let seleccionMenu = '';//guarda la seleccion del menu
+
+filtroMenu.addEventListener('change', () => {
+    seleccionMenu = filtroMenu.value.toLowerCase();
+    filtrarMenu();
+});
+
+function filtrarMenu(){
+    const menu = obtenerLista('menu');
+    const resultadoMenu = menu.filter(filtrar);
+
+    cargarMenu(resultadoMenu);
+}
+
+function filtrar(comida){
+    if(seleccionMenu === ''){
+        return true ;
+    }else{
+        return comida.categoria.toLowerCase() === seleccionMenu;
+    }
+}
