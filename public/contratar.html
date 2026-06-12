@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header id="cabezal_contratar" class="">
+    <header>
         <!-- Barra de navegacion -->
         <div class="contenedor-nav">
             <a href="index.html">
@@ -28,10 +28,10 @@
         <img src="asset/img/baner-contratar.png" alt="" class="baner">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-5">
                     <img src="asset/img/logo.png" alt="" class="logo-hero">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 col-sm-7 titulo">
                     <h1>Dulce aroma a cafe</h1>
                     oportunidades de empleo
                 </div>
@@ -40,12 +40,12 @@
     </section>
     <section class=" container cards-empleo">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <div id="contenedor-vacantes">
                 </div>
             </div>
             <br>
-            <div class="col-md-4 nosotros">
+            <div class="col-lg-4 nosotros">
                 <b>Nosotros</b>
                 <p>
                         Dulce Aroma a Café” nació mucho antes de tener un local, un logo o una idea clara
@@ -78,6 +78,17 @@
     <!-- Enlace para los iconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        const header = document.querySelector("header")
+        window.addEventListener("scroll", () => {
+
+            if(window.scrollY > 100){
+                header.classList.add("scrolled");
+            }else{
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
 </body>
 
 </html>

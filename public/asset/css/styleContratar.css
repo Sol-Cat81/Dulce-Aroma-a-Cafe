@@ -36,7 +36,7 @@ header {
     transition: .4s ease;
 }
 
-.scrolled {
+.scrolled{
     background-color: #422B23;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.537);
 }
@@ -49,7 +49,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0% 30px;
+    padding: 0% 10px;
+}
+.contenedor{
+    color: #422B23;
+}
+.list-group-item{
+    background-color: #FFF7EC;
+    border-bottom: 1px solid #422B23;
+}
+.list-group{
+    width: fit-content;
 }
 
 /* logo */
@@ -101,6 +111,7 @@ h1 {
     background-color: #422B23;
     border-radius: 15PX;
     padding: 20px;
+    color: #f7f7f7;
 }
 
 /* ---- responsive ----- */
@@ -309,4 +320,31 @@ h1 {
     display: none;
     color: green;
     font-weight: bold;
+}
+@media (max-width: 1200px){
+    .logo-hero{
+        margin-top: -10vh;
+    }
+}
+@media (max-width: 1000px){
+    .logo-hero{
+        margin-top: -8vh;
+    }
+}
+@media (max-width: 760px){
+    .logo-hero{
+        margin-top: -10vh;
+    }
+}
+@media (max-width: 576px){
+    .logo-hero{
+        margin-top: calc(-40vh + 27vh);
+        width: 60vw;
+        margin-left: 17vw;
+    }
+    .titulo{
+        text-align: center;
+        margin-top: -40px;
+        padding-bottom: 20px;
+    }
 }
