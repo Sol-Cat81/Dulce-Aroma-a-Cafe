@@ -62,7 +62,17 @@ function crearId(lista){
     return lista[lista.length - 1].id + 1;
 }
 
-btnCrearRegistro.addEventListener('click', function(recargar){
+const formularioRegistro = document.querySelector('.panel-registro form');
+
+formularioRegistro.addEventListener('submit', function(e){
+    
+    e.preventDefault();
+
+    if (!formularioRegistro.checkValidity()) {
+        alert('Por favor completa todos los campos obligatorios (incluido la política de privacidad)');
+        return;
+    }
+
     
     const existeNombre = users.find(busca => busca.nombre === nombreUsuario.value)
     const existeCorreo = users.find(busca => busca.gmail === correoUsuario.value)

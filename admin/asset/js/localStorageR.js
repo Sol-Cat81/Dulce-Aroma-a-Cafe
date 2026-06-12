@@ -641,6 +641,10 @@ function mostrarVacantesPublicas(){
             required>
         <label for="archivo-recluta">Acrhivo-cv</label>
         <input type="file" class="archivo-recluta">
+<div class="contenedor-politica">
+        <input type="checkbox" name="aceptarPolitica" id="politicaPrivacidad" required>
+                    <Label class="politicaPrivacidad" >Autorizo a Dulce Aroma de Café a tratar mis datos personales y <a href="politicas.html">curriculares con fines de reclutamiento y selección de personal.</a></Label>
+</div>
 
         <button type="submit">
             Enviar

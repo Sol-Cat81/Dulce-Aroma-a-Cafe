@@ -298,3 +298,11 @@ body{
     pointer-events: auto;
     transform: translateX(0);
 }
+
+.politicaPrivacidad {
+    color: white;
+}
+
+.politicaPrivacidad a{
+    color: white;
+}

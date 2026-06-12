@@ -210,25 +210,28 @@ h1 {
 
 
 .form-postulacion {
-    background-color: #422B23;
-    color: #ffffff;
-    padding: 30px;
-    margin-top: 20px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+     background: linear-gradient(
+        180deg,
+        #4c332a,
+        #422B23
+    );
+    color: white;
+    padding: 35px;
+    margin-top: 25px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+    border: 1px solid rgba(255,255,255,.1);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
     display: flex;
     flex-direction: column;
     gap: 15px;
+    animation: aparecer .4s ease;
 }
 
 .form-postulacion h2 {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #ffffff;
+    color: #d8cfc8;
+    margin-bottom: 15px;
+    font-size: .95rem;
 }
 
 .subtitulo-formulario {
@@ -238,36 +241,69 @@ h1 {
 }
 
 .form-postulacion label {
-    font-weight: bold;
     font-size: .95rem;
     color: #ffffff;
     margin-bottom: -5px;
 }
 
-.form-postulacion input  {
+
+.form-postulacion input[type="text"],
+.form-postulacion input[type="email"],
+.form-postulacion input[type="tel"] {
     width: 100%;
     padding: 14px;
-    border: 1px solid #d8d8d8;
+    border: 2px solid transparent;
     border-radius: 10px;
     font-size: 1rem;
-    transition: .3s;
+    background-color: #FFF7EC;
+    color: #422B23;
 }
 
 .form-postulacion input:focus {
     outline: none;
     border-color: #D9A066;
-    box-shadow: 0 0 10px rgba(217, 160, 102, .3);
+    box-shadow: 0 0 12px rgba(217,160,102,.4);
 }
 
-#archivo-recluta {
+.form-postulacion .archivo-recluta {
+    background-color: white;
+    border-radius: 10px;
     padding: 10px;
-    background-color: #f7f7f7;
     cursor: pointer;
+}
+
+.form-postulacion input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.politicaPrivacidad {
+    font-size: .95rem;
+    font-weight: normal;
+    color: #f1e6dc;
+    line-height: 1.5;
+}
+
+.politicaPrivacidad a {
+    color: #D9A066;
+    text-decoration: underline;
+}
+
+.politicaPrivacidad a:hover {
+    color: #f0b679;
+}
+.contenedor-politica{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .form-postulacion button {
     margin-top: 10px;
-    background-color: #422B23;
+    background-color: #D9A066;
     color: white;
     border: none;
     border-radius: 10px;
@@ -279,7 +315,7 @@ h1 {
 }
 
 .form-postulacion button:hover {
-    background-color: #5b3a2f;
+    background-color: #c58c51;
     transform: translateY(-2px);
 }
 
@@ -316,11 +352,7 @@ h1 {
 }
 
 /* mensaje de exito */
-.mensaje-exito {
-    display: none;
-    color: green;
-    font-weight: bold;
-}
+
 @media (max-width: 1200px){
     .logo-hero{
         margin-top: -10vh;
