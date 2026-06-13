@@ -53,6 +53,7 @@ header {
 }
 .contenedor{
     color: #422B23;
+    text-align: justify;
 }
 .list-group-item{
     background-color: #FFF7EC;
