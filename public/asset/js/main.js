@@ -43,8 +43,6 @@ mostrarLogin.addEventListener('click', (e) => {
     card.classList.remove('modo-registro');
 });
 
-/* ----- REGISTRO DE USUARIO ----- */
-
 const nombreUsuario = document.getElementById('nombre-usuario')
 const correoUsuario = document.getElementById('correo-usuario')
 const telefonoUsuario = document.getElementById('telefono-usuario')

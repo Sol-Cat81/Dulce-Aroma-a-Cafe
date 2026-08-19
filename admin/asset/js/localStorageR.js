@@ -1,28 +1,28 @@
 const postulaciones = [
-    {id: 1 , cargo : 'barista' , descripcion: ' Buscamos una persona responsable, amable y con buena presencia para atender clientes preparar bebidas y trabajar en equipo', ubicacion: 'tucuman', modo: 'presencial', turno: 'tarde', hora_inicio : '08:50',hora_fin:'13:00',estado: true},
-    {id: 2 , cargo : 'cajero' , descripcion: ' Buscamos una persona responsable, amable y con buena presencia para atender clientes preparar bebidas y trabajar en equipo', ubicacion: 'tucuman', modo: 'presencial', turno: 'tarde', hora_inicio : '08:50',hora_fin:'13:00',estado: true}
+    { id: 1, cargo: 'barista', descripcion: ' Buscamos una persona responsable, amable y con buena presencia para atender clientes preparar bebidas y trabajar en equipo', ubicacion: 'tucuman', modo: 'presencial', turno: 'tarde', hora_inicio: '08:50', hora_fin: '13:00', estado: true },
+    { id: 2, cargo: 'cajero', descripcion: ' Buscamos una persona responsable, amable y con buena presencia para atender clientes preparar bebidas y trabajar en equipo', ubicacion: 'tucuman', modo: 'presencial', turno: 'tarde', hora_inicio: '08:50', hora_fin: '13:00', estado: true }
 ]
 
 
 
 const reclutas = [
     {
-        id: 1 , 
-        id_postulacion: 1 ,
+        id: 1,
+        id_postulacion: 1,
         nombre: 'juan carlos bodoque',
         correo: 'juancarlos@bodoque',
-        numeroTelefono: '1554425' ,
-        archivo_cv: 'cv.pdf' ,
-        estado : "pendiente",
+        numeroTelefono: '1554425',
+        archivo_cv: 'cv.pdf',
+        estado: "pendiente",
     },
     {
         id: 2,
-        id_postulacion:2 ,
+        id_postulacion: 2,
         nombre: 'roko carlo',
         correo: 'roko@carlo',
         numeroTelefono: '155454',
         archivo_cv: 'cv_roko.pdf',
-        estado : "pendiente",
+        estado: "pendiente",
     }
 ]
 
@@ -57,7 +57,7 @@ function mostrarPostulaciones() {
             "bodyTablaReclutacion"
         );
 
-    if(!bodyTabla){
+    if (!bodyTabla) {
         return;
     }
 
@@ -79,7 +79,7 @@ function mostrarPostulaciones() {
         // Insertamos las columnas
         fila.innerHTML = `
             <td>${postulacion.cargo}</td>
-            <td>${postulacion.descripcion.substring(0,10)}</td>
+            <td>${postulacion.descripcion.substring(0, 10)}</td>
             <td>${postulacion.ubicacion}</td>
             <td>${postulacion.modo}</td>
             <td>${postulacion.turno}</td>
@@ -121,7 +121,7 @@ function mostrarPostulaciones() {
 }
 
 /* cambiar estado del boton */
-function cambiarEstado(id){
+function cambiarEstado(id) {
 
     // Recuperamos postulaciones
     const postulacionesGuardadas = JSON.parse(
@@ -180,7 +180,7 @@ function editarPostulacion(id) {
         postulacion => postulacion.id === id
     );
 
-    if(!postulacion){
+    if (!postulacion) {
         return;
     }
 
@@ -218,11 +218,11 @@ function editarPostulacion(id) {
 const formularioPostulacion = document.querySelector(".form-postulacion-admin");
 
 // Cuando se envía el formulario
-if(formularioPostulacion){
-    formularioPostulacion.addEventListener("submit",crearPostulacion);
+if (formularioPostulacion) {
+    formularioPostulacion.addEventListener("submit", crearPostulacion);
 }
 
-function crearPostulacion(evento){
+function crearPostulacion(evento) {
 
     console.log("ENTRÓ A CREAR POSTULACIÓN");
     // Evita que la página se recargue
@@ -244,60 +244,60 @@ function crearPostulacion(evento){
     const horaFin = document.getElementById("hora-fin").value;
 
     // Validación básica
-    if(
+    if (
         cargo === "" ||
         descripcion === "" ||
         ubicacion === "" ||
         horaInicio === "" ||
         horaFin === ""
-    ){
+    ) {
         alert("Debe completar todos los campos");
         return;
     }
 
     // Recuperamos las postulaciones guardadas
     const postulacionesGuardadas = JSON.parse(
-    localStorage.getItem("postulaciones"));
+        localStorage.getItem("postulaciones"));
 
-    if(idEditado !== null){
+    if (idEditado !== null) {
 
-    const postulacionEditar =
-        postulacionesGuardadas.find(
-            p => p.id === idEditado
+        const postulacionEditar =
+            postulacionesGuardadas.find(
+                p => p.id === idEditado
+            );
+
+        postulacionEditar.cargo = cargo;
+        postulacionEditar.descripcion = descripcion;
+        postulacionEditar.ubicacion = ubicacion;
+        postulacionEditar.modo = modo;
+        postulacionEditar.turno = turno;
+        postulacionEditar.hora_inicio = horaInicio;
+        postulacionEditar.hora_fin = horaFin;
+
+        localStorage.setItem(
+            "postulaciones",
+            JSON.stringify(postulacionesGuardadas)
         );
 
-    postulacionEditar.cargo = cargo;
-    postulacionEditar.descripcion = descripcion;
-    postulacionEditar.ubicacion = ubicacion;
-    postulacionEditar.modo = modo;
-    postulacionEditar.turno = turno;
-    postulacionEditar.hora_inicio = horaInicio;
-    postulacionEditar.hora_fin = horaFin;
+        mostrarPostulaciones();
 
-    localStorage.setItem(
-        "postulaciones",
-        JSON.stringify(postulacionesGuardadas)
-    );
+        formularioPostulacion.reset();
 
-    mostrarPostulaciones();
+        idEditando = null;
 
-    formularioPostulacion.reset();
+        document.querySelector(".agregar").textContent =
+            "Agregar";
 
-    idEditando = null;
+        alert("Postulación actualizada correctamente");
 
-    document.querySelector(".agregar").textContent =
-        "Agregar";
-
-    alert("Postulación actualizada correctamente");
-
-    return;
+        return;
     }
 
     // Generamos un id nuevo
-    let nuevoId ;
+    let nuevoId;
 
     //si ecisten postulaciones
-    if(postulacionesGuardadas.length > 0){
+    if (postulacionesGuardadas.length > 0) {
 
         //toma el ultimo id de la postulacion de la ultima
         const ultimaPostulacion = postulacionesGuardadas[
@@ -306,7 +306,7 @@ function crearPostulacion(evento){
 
         //suma 1 al ultimo id
         nuevoId = ultimaPostulacion.id + 1;
-    }else{
+    } else {
         nuevoId = 1;
     }
     // Creamos el objeto
@@ -351,7 +351,7 @@ function crearPostulacion(evento){
 }
 
 
-function verPostulantes(idPostulacion){
+function verPostulantes(idPostulacion) {
 
     console.log(
         "Se hizo click en:",
@@ -363,7 +363,7 @@ function verPostulantes(idPostulacion){
         document.getElementById(`detalle-${idPostulacion}`);
 
     // Si existe la cerramos
-    if(detalleExistente){
+    if (detalleExistente) {
         detalleExistente.remove();
         return;
     }
@@ -371,16 +371,16 @@ function verPostulantes(idPostulacion){
     // Obtener fila principal
     const filaPrincipal =
         document.getElementById(`fila-${idPostulacion}`);
-        console.log(filaPrincipal);
+    console.log(filaPrincipal);
 
     // Filtrar reclutas de esta postulación
     const reclutasGuardados = JSON.parse(localStorage.getItem("reclutas"));
 
-    const reclutasFiltrados = 
+    const reclutasFiltrados =
         reclutasGuardados.filter(
             recluta => recluta.id_postulacion === idPostulacion
         )
-        console.log(reclutasFiltrados);
+    console.log(reclutasFiltrados);
     // Crear fila detalle
     const filaDetalle =
         document.createElement("tr");
@@ -411,8 +411,7 @@ function verPostulantes(idPostulacion){
 
                     <tbody>
 
-                        ${
-                            reclutasFiltrados.map(recluta => `
+                        ${reclutasFiltrados.map(recluta => `
                                 <tr>
                                     <td>${recluta.nombre}</td>
                                     <td>${recluta.correo}</td>
@@ -421,24 +420,24 @@ function verPostulantes(idPostulacion){
                                     
                                     <td>
                                     <div class="estado-container">
-                                        <button class=" ${recluta.estado === "pendiente" 
-                                            ? "estado-recluta-activo"
-                                            : "estado-recluta"
-                                        } "
+                                        <button class=" ${recluta.estado === "pendiente"
+            ? "estado-recluta-activo"
+            : "estado-recluta"
+        } "
                                         onclick = " cambiarEstadoRecluta(${recluta.id},'pendiente') ">
                                         Pendiente </button>
 
                                         <button class="${recluta.estado === "revisado"
-                                            ? "estado-recluta-revisado"
-                                            : "estado-recluta"
-                                        } " onclick = " cambiarEstadoRecluta (${recluta.id},'revisado') ">
+            ? "estado-recluta-revisado"
+            : "estado-recluta"
+        } " onclick = " cambiarEstadoRecluta (${recluta.id},'revisado') ">
                                         Revisado
                                         </button>
 
-                                        <button class=" ${recluta.estado === "descartado" 
-                                            ?"estado-recluta-descartado"
-                                            :"estado-recluta"
-                                        } " onclick = " cambiarEstadoRecluta (${recluta.id},'descartado') ">
+                                        <button class=" ${recluta.estado === "descartado"
+            ? "estado-recluta-descartado"
+            : "estado-recluta"
+        } " onclick = " cambiarEstadoRecluta (${recluta.id},'descartado') ">
                                         Descartado
                                         </button>
                                         </div>
@@ -457,7 +456,7 @@ function verPostulantes(idPostulacion){
                                     </td>
                                     
                                 </tr>`).join("")
-                        }
+        }
 
                     </tbody>
 
@@ -475,7 +474,7 @@ function verPostulantes(idPostulacion){
 
 //funcion para eliminar postulantes
 
-function eliminarRecluta(idRecluta,idPostulacion){
+function eliminarRecluta(idRecluta, idPostulacion) {
 
     let reclutasGuardados =
         JSON.parse(
@@ -497,7 +496,7 @@ function eliminarRecluta(idRecluta,idPostulacion){
             `detalle-${idPostulacion}`
         );
 
-    if(detalle){
+    if (detalle) {
         detalle.remove();
     }
 
@@ -506,30 +505,31 @@ function eliminarRecluta(idRecluta,idPostulacion){
 
 //funcion para ver CV
 
-function abrirCV(idRecluta){
+function abrirCV(idRecluta) {
+
     const reclutasGuardados = JSON.parse(localStorage.getItem("reclutas"));
 
     const recluta = reclutasGuardados.find(r => r.id === idRecluta);
 
-    if(!recluta){
+    if (!recluta) {
         return;
     }
 
-    window.open(recluta.archivo_base64,"_back");
+    window.open(recluta.archivo_base64, "_back");
 }
 
-function cambiarEstadoRecluta (idRecluta,nuevoEstado){
+function cambiarEstadoRecluta(idRecluta, nuevoEstado) {
     const reclutasGuardados = JSON.parse(localStorage.getItem("reclutas"));
 
     const recluta = reclutasGuardados.find(r => r.id === idRecluta);
 
-    if(!recluta){
+    if (!recluta) {
         return;
     }
 
     recluta.estado = nuevoEstado;
 
-    localStorage.setItem("reclutas",JSON.stringify(reclutasGuardados));
+    localStorage.setItem("reclutas", JSON.stringify(reclutasGuardados));
 
     const idPostulacion =
         recluta.id_postulacion;
@@ -539,14 +539,14 @@ function cambiarEstadoRecluta (idRecluta,nuevoEstado){
             `detalle-${idPostulacion}`
         );
 
-    if(detalleExistente){
+    if (detalleExistente) {
         detalleExistente.remove();
     }
 
     verPostulantes(idPostulacion);
 }
 
-function mostrarVacantesPublicas(){
+function mostrarVacantesPublicas() {
 
     console.log("funcion ejecutada con exito")
 
@@ -554,7 +554,7 @@ function mostrarVacantesPublicas(){
         document.getElementById("contenedor-vacantes");
 
     // Si no existe estamos en admin
-    if(!contenedor){
+    if (!contenedor) {
         return;
     }
 
@@ -659,7 +659,7 @@ function mostrarVacantesPublicas(){
         `;
     });
 }
-function inicializarEventosContratar(){
+function inicializarEventosContratar() {
 
     const botones =
         document.querySelectorAll(
@@ -670,7 +670,7 @@ function inicializarEventosContratar(){
 
         boton.addEventListener(
             "click",
-            function(){
+            function () {
 
                 const formulario =
                     boton.nextElementSibling;
@@ -679,15 +679,15 @@ function inicializarEventosContratar(){
                     "oculto"
                 );
 
-                if(
+                if (
                     formulario.classList.contains(
                         "oculto"
                     )
-                ){
+                ) {
                     boton.textContent =
                         "Postularse";
                 }
-                else{
+                else {
                     boton.textContent =
                         "Cerrar formulario";
                 }
@@ -699,7 +699,7 @@ function inicializarEventosContratar(){
 
 }
 
-function inicializarFormularioContratar(){
+function inicializarFormularioContratar() {
 
     const formularios =
         document.querySelectorAll(
@@ -710,7 +710,7 @@ function inicializarFormularioContratar(){
 
         formulario.addEventListener(
             "submit",
-            function(evento){
+            function (evento) {
 
                 evento.preventDefault();
 
@@ -728,80 +728,80 @@ function inicializarFormularioContratar(){
                 //creamos una constante que sera un file reader para pasar los archivos cv a base 64
                 const lector = new FileReader();
 
-                lector.onload = function(){
+                lector.onload = function () {
 
-    const reclutasGuardados =
-        JSON.parse(
-            localStorage.getItem("reclutas")
-        ) || [];
+                    const reclutasGuardados =
+                        JSON.parse(
+                            localStorage.getItem("reclutas")
+                        ) || [];
 
-    let nuevoId = 1;
+                    let nuevoId = 1;
 
-    if(reclutasGuardados.length > 0){
+                    if (reclutasGuardados.length > 0) {
 
-        nuevoId =
-            reclutasGuardados[
-                reclutasGuardados.length - 1
-            ].id + 1;
-    }
+                        nuevoId =
+                            reclutasGuardados[
+                                reclutasGuardados.length - 1
+                            ].id + 1;
+                    }
 
-    const nuevoRecluta = {
+                    const nuevoRecluta = {
 
-        id: nuevoId,
+                        id: nuevoId,
 
-        id_postulacion: idPostulacion,
+                        id_postulacion: idPostulacion,
 
-        nombre: nombre,
+                        nombre: nombre,
 
-        correo: correo,
+                        correo: correo,
 
-        numeroTelefono: telefono,
+                        numeroTelefono: telefono,
 
-        archivo_cv: archivo.name,
+                        archivo_cv: archivo.name,
 
-        archivo_base64: lector.result,
+                        archivo_base64: lector.result,
 
-        estado: "pendiente"
-    };
+                        estado: "pendiente"
+                    };
 
-    reclutasGuardados.push(
-        nuevoRecluta
-    );
+                    reclutasGuardados.push(
+                        nuevoRecluta
+                    );
 
-    localStorage.setItem(
-        'reclutas',
-        JSON.stringify(
-            reclutasGuardados
-        )
-    );
+                    localStorage.setItem(
+                        'reclutas',
+                        JSON.stringify(
+                            reclutasGuardados
+                        )
+                    );
 
-    alert(
-        "Postulación enviada correctamente"
-    );
+                    alert(
+                        "Postulación enviada correctamente"
+                    );
 
-    formulario.reset();
-                };  
-                lector.readAsDataURL(archivo);           
+                    formulario.reset();
+                };
+                lector.readAsDataURL(archivo);
             }
         );
     });
 }
 
-function abrirCV(idRecluta){
-    
-    const reclutasGuardados = JSON.parse(localStorage.getItem("reclutas"))||[];
+function abrirCV(idRecluta) {
+
+    const reclutasGuardados = JSON.parse(localStorage.getItem("reclutas")) || [];
 
     //recorrera el todos los reclutas hasta que coincida con el recluta que hicimos click
     const recluta = reclutasGuardados.find(r => r.id === idRecluta);
 
-    if(!recluta){
+    if (!recluta) {
         alert("no se encontro el recluta");
         return
     }
 
     const base64 = recluta.archivo_base64;
 
-    const byteString = atob( base64.split(",")[1]);
+    const byteString = atob(base64.split(",")[1]);
 
     const mimeString = base64.split(",")[0].split(":")[1].split(";")[0];
 
@@ -809,15 +809,15 @@ function abrirCV(idRecluta){
 
     const ia = new Uint8Array(ab);
 
-    for(let i = 0; i < byteString.length; i++){
+    for (let i = 0; i < byteString.length; i++) {
         ia[i] = byteString.charCodeAt(i);
     }
 
-    const blob = new Blob([ab],{type: mimeString});
+    const blob = new Blob([ab], { type: mimeString });
 
     const url = URL.createObjectURL(blob);
 
-    window.open(url,"_black");
+    window.open(url, "_black");
 }
 
 

@@ -199,23 +199,17 @@ function crearFilaPedido(pedido) {
     }else if(pedido.estado === 'preparando'){
         estado = `
         <option selected>Preparando</option>
-        <option value="pendiente">Pendiente</option>
         <option value="enviado">Enviado</option>
         <option value="entregado">Entregado</option>
         `
     }else if(pedido.estado === 'enviado'){
         estado = `
         <option selected>Enviado</option>
-        <option value="pendiente">Pendiente</option>
-        <option value="preparando">Preparando</option>
         <option value="entregado">Entregado</option>
         `
     }else if(pedido.estado === 'entregado'){
         estado = `
-        <option selected>Enviado</option>
-        <option value="pendiente">Pendiente</option>
-        <option value="preparando">Preparando</option>
-        <option value="enviado">Enviado</option>
+        <option selected>Entregado</option>
         `
     }
     return `
@@ -361,6 +355,7 @@ function agregarMenu(evento) {
 
 // Agrega un producto nuevo a merch
 function agregarProducto(evento) {
+    
     evento.preventDefault();
 
     const productos = obtenerLista('merch');
