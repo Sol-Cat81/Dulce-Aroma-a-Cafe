@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="public/asset/img/logo-simple.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="public/asset/css/style.css">
+    <title>Dulce Aroma a Cafe</title>
+</head>
+
+<body>
+    <header>
+        <!-- Barra de navegacion -->
+        <div class="contenedor-nav">
+            <div class="logo">
+                <img src="public/asset/img/logo-simple.png" alt="">
+                <span>Dulce Aroma a Cafe</span>
+            </div>
+            <nav class="menu-opciones">
+                <ul>
+                    <li><a href="#carouselCafe">Inicio</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="control-usuario">
+                <span id="loginUsuario">
+                    <a href="public/login.html">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </a>
+                </span>
+                <a href="" id="btn-carrito" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <!--compra-->
+                    <ion-icon name="cart-outline" id="svgCarrito" class="" items=""></ion-icon>
+                </a>
+                <ion-icon name="menu-outline" id="btn-menu"></ion-icon>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Modal Carrito -->
+        <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="staticBackdropLabel">
+                            <ion-icon name="cart-outline"></ion-icon>
+                            Carrito
+                        </h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Historial -->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body-historial">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body-detalleHistorial">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-target="#exampleModalToggle"
+                            data-bs-toggle="modal">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Seccion Hero (carrusel) -->
+        <div id="carouselCafe" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselCafe" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselCafe" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselCafe" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img src="https://huupa.coffee/cdn/shop/articles/cafe_f0b62203-0f99-4d66-bc8a-f7afaf67131b.jpg?v=1774395944"
+                        class="d-block w-100" alt="">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="https://static.bainet.es/clip/15a656a1-045f-4425-bf0d-5ed8a4f3932e_source-aspect-ratio_1600w_0.jpg"
+                        class="d-block w-100" alt="">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="https://sehablacafe.com/wp-content/uploads/2021/11/usos-del-cafe-en-la-reposteria.jpg"
+                        class="d-block w-100" alt="">
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCafe" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCafe" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        <!-- MENU -->
+        <section id="menu" class="container aco">
+            <div class="row">
+                <div class="col-md-8 h2">Menu</div>
+                <div class="col-md-4 filtro">
+                    Filtrar
+                    <select name="filtro-menu" id="filtro-menu" class="select">
+                        <option value="todos">Todos</option>
+                        <option value="cafe">Cafe</option>
+                        <option value="licuados">Licuados</option>
+                        <option value="panaderia">Panaderia</option>
+                        <option value="pasteleria">Pasteleria</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <!-- Tabla menu -->
+            <div class="row">
+                <div class="col content-tabla">
+                    <table class="tabla hover compact row-border compact" id="menutabla">
+                        <thead>
+                            <tr>
+                                <th>Comida</th>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                                <th>Comprar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyTabla">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <!-- info de deliveri -->
+            <div class="row fondo aco">
+                <div class="h2 hb">Delivery</div>
+                <div class="col-md-6">
+                    <img src="public/asset/img/undraw_on-the-way_zwi3.svg" alt="" class="img">
+                </div>
+                <div class="col-md-6">
+                    <p class="hb">
+                        Desde Monteros, llevando aroma, sabor y tradición a cada rincón.
+                        <br>
+                        En Dulce Aroma a Café creemos que los mejores momentos comienzan con un aroma que despierta los sentidos y un sabor que invita a compartir. Desde el corazón de Monteros, Tucumán, elaboramos y seleccionamos productos pensados para acompañarte en cada instante del día, combinando calidad, dedicación y el encanto de lo artesanal.
+                        <br>
+                        <br>
+                        Sabemos que el tiempo es valioso, por eso llevamos nuestros productos directamente hasta tu puerta. Nuestro servicio de delivery está pensado para que puedas disfrutar de tus favoritos sin salir de casa, ya sea para comenzar la mañana con energía, compartir una merienda especial o sorprender a alguien con un regalo lleno de sabor y cariño.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- tienda de merch oficial -->
+        <section id="productos" class="container aco">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="h2">Merch Oficial</div>
+                </div>
+                <div class="col-md-4">
+                    Filtrar
+                    <select name="filtro-mech" id="filtro-merch" class="select">
+                        <option value="todos">Todos</option>
+                        <option value="remeras">Remeras</option>
+                        <option value="gorras">Gorras</option>
+                        <option value="tazas">Tazas</option>
+                        <option value="vasos">Vasos</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <!-- Slider de productos (libreria swiper) -->
+            <div class="row slider">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        ...
+                    </div>
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Seccion "nosotros" -->
+        <section id="nosotros" class="fondo" style="border-radius: 0px;">
+            <div class="container aco">
+                <div class="row">
+                    <div class="h2 hb">Nuestra Historia</div>
+                    <div class="col-md-6">
+                        <img src="public/asset/img/IMG_4125.PNG" alt="">
+                    </div>
+                    <br>
+                    <div class="col-md-6 hb align-self-center">
+                        <p>
+                            “Dulce Aroma a Café” nació mucho antes de tener un local, un logo o una idea clara
+                            de negocio. Nació en nuestras mañanas de cursado, entre apuntes, trabajos
+                            prácticos, nervios por los exámenes y largas charlas acompañadas siempre por una
+                            taza de café.
+                            <br>
+                            Todos los días, sin falta, nos juntábamos antes de entrar a clases o en los recreos
+                            para compartir un café. Mientras estudiábamos, soñábamos con tener algún día un espacio
+                            propio donde
+                            otras personas también pudieran sentirse cómodas, relajadas y acompañadas.
+                            Con el tiempo entendimos que no queríamos abrir solamente una cafetería.
+                            Queríamos crear un ambiente cálido, donde cada aroma recordara a hogar, amistad
+                            y buenos momentos. Así nació “Dulce Aroma a Café”, un lugar pensado para
+                            quienes necesitan una pausa en medio de la rutina, una charla sincera o
+                            simplemente disfrutar de un rico café.
+                            <br>
+                            Hoy “Dulce Aroma a Café” no es solo una cafetería. Es el recuerdo vivo de nuestra
+                            amistad y de cómo algo tan simple como compartir un café todos los días pudo
+                            transformarse en un gran sueño hecho realidad.
+                        </p>
+                        <a href="https://share.google/aMtf2cCZWUM4hMF1R">
+                            <button class="sucursal">Sucursal</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Seccion para contratar -->
+        <section id="contratar aco">
+            <div class="container aco">
+                <div class="row">
+                    <div class="h2">Estamos contratando!</div>
+                    <div class="col-lg-3 col-md-6 col-sm-8 text-center">
+                        <img src="public/asset/img/undraw_barista_wwfa.svg" alt="" class="img">
+                    </div>
+                    <div class="col-lg-9 col-md-6 fondo align-self-center" style="padding: 20px;">
+                        <p class="hb">
+                            Nos encontramos en la búsqueda de personas responsables, dinámicas y con
+                            excelente atención al cliente, para incorporarse a nuestro equipo!.
+                        </p>
+                        <a href="contratar.html"><button class="contratar">Ver oferta</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Pie de pagina -->
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-lg-5 text-center col-sm-4 text-center">
+                            <img src="public/asset/img/logo.png" alt="">
+                        </div>
+                        <div class="col-lg-7 col-sm-7 align-self-center text-center h2 hb pie-nombre">Dulce aroma a Cafe
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="footer-titu">Nosotros</div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item li"><a href="#nosotros">Sobre nosotros</a></li>
+                                <li class="list-group-item li"><a href="">Sucursal</a></li>
+                                <li class="list-group-item li"><a href="contratar.html">Trabaja con nosotros</a></li>
+                                <li class="list-group-item li"><a href="politicas.html">Politicas de Privacidad</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="footer-titu">Contacto</div>
+                            <div class="row footer-icons">
+                                <div class="col-2"><a href=""><ion-icon name="logo-instagram"></ion-icon></a></div>
+                                <div class="col-2"><a href=""><ion-icon name="logo-facebook"></ion-icon></a></div>
+                                <div class="col-2"><a href=""><ion-icon name="logo-twitter"></ion-icon></a></div>
+                                <div class="col-2"><a href=""><ion-icon name="logo-linkedin"></ion-icon></a></div>
+                                <div class="col-2"><a href=""><ion-icon name="mail-outline"></ion-icon></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h6>Copyright © 2026 Dulce Aroma a Cafe</h6> <br>
+        </div>
+    </footer>
+    <!-- Enlace de la libreria(swiper) para el carrusel -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <!-- Libreria datatable -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+
+    <script src="public/asset/js/index.js"></script>
+    <!--carrito de compra-->
+    <script src="public/asset/js/carrito.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- Enlace para los iconos -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

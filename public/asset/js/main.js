@@ -12,7 +12,7 @@ const btnEnviar = document.getElementById('btnEnviar')
 btnEnviar.addEventListener('click',()=>{
     if(admin.nombre_admin === nombre.value && admin.password_admin === password.value)
         {
-            window.location.href = ".../../../admin/adminIndexndex.html";
+            window.location.href = ".../../../admin/adminIndex.html";
 
         }else{
             for(let i = 0; i < users.length; i++){
@@ -22,7 +22,7 @@ btnEnviar.addEventListener('click',()=>{
                 localStorage.setItem('usuarios', JSON.stringify(users));
                 sessionStorage.clear()
                 sessionStorage.setItem('usuario', users[i].id);
-                window.location.href = ".../../index.html";
+                window.location.href = ".../../../index.html";
                 return;
             }
             }

@@ -218,7 +218,7 @@ function verDetalle(id){
 window.addEventListener('load',()=>{
     if(usuario === null){
         btnLogin.innerHTML = `
-                <a href="login.html">
+                <a href="public/login.html">
                     <ion-icon name="person-outline"></ion-icon>
                 </a>
                 `
