@@ -12,7 +12,7 @@ const btnEnviar = document.getElementById('btnEnviar')
 btnEnviar.addEventListener('click',()=>{
     if(admin.nombre_admin === nombre.value && admin.password_admin === password.value)
         {
-            window.location.href = ".../../../admin/index.html";
+            window.location.href = ".../../../admin/adminIndexndex.html";
 
         }else{
             for(let i = 0; i < users.length; i++){
