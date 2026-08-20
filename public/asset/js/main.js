@@ -22,7 +22,7 @@ btnEnviar.addEventListener('click',()=>{
                 localStorage.setItem('usuarios', JSON.stringify(users));
                 sessionStorage.clear()
                 sessionStorage.setItem('usuario', users[i].id);
-                window.location.href = ".../../../index.html";
+                window.location.href = ".../../index.html";
                 return;
             }
             }
